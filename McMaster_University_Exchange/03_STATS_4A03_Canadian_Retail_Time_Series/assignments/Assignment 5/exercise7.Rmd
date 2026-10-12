@@ -1,0 +1,94 @@
+---
+title: "Exercise 7"
+author: "Mouhamed Cisse"
+date: "2026-03-28"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# a)
+
+```{r}
+data("airpass")
+plot(AirPassengers)
+```
+```{r}
+log_data = log(AirPassengers)
+plot(log_data)
+```
+Taking the log is an appropriate transformation because it the reduce the scale of the data without any information loss.
+
+# b)
+
+```{r}
+diff1 = diff(log_data, 1)
+plot(diff1)
+```
+Taking the first difference of the logged data yields a time serie without any trend and probably stationary. Moreover the data point hang together.
+
+# c)
+
+```{r}
+diff12 = diff(diff1, 12)
+plot(diff12)
+```
+The resulting time serie seems to be still stationary without any appearing trend and the data point hang together less oftenly.
+
+# d)
+
+```{r}
+acf(diff12, lag.max=30)
+```
+
+The ACF shows a stationary series after seasonal differencing, with a strong MA(1) behavior at lag 1 and a clear seasonal MA effect at lag 12
+
+# e)
+
+```{r}
+library(forecast)
+# SARIMA (0,1,1)(0,1,1)[12]
+fit <- Arima(log_data
+  ,
+  order = c(0, 1, 1),
+  seasonal = list(order = c(0, 1, 1), period = 12)
+)
+```
+
+# f)
+## 
+```{r}
+res <- residuals(fit)
+par(mfrow = c(2,2))
+plot(res, main = "Residuals")
+acf(res, main = "ACF of residuals")
+hist(res, main = "Histogram of residuals", freq = FALSE)
+plot(density(res), main = "Density of residuals")
+```
+Based on the plots, the residuals behave like white noise.
+
+```{r}
+Box.test(res, lag = 20, type = "Ljung-Box")
+```
+pvalue = 0.6 > 0.05 so there is no remaining autocorrelation and the residuals behave like white noise.
+
+```{r}
+shapiro.test(res)
+```
+pvalue = 0.16 > 0.05 so we have no evidence against the normality of the residuals.
+
+```{r}
+qqnorm(res)
+qqline(res, col = "red")
+```
+Almost all the ressidual data points lay on the normality line.
+
+# g)
+
+```{r}
+fc <- forecast(fit, h = 24, level = c(80, 95))
+plot(fc)
+```
+

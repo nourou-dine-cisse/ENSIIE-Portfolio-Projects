@@ -1,0 +1,95 @@
+---
+title: "Untitled"
+author: "Mouhamed Cisse"
+date: "2026-02-08"
+output: html_document
+---
+
+# Exercise 2
+```{r}
+n = 100
+epsilons = rnorm(n, 0, 1)
+
+MA1 = function(theta, epsilons){
+  Yts = c(epsilons[1])
+  n = length(epsilons)
+  for(i in 2:n){
+    Yts[i] = -theta * epsilons[i-1] + epsilons[i]
+  }
+  Yts
+}
+P1 = MA1(0.9, epsilons)
+P2 = MA1(-0.9, epsilons)
+
+plot(P1, type="l", xlab="Time", ylab="P1")
+lines(P2, col="red")
+legend("topright", legend=c("theta = 0.9", "theta=-0.9"), col=c("black", "red"), lty=1)
+```
+
+```{r}
+MA2 = function(theta, epsilons){
+  Yts = c(epsilons[1], epsilons[2])
+  n = length(epsilons)
+  for(i in 3:n){
+    Yts[i] = -theta[1] * epsilons[i-1] - theta[2] * epsilons[i-2] + epsilons[i]
+  }
+  Yts
+}
+P = MA2(c(0.5, -0.5), epsilons)
+plot(P, type="l", xlab="Time", ylab="P")
+```
+# Exercise 3
+
+```{r}
+AR1 = function(phi, epsilons){
+  Yts = c(epsilons[1])
+  n = length(epsilons)
+  for(i in 2:n){
+    Yts[i] = phi * Yts[i-1] + epsilons[i]
+  }
+  Yts
+}
+PAR1 = AR1(0.9, epsilons)
+PAR2 = AR1(0.4, epsilons)
+PAR3 = AR1(-0.8, epsilons)
+PAR4 = AR1(-0.5, epsilons)
+plot(PAR1, type="l", col="blue", xlab="Time", ylab="AR(1) series")
+lines(PAR2, col="red")
+lines(PAR3, col="green")
+lines(PAR4, col="purple")
+legend("topright", legend=c("phi=0.9","phi=0.4","phi=-0.8","phi=-0.5"),
+       col=c("blue","red","green","purple"), lty=1)
+```
+
+```{r}
+acf(PAR1, main="Autocorrélation de PAR1, phi=0.9")
+acf(PAR2, main="Autocorrélation de PAR2, phi=0.4")
+acf(PAR3, main="Autocorrélation de PAR3, phi=-0.8")
+acf(PAR4, main="Autocorrélation de PAR4, phi=-0.5")
+```
+```{r}
+AR2 = function(phi, epsilons){
+  Yts = c(epsilons[1])
+  n = length(epsilons)
+  for(i in 2:n){
+    if(i == 2){
+      Yts[i] = phi[1] * Yts[i-1] + epsilons[i]
+    }
+    else{
+      Yts[i] = phi[1] * Yts[i-1] + phi[2] * Yts[i-2] + epsilons[i]
+    }
+  }
+  Yts
+}
+PAR1 = AR2(c(0.5, 0.25), epsilons)
+PAR2 = AR2(c(1, -0.25), epsilons)
+PAR3 = AR2(c(1.5, -0.75), epsilons)
+PAR4 = AR2(c(1, -0.6), epsilons)
+plot(PAR1, type="l", col="blue", xlab="Time", ylab="AR(1) series")
+lines(PAR2, col="red")
+lines(PAR3, col="green")
+lines(PAR4, col="purple")
+legend("topright", legend=c("phi=0.9","phi=0.4","phi=-0.8","phi=-0.5"),
+       col=c("blue","red","green","purple"), lty=1)
+```
+

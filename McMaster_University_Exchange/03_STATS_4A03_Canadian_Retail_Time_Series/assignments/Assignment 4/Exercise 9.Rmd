@@ -1,0 +1,99 @@
+---
+title: "Exercise 9"
+author: "Mouhamed Cisse"
+date: "2026-03-15"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# a)
+
+```{r}
+set.seed(123)
+n1 <- 30
+phi <- 0.5
+x1 <- arima.sim(n = n1, list(ar = phi))
+plot(x1, type = "o", main = "Simulated AR(1): phi=0.5, n=30", ylab = "Yt")
+```
+
+# b)
+
+```{r}
+# Fit model and plot residuals
+fit1 <- arima(x1, order = c(1, 0, 0), include.mean = FALSE)
+res1 <- residuals(fit1)
+plot(res1, main = "Residuals of AR(1) Fit")
+abline(h = 0, lty = 2)
+```
+The residuals seems to behave like random noise, envelopped between -2 and +2.
+
+# c)
+
+```{r}
+# Normal QQ Plot
+qqnorm(res1)
+qqline(res1)
+```
+Most of the points align roughly with the normality line suggestiong a good fit despite some deviation in the tails.
+
+# d)
+
+```{r}
+
+# Sample ACF of residuals
+acf(res1, main = "ACF of AR(1) Residuals")
+```
+The plot does not support the AR(1) specification. In a perfect model, all spikes should stay within the blue dashed lines. A significant spike at Lag 3 suggests that there is still a relationship in the data that the AR(1) didn't capture.
+
+# e)
+
+```{r}
+# Ljung-Box Statistic (K=8)
+Box.test(res1, lag = 8, type = "Ljung-Box", fitdf = 1)
+```
+
+This does not support the AR(1) specification. Since the p-value ($0.018$) is less than $0.05$, we reject the null hypothesis that the residuals are white noise.
+
+# f)
+
+```{r}
+set.seed(456)
+# (a) Simulate and Plot
+n2 <- 48
+phi_vec <- c(1.5, -0.75)
+x2 <- arima.sim(n = n2, list(ar = phi_vec))
+plot(x2, type = "o", main = "Simulated AR(2): n=48", ylab = "Yt")
+```
+
+```{r}
+# (b) Fit model and plot residuals
+fit2 <- arima(x2, order = c(2, 0, 0), include.mean = FALSE)
+res2 <- residuals(fit2)
+plot(res2, type = "o", main = "Residuals of AR(2) Fit")
+abline(h = 0, lty = 2)
+```
+The residuals seems to behave like random noise, envelopped between -2 and +2.
+
+```{r}
+# (c) Normal QQ Plot
+qqnorm(res2)
+qqline(res2)
+```
+Most of the points align roughly with the normality line suggestiong a good fit despite some slight deviation in the tails.
+
+```{r}
+# (d) Sample ACF of residuals
+acf(res2, main = "ACF of AR(2) Residuals")
+```
+The good fit still hold because only the 15th spike cross the blue dashed line probably due to the small sample size.
+
+```{r}
+# (e) Ljung-Box Statistic (K=12)
+Box.test(res2, lag = 12, type = "Ljung-Box", fitdf = 2)
+```
+## Conclusion: 
+
+With a p-value of 0.77, we cannot reject the null hypothesis. This confirms that the residuals are independently distributed (white noise).

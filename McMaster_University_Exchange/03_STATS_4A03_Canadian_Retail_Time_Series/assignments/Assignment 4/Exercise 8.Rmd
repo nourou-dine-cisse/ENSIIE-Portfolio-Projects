@@ -1,0 +1,104 @@
+---
+title: "Exercise 8"
+author: "Mouhamed Cisse"
+date: "2026-03-15"
+output: pdf_document
+---
+# a)
+
+```{r}
+n <- 48
+theta_true <- 0.8
+x_ma <- arima.sim(n = n, list(ma = -theta_true))
+plot(x_ma, type = "o", main = "Simulated MA(1): theta=0.5, n=30")
+```
+
+# b)
+
+```{r}
+r1 <- acf(x_ma, lag.max = 1, plot = FALSE)$acf[2]
+thetaMM1 = -1/(2*r1) + sqrt(1/(4*r1^2) - 1)  # solution 1
+thetaMM2 = -1/(2*r1) - sqrt(1/(4*r1^2) - 1)  # solution 2
+paste("Thetahat1: ", thetaMM1, "thetaMM2: ", thetaMM2)
+```
+
+The Method of moment estimator of Theta is the solution with |theta| < 1 (invertible) 
+which is thetaMM2 =  0.686922977584318
+
+# c)
+
+```{r}
+fit_cls <- arima(x_ma, order = c(0, 0, 1), method = "CSS", include.mean = FALSE)
+cat("MA(1) CLS Estimate:", -coef(fit_cls), "\n")
+```
+
+# d)
+
+```{r}
+fit_mle <- arima(x_ma, order = c(0, 0, 1), method = "ML", include.mean = FALSE)
+cat("MA(1) MLE Estimate:", -coef(fit_mle), "\n")
+```
+
+# e)
+
+The method of moments estimator underestimates $\theta$ by 0.12, and the CSS and ML estimators overestimate $\theta$ by 0.1 and 0.13, respectively.  
+The best estimator remains the CLS estimator, which yields $\hat{\theta} = 0.91$.
+
+# f)
+
+```{r}
+phi = 0.8
+x_ar = arima.sim(model = list(ar = phi), n = n)
+plot(x_ar, type="l", xlab="Time", ylab="MA(1), theta = 0.8")
+```
+
+## Method of moment estimator of phi
+
+```{r}
+phi_mom <- acf(x_ar, plot=FALSE)$acf[2]
+cat("AR(1) MoM Estimate:", phi_mom, "\n")
+```
+
+## Least Square Estimation
+
+```{r}
+fit_ar_cls <- arima(x_ar, order = c(1, 0, 0), method = "CSS", include.mean = FALSE)
+cat("AR(1) CLS Estimate:", coef(fit_ar_cls), "\n")
+```
+
+## Maximum Likelihood Estimator
+
+```{r}
+fit_ar_mle <- arima(x_ar, order = c(1, 0, 0), method = "ML", include.mean = FALSE)
+cat("AR(1) MLE Estimate:", coef(fit_ar_mle), "\n")
+```
+
+The best estimator of $\phi$ is the CSS estimator, which yields $\hat{\phi} = 0.77$.
+
+```{r}
+set.seed(103)
+n <- 72
+phi_t <- 0.7
+theta_t <- 0.4
+x_arma <- arima.sim(n = n, list(ar = phi_t, ma = -theta_t))
+plot(x_arma, type = "o", main = "Simulated ARMA(1,1): n=72")
+```
+
+```{r}
+r <- acf(x_arma, plot=FALSE)$acf[2:3]
+phi_mom_arma <- r[2] / r[1]
+cat("ARMA(1,1) MoM Estimate (phi):", phi_mom_arma, "\n")
+```
+
+```{r}
+# (c) Conditional Least Squares (CLS)
+fit_arma_cls <- arima(x_arma, order = c(1, 0, 1), method = "CSS", include.mean = FALSE)
+print(coef(fit_arma_cls))
+```
+
+```{r}
+# (d) Maximum Likelihood (MLE)
+fit_arma_mle <- arima(x_arma, order = c(1, 0, 1), method = "ML", include.mean = FALSE)
+print(coef(fit_arma_mle))
+```
+The best estimates of $\phi$ and $\theta$ are the CLS estimators, which yield: $\hat{\phi} = 0.56$ and $\hat{\theta} = 0.23$.

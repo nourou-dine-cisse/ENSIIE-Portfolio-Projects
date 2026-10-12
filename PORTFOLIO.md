@@ -15,9 +15,24 @@ Ce recueil regroupe l'ensemble des **21 projets majeurs** menés à l'**ENSIIE**
 
 Chaque projet est fourni avec son **code source propre**, ses **rapports d'expertise**, ses **supports de soutenance** et des **fiches récapitulatives STAR** prêtes pour les recruteurs.
 
+## 🍁 Hub Dédié — Projets Réalisés à l'Université McMaster (Canada)
+> L'ensemble des projets, codes et rapports de recherche réalisés lors de mon échange académique à McMaster University sont regroupés dans le dossier dédié :  
+> 👉 [**Accéder au Hub McMaster University Exchange**](./McMaster_University_Exchange)
+
+| Cours / Domaine | Sujet du Projet | Livrables Clés | Accès Projet |
+| :--- | :--- | :--- | :--- |
+| **MATH 4FM3** (Mathématiques Financières & RL) | **Nash-DQN** : Deep Q-Learning pour Équilibres de Nash en Trading Multi-Agents | [📄 Thèse (34 p.)](./McMaster_University_Exchange/01_MATH_4FM3_Nash_DQN_MultiAgent_Trading/reports/Rapport_Nash_DQN_Optimal_Trading.pdf) • Graphiques | [Dossier](./McMaster_University_Exchange/01_MATH_4FM3_Nash_DQN_MultiAgent_Trading) |
+| **DATASCI 3ML3** (Deep Learning & NLP) | **Financial News Sentiment** : Benchmark ML vs BiLSTM sur 9 549 titres | [📄 Rapport (11 p.)](./McMaster_University_Exchange/02_DATASCI_3ML3_Financial_News_Sentiment_BiLSTM/reports/Financial_News_Sentiment_Report.pdf) | [Dossier](./McMaster_University_Exchange/02_DATASCI_3ML3_Financial_News_Sentiment_BiLSTM) |
+| **STATS 4A03** (Time Series) | **Canadian Retail Demand** : Modélisation SARIMA & Holt-Winters sur 27 ans | [📄 Rapport (12 p.)](./McMaster_University_Exchange/03_STATS_4A03_Canadian_Retail_Time_Series/reports/Canadian_Retail_Time_Series_Report.pdf) | [Dossier](./McMaster_University_Exchange/03_STATS_4A03_Canadian_Retail_Time_Series) |
+| **MECHENG 4AI3** (Multimodal Deep Learning) | **Visual Question Answering (VQA)** : Fusion Vision (ResNet) & Langage (LSTM) | [📄 Roadmap & Specs](./McMaster_University_Exchange/04_MECHENG_4AI3_Visual_Question_Answering_VQA/reports/VQA_Project_Roadmap.pdf) | [Dossier](./McMaster_University_Exchange/04_MECHENG_4AI3_Visual_Question_Answering_VQA) |
+| **STATS 4GLM** (Modèles Linéaires Généralisés) | **Modèles GLM Avancés** : Régressions Poisson, Gamma, Logistiques & Déviance | 💻 5 Rapports d'analyse RMarkdown | [Dossier](./McMaster_University_Exchange/05_STATS_4GLM_Generalized_Linear_Models) |
+| **MECHENG 4AI3** (Labs Vision & IA) | Suite de Projets Vision & Prédiction (Traffic Sign CNN, Churn, Transfer Learning) | [📄 Midterm Report](./McMaster_University_Exchange/06_MECHENG_4AI3_Applied_AI_Labs/reports/Midterm.pdf) • 7 Notebooks | [Dossier](./McMaster_University_Exchange/06_MECHENG_4AI3_Applied_AI_Labs) |
+| **DATASCI 3ML3** (Deep Learning Lab Suite) | 5 Projets HW (Descente de gradient, Backprop from scratch, NumPy, PyTorch) | 💻 15+ Notebooks et soumissions vérifiées | [Dossier](./McMaster_University_Exchange/07_DATASCI_3ML3_Deep_Learning_Lab_Suite) |
+| **COMPETE** (Trading Algorithmique) | **IMC Trading Challenge** : Algorithmes de Market Making et Arbitrage | 💻 Scripts et logs de trading | [Dossier](./McMaster_University_Exchange/08_IMC_Trading_Challenge) |
+
 ---
 
-## 📑 Sommaire des Projets par Domaine d'Expertise
+## 📑 Sommaire Général des 21 Projets par Domaine d'Expertise
 
 ### 1. 🤖 Intelligence Artificielle, RAG & LLMs
 | Projet | Contexte | Technologies | Livrables |

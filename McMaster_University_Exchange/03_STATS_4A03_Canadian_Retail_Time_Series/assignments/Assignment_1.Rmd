@@ -1,0 +1,50 @@
+---
+title: "Mouhamed_Cisse_TS_Assignment_1"
+output: pdf_document
+date: "2026-01-16"
+---
+
+#Exercise 1:
+```{r}
+# Loading TSA library
+library(TSA)
+# Loading larain data
+data(larain)
+```
+
+```{r}
+# Scatterplot of Current Year's rainfall vs Previous Year's rainfall
+plot(larain[-1], larain[-2], xlab="Current Year's rainfall", ylab="Previous Year's rainfall")
+```
+
+#Exercise 2
+```{r}
+n <- 1000 # sample size
+
+# computing and plotting {Sn} 
+for (i in 1:10){
+  # generating {Xk}
+  Xks = 2 * rbinom(n, 1, 0.5) - 1
+  
+  # computing {Sn}
+  Sns <- cumsum(Xks)
+
+  # plotting {Sn}
+  plot(1:n, Sns, type="l", xlab="n", ylab="Sn")
+}
+```
+
+#Exercise 3:
+```{r}
+# loading the data
+data(tempdub)
+```
+
+```{r}
+# plot
+plot(tempdub)
+```
+```{r}
+
+```
+

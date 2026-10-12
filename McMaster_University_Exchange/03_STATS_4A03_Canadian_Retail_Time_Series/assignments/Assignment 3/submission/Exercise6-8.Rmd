@@ -1,0 +1,183 @@
+---
+title: "Assignment 3"
+author: "Mouhamed Cisse"
+date: "2026-01-26"
+output: pdf_document
+---
+# Exercise 1
+# a)
+```{r}
+n = 36
+phi = 0.7
+epsilons = rnorm(n, 0, 1)
+AR1 = function(phi, epsilons){
+  Yts = c(epsilons[1])
+  for(i in 2:n){
+    Yts[i] = phi * Yts[i-1] + epsilons[i]
+  }
+  Yts
+}
+AR.1 = AR1(phi, epsilons)
+
+plot(AR.1, type="l", col="blue", xlab="Time", ylab="AR(1) series")
+```
+
+
+# b)
+```{r}
+lags = 1:15
+theorical_acf = phi^lags
+
+plot(lags, theorical_acf, type="h", xlab="Lag k", ylab="Theoritical ACF", ylim = c(-1, 1))
+abline(h = 0)
+abline(h = 0.35)
+```
+
+# c) 
+```{r}
+acf(AR.1)
+```
+
+The two plots match only for the first two autocorrelation values, which are the only statistically significant ones, except for the lag-4 autocorrelation that is also significant in the sample ACF plot.
+
+# d)
+```{r}
+lags = 1:15
+theorical_pacf = rep(0, 15)
+theorical_pacf[1] = phi
+plot(lags, theorical_pacf, type="h", xlab="Lag k", ylab="Theoritical PACF", ylim = c(-1, 1))
+abline(h = 0)
+abline(h = 0.35)
+```
+
+# e)
+```{r}
+pacf(AR.1)
+```
+
+The theoretical and sample ACF coincide at lag 1. Beyond that, the theoretical ACF is zero for all higher lags, whereas the sample ACF shows small fluctuations. However, these values are not statistically significant, except at lag 4.
+
+\newpage
+
+# Exercise 7
+# a)
+```{r}
+n = 48
+theta = 0.5
+epsilons = rnorm(n, 0, 1)
+
+MA1 = function(theta, epsilons){
+  Yts = c(epsilons[1])
+  n = length(epsilons)
+  for(i in 2:n){
+    Yts[i] = -theta * epsilons[i-1] + epsilons[i]
+  }
+  Yts
+}
+MA.1 = MA1(theta, epsilons)
+
+plot(MA.1, type="l", col="blue", xlab="t", ylab="MA(1)")
+```
+
+# b)
+```{r}
+lags = 1:15
+theorical_acf = rep(0, 15)
+theorical_acf[1] = 1
+theorical_acf[2] = -theta/(1+theta^2)
+
+plot(lags, theorical_acf, type="h", xlab="Lag k", ylab="Theoritical ACF", ylim = c(-1, 1))
+abline(h = 0)
+abline(h = 0.25)
+```
+
+# c) 
+```{r}
+acf(MA.1)
+```
+
+The theoretical and sample ACF coincide at lag 1 and 2 which are almost the only significative autocorrelation values. Beyond that, the theoretical ACF is zero for all higher lags, whereas the sample ACF shows small fluctuations. However, these values are not statistically significant, except at lag 15.
+
+# d)
+```{r}
+lags = 1:15
+theorical_pacf = (-theta^lags) * (1 - theta^2) / (1 - theta^(2*lags + 1))
+
+plot(lags, theorical_pacf, type="h", xlab="Lag k", ylab="Theoritical PACF", ylim = c(-1, 1))
+abline(h = 0)
+abline(h = 0.25)
+```
+
+# e)
+```{r}
+pacf(MA.1)
+```
+
+The theoretical and sample ACF coincide at lag 1. Beyond that, the theoretical ACF is essentially zero for all higher lags, whereas the sample ACF exhibits small fluctuations around zero. However, these fluctuations are not statistically significant
+
+\newpage
+
+# Exercise 8
+# a)
+```{r}
+n = 60
+phi = 0.4
+theta = 0.6
+epsilons = rnorm(n, 0, 1)
+ARMA11 = function(phi, theta, epsilons){
+  Yts = c(epsilons[1])
+  for(i in 2:n){
+    Yts[i] = phi * Yts[i-1] - theta*epsilons[i-1] + epsilons[i] 
+  }
+  Yts
+}
+ARMA.11 = ARMA11(phi, theta, epsilons)
+
+plot(ARMA.11, type="l", col="blue", xlab="Time", ylab="ARMA(1,1) series")
+```
+# b)
+```{r}
+# Parameters
+theta <- 0.5
+phi   <- 0.3
+
+# Lags for k >= 1
+lags <- 1:14
+
+# Theoretical ACF for ARMA(1,1)
+acf_values <- ((1 - theta * phi) * (phi - theta) * phi^(lags - 1)) /
+              (1 - 2 * theta * phi + theta^2)
+
+# Add rho_0 = 1
+theoretical_acf <- c(1, acf_values)
+
+# Lags including 0
+all_lags <- 0:14
+
+# Plot
+plot(all_lags, theoretical_acf,
+     type = "h",
+     xlab = "Lag k",
+     ylab = "Theoretical ACF",
+     ylim = c(-0.5, 1))
+
+abline(h = 0)
+abline(h = 0.25)
+```
+
+# c)
+
+```{r}
+acf(ARMA.11)
+```
+
+The theoretical and sample ACF coincide at lag 1. Beyond that, the theoretical ACF is essentially zero for all higher lags, whereas the sample ACF exhibits small fluctuations around zero. However, these fluctuations are not statistically significant.
+
+# d)
+
+```{r}
+library(TSA)
+eacf(ARMA.11)
+```
+
+The sample EACF shows a clear triangular pattern of zeros beginning at (1,1). This indicates that an ARMA(1,1) model is appropriate. Therefore, the EACF successfully identifies the correct model orders for the simulated series.

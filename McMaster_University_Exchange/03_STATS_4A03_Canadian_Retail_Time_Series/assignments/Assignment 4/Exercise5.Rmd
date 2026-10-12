@@ -1,0 +1,61 @@
+---
+title: "Exercise 5"
+author: "Mouhamed Cisse"
+date: "2026-03-15"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+# Parameters
+n <- 48
+phi <- 0.5
+theta <- 0.45
+
+# Components of the asymptotic variance formula
+num_phi <- (1 - phi^2) * (1 - phi * theta)
+num_theta <- (1 - theta^2) * (1 - phi * theta)
+denom <- (phi - theta)^2
+
+# 1. Evaluate Variances
+var_phi <- (1/n) * (num_phi / denom)
+var_theta <- (1/n) * (num_theta / denom)
+
+# 2. Evaluate Correlation
+# Correlation is independent of n in the asymptotic formula
+cor_phi_theta <- -(sqrt(1 - phi^2) * sqrt(1 - theta^2)) / (1 - phi * theta)
+
+# Display Results
+cat("Variance of phi-hat: ", var_phi, "\n")
+cat("Variance of theta-hat:", var_theta, "\n")
+cat("Correlation:         ", cor_phi_theta, "\n")
+```
+The variances are massive > 4 relative to the parameter values 0.5 and 0.45. This occurs because the denominator $(\phi - \theta)^2$ is extremely small 0.0025. As $\phi$ approaches $\theta$, the variance tends toward infinity. The correlation is nearly -1. This indicates that the AR and MA components are nearly canceling each other out (the roots are too close). Mathematically, the model is almost indistinguishable from white noise. A sample of $n=48$ is insufficient to resolve such similar AR and MA components.
+
+
+```{r}
+n <- 120
+
+# Components of the asymptotic variance formula
+num_phi <- (1 - phi^2) * (1 - phi * theta)
+num_theta <- (1 - theta^2) * (1 - phi * theta)
+denom <- (phi - theta)^2
+
+# 1. Evaluate Variances
+var_phi <- (1/n) * (num_phi / denom)
+var_theta <- (1/n) * (num_theta / denom)
+
+# 2. Evaluate Correlation
+# Correlation is independent of n in the asymptotic formula
+cor_phi_theta <- -(sqrt(1 - phi^2) * sqrt(1 - theta^2)) / (1 - phi * theta)
+
+# Display Results
+cat("Variance of phi-hat: ", var_phi, "\n")
+cat("Variance of theta-hat:", var_theta, "\n")
+cat("Correlation:         ", cor_phi_theta, "\n")
+
+```
+Even though the variance is twice less than the first experiment, compared to the parameters, we still face the same issue. 
