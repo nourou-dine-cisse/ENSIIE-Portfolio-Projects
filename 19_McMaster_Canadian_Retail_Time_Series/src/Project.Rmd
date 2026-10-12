@@ -1,0 +1,183 @@
+---
+title: 'Modelling Seasonal Demand in Canadian Retail:
+  (1992–2026)'
+author: "Mouhamed Cisse"
+date: "2026-03-22"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(forecast)
+library(tseries)
+library(astsa)  
+library(ggplot2)
+```
+
+# Data Loading
+```{r}
+df <- read.csv("retail_canada_1992_2019.csv")
+ts_retail <- ts(df$sales, start = c(1992, 1), frequency = 12)
+```
+
+# EDA & Visualization
+## Raw Serie
+```{r}
+autoplot(ts_retail) +
+  labs(title = "Canadian Retail Trade Sales Unadjusted (1992–2019)",
+       y = "Sales (millions CAD)",
+       x = "Year",
+       caption = "Source: Statistics Canada") +
+  theme_minimal()
+```
+The Raw Series plot shows a strong, upward linear trend and a highly consistent seasonal pattern. The peaks occurring every December suggest a heavy influence of holiday shopping on retail volume.
+
+## STL Decomposition
+
+```{r}
+decomp <- stl(ts_retail, s.window = "periodic", robust = TRUE)
+autoplot(decomp) +
+  labs(title = "STL Decomposition Canadian Retail Sales") +
+  theme_minimal()
+```
+The STL Decomposition (Seasonal, Trend, and Loess) confirms this by stripping the components apart:
+
+Trend: Shows a steady increase from 1992 through 2019.
+
+Seasonal: Shows a stable, repeating pattern with high magnitude, confirming that seasonality is a dominant feature of this data.
+
+Remainder: Displays some fluctuations, but no massive outliers until the very end of the series.
+
+## ACF/PACF raw series
+```{r}
+Acf(ts_retail,  lag.max = 60, main = "ACF Raw Series")
+```
+
+```{r}
+Pacf(ts_retail, lag.max = 60, main = "PACF Raw Series")
+```
+
+The ACF of the raw series decays very slowly, and the PACF has a huge first lag. This is a clear signature of non-stationarity. The data needs to be differenced before we can model it.
+
+# STATIONARITY
+## Stationarity Tests
+```{r}
+library(urca)
+
+test <- ur.df(ts_retail, type = "drift")
+summary(test)   
+```
+Augmented Dickey-Fuller (ADF): Because the test statistic -2.47 does not cross the critical threshold -2.57, we fail to reject the null hypothesis (There is a unit root) at 5% confidence level.
+
+```{r}
+seas_diff <- diff(ts_retail, lag = 12, differences = 1)
+Acf(seas_diff,  lag.max = 60, main = "ACF Seasonal Diff (D=1)")
+```
+
+```{r}
+Pacf(seas_diff, lag.max = 60, main = "PACF Seasonal Diff (D=1)")
+```
+
+The visual evidence from these plots conclusively indicates that the series remains non-stationary. The seasonal difference ($D=1$) successfully neutralized the cyclical annual volatility, but it failed to remove the overarching upward growth of Canadian retail sales
+
+
+```{r}
+# Decomposition
+decomp_1 <- stl(seas_diff, s.window = "periodic", robust = TRUE)
+autoplot(decomp_1) +
+  labs(title = "STL Decomposition — Canadian Retail Sales") +
+  theme_minimal()
+```
+
+The presence of a clear, moving trend line strictly confirms the data remains non-stationary. This visual evidence mathematically justifie applying a regular first difference to eliminate this residual trend and fully stabilize the series for SARIMA modeling.
+
+
+
+```{r}
+# Regular difference d=1
+diff1_seas <- diff(seas_diff, differences = 1)
+test_seas <- ur.df(diff1_seas, type = "drift", lags = 6)
+summary(test_seas)
+```
+
+The fully differenced time series no longer contains a unit root. It is now strictly stationary and mathematically ready for AR and MA parameter selection and SARIMA model fitting.
+
+```{r}
+Acf(diff1_seas,  lag.max = 36, main = "ACF (Stationary)")
+```
+```{r}
+Pacf(diff1_seas, lag.max = 36, main = "PACF (Stationary)")
+```
+ACF Plot: Displays a strong, statistically significant negative spike at Lag 1, followed by an alternating pattern of significant spikes.
+At the seasonal intervals, there is a significant negative spike at Lag 12, followed by a significant positive spike at Lag 24.
+PACF Plot: Shows significant negative spikes at Lag 1 and Lag 2 before dying off.
+
+The prominent initial spike in the ACF at Lag 1 combined with the decaying pattern in the early lags of the PACF is characteristic of a non-seasonal Moving Average process. This strongly justifies setting $q = 1$. 
+Displays significant negative spikes at Lag 12 and Lag 24.
+
+Conclusion:
+
+The plots confirm the series is now structurally stationary. Based on the ACF and PACF signatures, the primary candidate parameters to test in the cross-validation phase are:Baseline Candidate: SARIMA $(0,1,1) \times (0,1,1)_{12}$Complex Candidate: SARIMA $(1,1,1) \times (1,1,1)_{12}$
+
+```{r}
+# Iteration 1 : simple baseline
+# Start minimal just d=1, D=1, no AR/MA terms
+fit1 <- sarima(ts_retail, p=0, d=1, q=0, P=0, D=1, Q=0, S=12)
+
+# Iteration 2 : adding seasonal MA 
+fit2 <- sarima(ts_retail, p=0, d=1, q=0, P=0, D=1, Q=1, S=12)
+
+# Iteration 3 : adding non-seasonal MA
+fit3 <- sarima(ts_retail, p=0, d=1, q=1, P=0, D=1, Q=1, S=12)
+
+# Iteration 4 : candidate models
+fit4 <- sarima(ts_retail, p=1, d=1, q=1, P=1, D=1, Q=1, S=12)
+fit5 <- sarima(ts_retail, p=1, d=1, q=0, P=0, D=1, Q=1, S=12)
+```
+
+```{r}
+# Split-sample : train 1992–2015 | test 2016–2019
+ts_train <- window(ts_retail, end   = c(2015, 12))
+ts_test  <- window(ts_retail, start = c(2016,  1))
+h_test   <- length(ts_test)  # 48 months
+
+# Fit best model on train
+fit_train <- sarima(ts_train, p=0, d=1, q=1, P=0, D=1, Q=1, S=12) # fit3 is found to be the best model
+
+# Forecast on test period
+fc_train <- sarima.for(ts_train, n.ahead = h_test, p=0, d=1, q=1, P=0, D=1, Q=1, S=12)
+```
+```{r}
+# Metrics
+actuals   <- as.numeric(ts_test)
+predicted <- as.numeric(fc_train$pred)
+
+mse_split  <- mean((actuals - predicted)^2)
+mae_split  <- mean(abs(actuals - predicted))
+mape_split <- mean(abs((actuals - predicted) / actuals)) * 100
+```
+
+```{r}
+# Metrics
+
+data.frame(
+  Model = "SARIMA",
+  MSE   = round(mse_split, 2),
+  MAE   = round(mae_split, 2),
+  MAPE  = paste0(round(mape_split, 2), "%")
+)
+```
+
+```{r}
+# final 2 years forcast
+fc_final <- sarima.for(ts_retail,
+                       n.ahead = 24,
+                       p=0, d=1, q=1,
+                       P=0, D=1, Q=1, S=12)
+```
+
+
+

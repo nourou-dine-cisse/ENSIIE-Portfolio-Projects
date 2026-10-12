@@ -1,0 +1,652 @@
+\documentclass[aspectratio=169,11pt,french]{beamer}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning}
+
+\definecolor{StagePurple}{HTML}{3434A8}
+\definecolor{StageDark}{HTML}{25283A}
+\definecolor{StagePale}{HTML}{F3F3FA}
+\definecolor{StageGrey}{HTML}{626779}
+\definecolor{StageTeal}{HTML}{178F8B}
+
+\usetheme{default}
+\setbeamercolor{normal text}{fg=StageDark,bg=white}
+\setbeamercolor{structure}{fg=StagePurple}
+\setbeamercolor{frametitle}{fg=white,bg=StagePurple}
+\setbeamercolor{block title}{fg=white,bg=StagePurple}
+\setbeamercolor{block body}{fg=StageDark,bg=StagePale}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize item}{\color{StagePurple}\small$\bullet$}
+\setbeamersize{text margin left=0.8cm,text margin right=0.8cm}
+\setlength{\parskip}{0.25em}
+
+\setbeamerfont{frametitle}{series=\bfseries,size=\large}
+\setbeamertemplate{frametitle}{%
+  \nointerlineskip
+  \begin{beamercolorbox}[wd=\paperwidth,ht=0.8cm,dp=0.3cm,leftskip=0.8cm]{frametitle}
+    \usebeamerfont{frametitle}\insertframetitle
+  \end{beamercolorbox}
+}
+\setbeamertemplate{footline}{%
+  \leavevmode
+  \hbox{%
+    \begin{beamercolorbox}[wd=.77\paperwidth,ht=2.7ex,dp=1.1ex,leftskip=.8cm]{author in head/foot}
+      \color{StageGrey}\scriptsize Mouhamed Cisse \quad | \quad Prodigious France
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.23\paperwidth,ht=2.7ex,dp=1.1ex,rightskip=.8cm plus1fil]{date in head/foot}
+      \color{StageGrey}\scriptsize Spielberg \hfill \insertframenumber/\inserttotalframenumber
+    \end{beamercolorbox}%
+  }%
+}
+
+\tikzset{
+  flow/.style={draw=StagePurple!55,fill=StagePale,rounded corners=2pt,
+    align=center,text=StageDark,minimum height=0.9cm,inner sep=5pt},
+  emphasis/.style={draw=StageTeal,fill=StagePale,rounded corners=2pt,
+    align=center,text=StageDark,minimum height=0.9cm,inner sep=6pt},
+  arrow/.style={-{Stealth[length=2mm]},draw=StageTeal,line width=0.9pt}
+}
+
+% Use the original report figure when available; otherwise draw its reported
+% architecture directly so the slide remains complete without figure assets.
+\newcommand{\reportfigure}[4]{%
+  \IfFileExists{#1}{%
+    \includegraphics[width=.96\linewidth,height=.76\textheight,keepaspectratio]{#1}%
+  }{%
+    #4
+  }%
+  \par\vspace{0.08cm}
+  {\scriptsize\color{StageGrey}#3}
+}
+
+\newcommand{\kpi}[2]{%
+  \begin{beamercolorbox}[wd=\linewidth,sep=.35cm,center,rounded=true]{block body}
+    {\color{StagePurple}\fontsize{23}{26}\selectfont\bfseries #1}\\[-.1em]
+    {\small\color{StageGrey}#2}
+  \end{beamercolorbox}
+}
+
+\newcommand{\objectivecard}[3]{%
+  \begin{beamercolorbox}[wd=\linewidth,ht=3.0cm,dp=.25cm,center,rounded=true]{block body}
+    {\color{StagePurple}\fontsize{25}{27}\selectfont\bfseries #1}\\[.15cm]
+    {\large\bfseries #2}\\[.25cm]
+    {\small\color{StageGrey}#3}
+  \end{beamercolorbox}
+}
+
+\newcommand{\architecturefallback}[1]{%
+  \begin{tikzpicture}[node distance=.45cm,scale=.88,transform shape]
+    #1
+  \end{tikzpicture}%
+}
+
+\title{Spielberg}
+\subtitle{Centraliser les données et orchestrer les usages IA}
+\author{Mouhamed Cisse}
+\institute{Prodigious France -- Publicis Groupe}
+\date{11 mai -- 17 juillet 2026}
+
+\begin{document}
+
+% 0:20
+\begin{frame}[plain]
+  \vspace*{1.05cm}
+  \begin{beamercolorbox}[wd=\paperwidth,sep=.55cm,leftskip=.8cm]{frametitle}
+    {\color{white}\fontsize{30}{34}\selectfont\bfseries Spielberg}\\[.18cm]
+    {\color{white}\Large Centraliser les données, orchestrer les usages IA}
+  \end{beamercolorbox}
+  \vspace{.8cm}
+  {\LARGE\bfseries Mouhamed Cisse}\\[.35cm]
+  {\large Soutenance de stage -- IA et Data Engineering}\\[.5cm]
+  {\normalsize Prodigious France \quad | \quad Publicis Groupe \quad | \quad
+   11 mai -- 17 juillet 2026}
+  \vfill
+  {\small\color{StageGrey}Tuteur entreprise : Rony Leborgne
+    \hfill Encadrante académique : Juhyun Park}
+\end{frame}
+
+% 0:30 -- Conservé dans l'esprit de la première version appréciée.
+\begin{frame}{Introduction et environnement de stage}
+  \vspace{.35cm}
+  \begin{columns}[T,onlytextwidth]
+    \column{.48\textwidth}
+      {\Large\bfseries Prodigious France}\\[.25cm]
+      \begin{itemize}
+        \item Entité de production et d'exécution créative de Publicis Groupe
+        \item Création, production, post-production, digital et opérations
+      \end{itemize}
+    \column{.48\textwidth}
+      {\Large\bfseries Mon stage}\\[.25cm]
+      \begin{itemize}
+        \item Département Développement, pôle Digital
+        \item Poste : \textit{Assistant Lead Automation}
+        \item Travail transversal avec les équipes staffing, finance, RH, IT et sécurité
+      \end{itemize}
+  \end{columns}
+  \vfill
+  \begin{beamercolorbox}[wd=\linewidth,sep=.4cm,rounded=true]{block body}
+    \centering\large
+    Un projet au croisement des besoins métier, de la donnée et du développement logiciel.
+  \end{beamercolorbox}
+\end{frame}
+
+% 0:30
+\begin{frame}{Contexte et problématique}
+  \begin{center}
+    {\large\bfseries Les données opérationnelles sont réparties entre plusieurs outils}
+  \end{center}
+  \vspace{.1cm}
+  \begin{center}
+  \begin{tikzpicture}[node distance=.8cm]
+    \node[flow,text width=4.1cm,minimum height=2.0cm] (sources)
+      {\textbf{Sources métier}\\[.1cm]\scriptsize
+       Teamium : staffing\\
+       Altair : projets, budgets, BF\\
+       OneClick / rOar : RH, timesheets};
+    \node[emphasis,text width=3.3cm,minimum height=2.0cm,right=.7cm of sources]
+      (spielberg) {\Large\bfseries Spielberg\\[.15cm]\normalsize point d'accès\\unifié visé};
+    \node[flow,text width=2.0cm,minimum height=1.4cm,right=.7cm of spielberg]
+      (users) {Équipes métier};
+    \draw[arrow] (sources) -- (spielberg);
+    \draw[arrow] (spielberg.east) -- (users.west);
+  \end{tikzpicture}
+  \end{center}
+  \vspace{.1cm}
+  \begin{center}
+    \small Recherche manuelle \quad | \quad Ressaisies \quad | \quad
+    Visibilité fragmentée \quad | \quad Réconciliations difficiles
+  \end{center}
+\end{frame}
+
+% 0:25
+\begin{frame}{Objectif du stage}
+  \vspace{.35cm}
+  \begin{center}
+    {\Large\bfseries Faire évoluer le POC Spielberg vers une plateforme plus exploitable}
+  \end{center}
+  \vspace{.75cm}
+  \begin{columns}[T,onlytextwidth]
+    \column{.31\textwidth}
+      \objectivecard{01}{Structurer la donnée}{JSON vers SQLite et API métier}
+    \column{.31\textwidth}
+      \objectivecard{02}{Outiller les parcours}{Création projet, BDC et Kissflow}
+    \column{.31\textwidth}
+      \objectivecard{03}{Encadrer l'assistant}{Workers, garde-fous et sorties structurées}
+  \end{columns}
+\end{frame}
+
+% 0:25
+\begin{frame}{Méthodologie}
+  \vspace{.55cm}
+  \begin{center}
+  \begin{tikzpicture}[node distance=.55cm]
+    \node[flow,text width=2.6cm,minimum height=1.5cm] (a)
+      {\large\bfseries 1. Cadrer\\[.15cm]\normalsize CDC et ateliers métier};
+    \node[flow,text width=2.6cm,minimum height=1.5cm,right=of a] (b)
+      {\large\bfseries 2. Structurer\\[.15cm]\normalsize Données et API};
+    \node[flow,text width=2.6cm,minimum height=1.5cm,right=of b] (c)
+      {\large\bfseries 3. Intégrer\\[.15cm]\normalsize Interfaces et agents};
+    \node[flow,text width=2.6cm,minimum height=1.5cm,right=of c] (d)
+      {\large\bfseries 4. Évaluer\\[.15cm]\normalsize Tests et LangSmith};
+    \draw[arrow] (a) -- (b);
+    \draw[arrow] (b) -- (c);
+    \draw[arrow] (c) -- (d);
+  \end{tikzpicture}
+  \end{center}
+  \vspace{.65cm}
+  \begin{center}
+    \large Ateliers métier réguliers \quad$\rightarrow$\quad développement incrémental
+    \quad$\rightarrow$\quad tests des parcours
+  \end{center}
+  \vspace{.25cm}
+  \begin{center}
+    Séparer les décisions du LLM des validations et exécutions déterministes.
+  \end{center}
+\end{frame}
+
+% 0:30
+\begin{frame}{Contributions principales}
+  \vspace{.3cm}
+  \begin{itemize}
+    \item Cadrage métier, contrat d'ingestion et préparation de la couche LLM
+    \vspace{.35cm}
+    \item Migration des données de démonstration JSON vers SQLite
+    \vspace{.35cm}
+    \item Backend FastAPI : schémas Pydantic, services et repositories
+    \vspace{.35cm}
+    \item Interfaces de création projet et de demande BDC ; intégration Kissflow
+    \vspace{.35cm}
+    \item Évolution de l'assistant jusqu'au Supervisor LangGraph, ajout du worker RAG
+  \end{itemize}
+\end{frame}
+
+% 0:25 -- Vue d'ensemble reprise du rapport.
+\begin{frame}{Architecture globale -- périmètre Spielberg}
+  \centering
+  \reportfigure{Figures/scope_spielberg.png}
+    {Cadrage, pipeline ETL local, backend FastAPI, interfaces métier, Kissflow et couche IA.}
+    {Architecture réalisée pendant le stage -- schéma de synthèse du rapport.}
+    {\begin{tikzpicture}[node distance=.55cm,scale=.9,transform shape]
+      \node[flow,text width=2.3cm,minimum height=1.15cm] (sources)
+        {Sources\\métier};
+      \node[flow,text width=2.3cm,minimum height=1.15cm,right=of sources] (etl)
+        {Pipeline ETL\\et SQLite};
+      \node[flow,text width=2.3cm,minimum height=1.15cm,right=of etl] (api)
+        {Backend\\FastAPI};
+      \node[emphasis,text width=2.4cm,minimum height=1.15cm,right=of api] (front)
+        {Interfaces\\métier};
+      \node[flow,text width=2.4cm,minimum height=1.15cm,below=.8cm of api] (kiss)
+        {Workflow BDC\\Kissflow};
+      \node[emphasis,text width=2.4cm,minimum height=1.15cm,below=.8cm of front] (ai)
+        {Supervisor\\et workers IA};
+      \draw[arrow] (sources) -- (etl);
+      \draw[arrow] (etl) -- (api);
+      \draw[arrow] (api) -- (front);
+      \draw[arrow] (api) -- (kiss);
+      \draw[arrow] (api) -- (ai);
+    \end{tikzpicture}}
+\end{frame}
+
+% 0:25 -- Image dédiée : affichée en grand si le fichier du rapport est disponible.
+\begin{frame}{Pipeline ETL -- des mocks vers SQLite}
+  \centering
+  \reportfigure{Figures/ETL_Schema.png}
+    {Pipeline ETL des données Spielberg vers SQLite.}
+    {Pipeline ETL des données Spielberg vers SQLite -- schéma du rapport.}
+    {\begin{tikzpicture}[node distance=.65cm,scale=.9,transform shape]
+      \node[flow,text width=2.5cm,minimum height=1.25cm] (source)
+        {Teamium\\et données mock};
+      \node[flow,text width=2.5cm,minimum height=1.25cm,right=of source] (load)
+        {Chargement\\et normalisation};
+      \node[flow,text width=2.5cm,minimum height=1.25cm,right=of load] (model)
+        {Tables\\SQLite};
+      \node[emphasis,text width=2.5cm,minimum height=1.25cm,right=of model] (use)
+        {API et worker\\\texttt{data}};
+      \draw[arrow] (source) -- (load);
+      \draw[arrow] (load) -- (model);
+      \draw[arrow] (model) -- (use);
+      \node[below=.55cm of load,text=StageGrey,align=center]
+        {Données nettoyées et structurées};
+    \end{tikzpicture}}
+\end{frame}
+
+% 0:25
+\begin{frame}{Backend FastAPI -- responsabilités séparées}
+  \centering
+  \reportfigure{Figures/shema_backend.png}
+    {Architecture backend : routes, schémas, services, repositories, SQLite et intégrations.}
+    {Architecture du backend FastAPI -- schéma du rapport.}
+    {\begin{tikzpicture}[node distance=.55cm,scale=.82,transform shape]
+      \node[emphasis,text width=2.35cm,minimum height=1cm] (front)
+        {Frontend\\interfaces};
+      \node[flow,text width=2.35cm,minimum height=1cm,right=of front] (routes)
+        {Routes\\FastAPI};
+      \node[flow,text width=2.35cm,minimum height=1cm,right=of routes] (schemas)
+        {Schémas\\Pydantic};
+      \node[flow,text width=2.35cm,minimum height=1cm,right=of schemas] (services)
+        {Services\\métier};
+      \node[flow,text width=2.35cm,minimum height=1cm,right=of services] (repo)
+        {Repositories};
+      \node[emphasis,text width=2.2cm,minimum height=.9cm,below=.75cm of repo] (db)
+        {SQLite};
+      \node[flow,text width=2.2cm,minimum height=.9cm,below=.75cm of services] (external)
+        {Kissflow / agents};
+      \draw[arrow] (front) -- (routes);
+      \draw[arrow] (routes) -- (schemas);
+      \draw[arrow] (schemas) -- (services);
+      \draw[arrow] (services) -- (repo);
+      \draw[arrow] (repo) -- (db);
+      \draw[arrow] (services) -- (external);
+    \end{tikzpicture}}
+\end{frame}
+
+% 0:25
+\begin{frame}{Workflow métier -- demande BDC}
+  \centering
+  \reportfigure{Figures/workflow_creation_bdc.png}
+    {Workflow applicatif de création et de soumission d'une demande BDC vers Kissflow.}
+    {Workflow BDC -- schéma du rapport.}
+    {\begin{tikzpicture}[node distance=.5cm,scale=.88,transform shape]
+      \node[flow,text width=2.25cm,minimum height=1.1cm] (form)
+        {Formulaire\\frontend};
+      \node[flow,text width=2.25cm,minimum height=1.1cm,right=of form] (validate)
+        {Validation\\Pydantic};
+      \node[flow,text width=2.25cm,minimum height=1.1cm,right=of validate] (service)
+        {Service et\\mapping Kissflow};
+      \node[emphasis,text width=2.25cm,minimum height=1.1cm,right=of service] (api)
+        {Kissflow\\create puis submit};
+      \node[flow,text width=2.25cm,minimum height=1.1cm,right=of api] (db)
+        {Trace locale\\SQLite};
+      \draw[arrow] (form) -- (validate);
+      \draw[arrow] (validate) -- (service);
+      \draw[arrow] (service) -- (api);
+      \draw[arrow] (api) -- (db);
+      \node[below=.55cm of service,text=StageGrey,align=center]
+        {Identifiant Spielberg \quad|\quad Statut \quad|\quad Identifiants Kissflow};
+    \end{tikzpicture}}
+\end{frame}
+
+% 0:25
+\begin{frame}{Workflow métier -- création de projet}
+  \centering
+  \reportfigure{Figures/workflow_creation_projet.png}
+    {Workflow applicatif de création d'un projet dans Spielberg.}
+    {Création projet -- wizard, validation, service métier et persistance SQLite.}
+    {\architecturefallback{
+      \node[flow,text width=2.25cm,minimum height=1.15cm] (wizard)
+        {Wizard frontend\\4 étapes};
+      \node[flow,text width=2.25cm,minimum height=1.15cm,right=of wizard] (api)
+        {POST endpoint\\validation Pydantic};
+      \node[flow,text width=2.25cm,minimum height=1.15cm,right=of api] (service)
+        {Service de\\création projet};
+      \node[emphasis,text width=2.25cm,minimum height=1.15cm,right=of service] (db)
+        {Repository\\SQLite};
+      \node[flow,text width=2.25cm,minimum height=1.15cm,right=of db] (views)
+        {Liste, détail\\et dashboard};
+      \draw[arrow] (wizard) -- (api);
+      \draw[arrow] (api) -- (service);
+      \draw[arrow] (service) -- (db);
+      \draw[arrow] (db) -- (views);
+    }}
+\end{frame}
+
+% 0:25
+\begin{frame}{Assistant -- évolution de l'architecture}
+  \vspace{.4cm}
+  \begin{center}
+  \begin{tikzpicture}[node distance=.7cm]
+    \node[flow,text width=2.45cm,minimum height=1.7cm] (a)
+      {\normalsize\bfseries Chat déterministe\\[.12cm]\small Trop rigide};
+    \node[flow,text width=2.45cm,minimum height=1.7cm,right=of a] (b)
+      {\normalsize\bfseries Agent LangChain\\[.12cm]\small Trop centralisé};
+    \node[flow,text width=2.45cm,minimum height=1.7cm,right=of b] (c)
+      {\normalsize\bfseries Router\\[.12cm]\small Contexte fragile};
+    \node[emphasis,text width=2.45cm,minimum height=1.7cm,right=of c] (d)
+      {\normalsize\bfseries Supervisor\\LangGraph\\[.12cm]\small Un interlocuteur};
+    \draw[arrow] (a) -- (b);
+    \draw[arrow] (b) -- (c);
+    \draw[arrow] (c) -- (d);
+  \end{tikzpicture}
+  \end{center}
+  \vspace{.7cm}
+  \begin{center}
+    {\large Le Supervisor garde le fil de la conversation ;
+    les workers se spécialisent dans l'exécution.}
+  \end{center}
+\end{frame}
+
+% 0:25
+\begin{frame}{Première étape agentique -- agent unique}
+  \centering
+  \reportfigure{Figures/single_agent.png}
+    {Un agent LangChain centralise le raisonnement, le prompt, la mémoire et les outils.}
+    {Architecture du premier agent unique Spielberg.}
+    {\architecturefallback{
+      \node[flow,text width=2.3cm,minimum height=1.0cm] (user)
+        {Question\\utilisateur};
+      \node[emphasis,text width=3.0cm,minimum height=1.3cm,right=of user] (agent)
+        {Agent unique\\LangChain + LLM};
+      \node[flow,text width=2.5cm,minimum height=1.0cm,above right=.55cm and .75cm of agent] (prompt)
+        {Prompt global\\et mémoire};
+      \node[flow,text width=2.5cm,minimum height=1.0cm,below right=.55cm and .75cm of agent] (tools)
+        {Tool SQL\\et données};
+      \node[flow,text width=2.4cm,minimum height=1.0cm,right=1.0cm of agent] (result)
+        {Réponse\\structurée};
+      \draw[arrow] (user) -- (agent);
+      \draw[arrow] (prompt) -- (agent);
+      \draw[arrow] (agent) -- (tools);
+      \draw[arrow] (tools) -- (result);
+      \draw[arrow] (agent) -- (result);
+    }}
+\end{frame}
+
+% 0:25
+\begin{frame}{Première architecture multi-agent -- Router}
+  \centering
+  \reportfigure{Figures/schema_router.png}
+    {Le Router classe la demande puis la délègue à un agent spécialisé.}
+    {Architecture Router Spielberg : classification puis délégation.}
+    {\architecturefallback{
+      \node[flow,text width=2.2cm,minimum height=1.0cm] (user)
+        {Demande};
+      \node[emphasis,text width=2.8cm,minimum height=1.15cm,right=of user] (router)
+        {Router\\classification};
+      \node[flow,text width=2.15cm,minimum height=.9cm,above right=.55cm and .7cm of router] (data)
+        {\texttt{data\_agent}};
+      \node[flow,text width=2.15cm,minimum height=.9cm,right=of router] (project)
+        {Création projet};
+      \node[flow,text width=2.15cm,minimum height=.9cm,below right=.55cm and .7cm of router] (bdc)
+        {\texttt{create\_bdc}};
+      \node[flow,text width=2.0cm,minimum height=1.0cm,right=1.0cm of project] (answer)
+        {Agent spécialisé\\et réponse};
+      \draw[arrow] (user) -- (router);
+      \draw[arrow] (router) -- (data);
+      \draw[arrow] (router) -- (project);
+      \draw[arrow] (router) -- (bdc);
+      \draw[arrow] (data) -- (answer);
+      \draw[arrow] (project) -- (answer);
+      \draw[arrow] (bdc) -- (answer);
+    }}
+\end{frame}
+
+% 0:20
+\begin{frame}{Benchmark -- coût en tokens selon l'architecture}
+  \centering
+  \reportfigure{Figures/token_bench.png}
+    {Comparaison du coût en tokens entre agent unique, Supervisor et swarm selon les domaines distracteurs.}
+    {Comparaison du benchmark cité dans le rapport ; schéma qualitatif si la figure source est absente.}
+    {\begin{tikzpicture}[x=1.0cm,y=.72cm]
+      \draw[-{Stealth[length=2mm]},StageDark,line width=.8pt] (0,0) -- (9.8,0);
+      \draw[-{Stealth[length=2mm]},StageDark,line width=.8pt] (0,0) -- (0,4.9);
+      \draw[StageGrey!18] (0,1) -- (9.25,1);
+      \draw[StageGrey!18] (0,2) -- (9.25,2);
+      \draw[StageGrey!18] (0,3) -- (9.25,3);
+      \node[rotate=90] at (-.55,2.45) {\small Tendance qualitative des tokens};
+      \node[below] at (.65,-.08) {\scriptsize peu};
+      \node[below] at (8.55,-.08) {\scriptsize nombreux};
+      \node[below] at (4.8,-.5) {\small Domaines distracteurs};
+      \draw[StagePurple,line width=2.2pt,smooth]
+        plot coordinates {(.55,.55) (2.2,.78) (4.3,1.35) (6.3,2.35) (8.65,3.8)};
+      \draw[StageTeal,line width=2.2pt,smooth]
+        plot coordinates {(.55,.72) (2.2,.94) (4.3,1.35) (6.3,1.8) (8.65,2.3)};
+      \draw[StageGrey,line width=2.2pt,smooth]
+        plot coordinates {(.55,.9) (2.2,1.1) (4.3,1.3) (6.3,1.5) (8.65,1.65)};
+      \node[anchor=west,text=StagePurple] at (8.72,3.8) {\scriptsize Agent unique};
+      \node[anchor=west,text=StageTeal] at (8.72,2.3) {\scriptsize Supervisor};
+      \node[anchor=west,text=StageGrey] at (8.72,1.65) {\scriptsize Swarm};
+    \end{tikzpicture}}
+\end{frame}
+
+% 0:30 -- Schéma original du rapport en pleine diapositive.
+\begin{frame}{Architecture Supervisor -- graphe LangGraph}
+  \centering
+  \reportfigure{Figures/supervisor_graph.png}
+    {Graphe LangGraph du Supervisor Spielberg.}
+    {Graphe LangGraph du Supervisor Spielberg -- schéma du rapport.}
+    {\begin{tikzpicture}[node distance=.5cm and .65cm,scale=.94,transform shape]
+      \node[flow,text width=3cm] (guard) {\texttt{input\_guard}};
+      \node[emphasis,text width=3.5cm,below=of guard] (decision)
+        {\scriptsize\texttt{supervisor\_decision}};
+      \node[flow,text width=2.15cm,below left=.7cm and 1.1cm of decision] (data)
+        {\texttt{data}};
+      \node[flow,text width=2.15cm,below=.7cm of decision] (project)
+        {\texttt{project}};
+      \node[flow,text width=2.15cm,below right=.7cm and 1.1cm of decision] (bdc)
+        {\texttt{bdc}};
+      \node[flow,text width=2.15cm,right=.5cm of bdc] (rag) {\texttt{rag}};
+      \node[emphasis,text width=4.1cm,below=.65cm of project] (final)
+        {\scriptsize\texttt{finalize\_from\_worker}};
+      \draw[arrow] (guard) -- (decision);
+      \draw[arrow] (decision) -- (data);
+      \draw[arrow] (decision) -- (project);
+      \draw[arrow] (decision) -- (bdc);
+      \draw[arrow] (decision) -- (rag);
+      \draw[arrow] (data) -- (final);
+      \draw[arrow] (project) -- (final);
+      \draw[arrow] (bdc) -- (final);
+      \draw[arrow] (rag) -- (final);
+    \end{tikzpicture}}
+\end{frame}
+
+% 0:25 -- Schéma original du rapport en pleine diapositive.
+\begin{frame}{Worker RAG -- recherche documentaire sourcée}
+  \centering
+  \reportfigure{Figures/schema_rag_worker.png}
+    {Détection de l'intention, recherche vectorielle, sélection des sources et réponse.}
+    {Pipeline RAG intégré au Supervisor -- schéma du rapport.}
+    {\begin{tikzpicture}[node distance=.65cm,scale=.88,transform shape]
+      \node[flow,text width=2.25cm,minimum height=1.05cm] (docs)
+        {Documents\\PDF / TXT / DOCX};
+      \node[flow,text width=2.25cm,minimum height=1.05cm,right=of docs] (chunks)
+        {Extraction\\et découpage};
+      \node[flow,text width=2.25cm,minimum height=1.05cm,right=of chunks] (embed)
+        {Embeddings\\et indexation};
+      \node[emphasis,text width=2.25cm,minimum height=1.05cm,right=of embed] (chroma)
+        {Chroma\\recherche};
+      \node[flow,text width=2.25cm,minimum height=1.05cm,right=of chroma] (answer)
+        {Worker RAG\\réponse sourcée};
+      \draw[arrow] (docs) -- (chunks);
+      \draw[arrow] (chunks) -- (embed);
+      \draw[arrow] (embed) -- (chroma);
+      \draw[arrow] (chroma) -- (answer);
+      \node[below=.5cm of chroma,text=StageGrey,align=center]
+        {Sources affichées dans le frontend};
+    \end{tikzpicture}}
+\end{frame}
+
+% 0:40
+\begin{frame}{Évaluation LangSmith -- résultats}
+  \vspace{.35cm}
+  \begin{center}
+    {\Large\bfseries 27 scénarios répétés deux fois \quad | \quad 54 exécutions}
+  \end{center}
+  \vspace{.5cm}
+  \begin{columns}[T,onlytextwidth]
+    \column{.32\textwidth}
+      \kpi{54/54}{succès techniques}
+    \column{.32\textwidth}
+      \kpi{48/54}{score structurel\\88,9\,\%}
+    \column{.32\textwidth}
+      \kpi{45/54}{score textuel strict\\83,3\,\%}
+  \end{columns}
+  \vspace{.55cm}
+  \begin{columns}[T,onlytextwidth]
+    \column{.48\textwidth}
+      \begin{beamercolorbox}[wd=\linewidth,sep=.3cm,center,rounded=true]{block body}
+        \large \textbf{22/22}\\sorties SQL avec table exploitable
+      \end{beamercolorbox}
+    \column{.48\textwidth}
+      \begin{beamercolorbox}[wd=\linewidth,sep=.3cm,center,rounded=true]{block body}
+        \large \textbf{0}\\erreur SQL interne observée
+      \end{beamercolorbox}
+  \end{columns}
+  \vfill
+  {\scriptsize Validation technique du POC ; les scénarios ne constituent pas un échantillon d'usage en production.}
+\end{frame}
+
+% Include the report's original curve when the figure assets are available.
+\IfFileExists{Figures/latency.png}{%
+  \begin{frame}{Latence -- P50 et P99}
+    \centering
+    \reportfigure{Figures/latency.png}
+      {Courbe P50/P99 de latence des appels LLM.}
+      {Latence des appels LLM observée dans LangSmith -- figure du rapport.}
+      {}
+  \end{frame}
+}{}
+
+% 0:30
+\begin{frame}{Résultat clé -- latence observée}
+  \vspace{.75cm}
+  \begin{columns}[T,onlytextwidth]
+    \column{.32\textwidth}
+      \kpi{3,01 s}{latence médiane}
+    \column{.32\textwidth}
+      \kpi{4,53 s}{latence moyenne}
+    \column{.32\textwidth}
+      \kpi{10,56 s}{latence p95}
+  \end{columns}
+  \vspace{.65cm}
+  \begin{center}
+    {\large Un maximum ponctuel de 71,52 s a été observé sur un scénario data complexe.}
+  \end{center}
+\end{frame}
+
+% Include the report's original error chart when the figure assets are available.
+\IfFileExists{Figures/error.png}{%
+  \begin{frame}{Stabilité technique -- traces LangSmith}
+    \centering
+    \reportfigure{Figures/error.png}
+      {Taux d'erreur observé sur les traces LangSmith.}
+      {Taux d'erreur des traces pendant les évaluations du Supervisor -- figure du rapport.}
+      {}
+  \end{frame}
+}{}
+
+% 0:30
+\begin{frame}{Discussion -- acquis et limites}
+  \vspace{.35cm}
+  \begin{columns}[T,onlytextwidth]
+    \column{.47\textwidth}
+      {\Large\bfseries Acquis}\\[.25cm]
+      \begin{itemize}
+        \item Socle data et backend mieux structurés
+        \item Parcours métier traçables
+        \item Architecture agentique modulaire
+        \item Stabilité technique complète sur le jeu testé
+      \end{itemize}
+    \column{.47\textwidth}
+      {\Large\bfseries Limites}\\[.25cm]
+      \begin{itemize}
+        \item Reprise de contexte multi-tours à renforcer
+        \item Latence élevée sur certains cas ponctuels
+        \item Évaluation et droits du RAG à approfondir
+        \item Mesures du POC non représentatives de la production
+      \end{itemize}
+  \end{columns}
+  \vfill
+  \begin{center}
+    \small Le gain manuel estimé dans le rapport est indicatif, non chronométré auprès d'utilisateurs.
+  \end{center}
+\end{frame}
+
+% 0:30
+\begin{frame}{Perspectives}
+  \vspace{.45cm}
+  \begin{itemize}
+    \item \textbf{Fiabiliser} : compléter les tests multi-tours et persister les conversations
+    \vspace{.38cm}
+    \item \textbf{Améliorer le RAG} : recherche hybride, reranking, extraction PDF/OCR et évaluation des réponses
+    \vspace{.38cm}
+    \item \textbf{Renforcer la gouvernance} : droits d'accès, audit et sources documentaires autorisées
+    \vspace{.38cm}
+    \item \textbf{Industrialiser} : préparer Azure, une base PostgreSQL et la connexion aux sources réelles
+  \end{itemize}
+\end{frame}
+
+% 0:25
+\begin{frame}[plain]
+  \vspace*{1.1cm}
+  \begin{beamercolorbox}[wd=\paperwidth,sep=.5cm,center]{frametitle}
+    {\color{white}\fontsize{28}{32}\selectfont\bfseries Conclusion}
+  \end{beamercolorbox}
+  \vspace{.9cm}
+  \begin{center}
+    {\LARGE\bfseries Un assistant IA en entreprise ne se résume pas à un prompt.}\\[.55cm]
+    {\large Il repose sur des données structurées, des workflows contrôlés,
+    des sorties exploitables et des garde-fous.}
+  \end{center}
+  \vfill
+  \begin{center}
+    {\color{StagePurple}\Huge\bfseries Merci pour votre attention}\\[.25cm]
+    {\Large Questions}
+  \end{center}
+  \vfill
+\end{frame}
+
+\end{document}

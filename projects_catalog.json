@@ -757,5 +757,238 @@
     ],
     "reports": [],
     "presentations": []
+  },
+  {
+    "id": "17_mcmaster_nash_dqn",
+    "folder": "17_McMaster_Nash_DQN_MultiAgent_Trading",
+    "title_fr": "Nash-DQN : Deep Q-Learning pour Équilibres de Nash en Trading Multi-Agents",
+    "title_en": "Nash-DQN: Deep Q-Learning for Nash Equilibria in Multi-Agent Optimal Execution",
+    "category": "Quantitative Finance & Reinforcement Learning",
+    "institution": "McMaster University (MATH 4FM3)",
+    "year": "2026",
+    "role": "Quantitative Researcher / RL Engineer",
+    "technologies": [
+      "Python",
+      "PyTorch",
+      "Deep Q-Learning (DQN)",
+      "Multi-Agent RL",
+      "Stochastic Games",
+      "Optimal Execution",
+      "Mouvement Brownien"
+    ],
+    "keywords": [
+      "reinforcement learning",
+      "dqn",
+      "multi-agent",
+      "trading",
+      "finance quantitative",
+      "nash",
+      "optimal execution",
+      "pytorch",
+      "mcmaster"
+    ],
+    "pitch_fr": "Implémentation sous PyTorch d'un environnement de jeu stochastique à N agents (Casgrain, Ning & Jaimungal, 2022) et entraînement d'architectures Deep Q-Network (Nash-DQN) pour converger vers l'équilibre de Nash en exécution optimale d'ordres.",
+    "pitch_en": "Engineered an N-agent stochastic market simulator and trained Deep Q-Networks (Nash-DQN) converging to Nash equilibrium for multi-agent optimal liquidation (Casgrain, Ning & Jaimungal, 2022).",
+    "star_bullet_points_fr": [
+      "Conception d'un simulateur de marché stochastique sous forme de jeu différentiel à N agents avec impact de marché temporaire et permanent.",
+      "Développement d'un algorithme Nash-DQN avec replay buffer priorisé et réseaux cible pour l'apprentissage de politiques de trading compétitives.",
+      "Rédaction d'une thèse de recherche mathématique de 34 pages accompagnée de visualisations des trajectoires browniennes et récompenses cumulées."
+    ],
+    "star_bullet_points_en": [
+      "Architected an N-agent stochastic differential game environment modeling temporary and permanent market price impact.",
+      "Trained a Nash-DQN multi-agent reinforcement learning policy with experience replay to discover competitive Nash equilibrium strategies.",
+      "Authored a comprehensive 34-page quantitative research paper with extensive trajectory and convergence reward diagnostics."
+    ],
+    "reports": [
+      "reports/Rapport_Nash_DQN_Optimal_Trading.pdf",
+      "reports/Project_Roadmap.pdf"
+    ],
+    "presentations": []
+  },
+  {
+    "id": "18_mcmaster_financial_sentiment",
+    "folder": "18_McMaster_Financial_News_Sentiment_BiLSTM",
+    "title_fr": "Analyse de Sentiment de Titres Financiers : ML Classique vs BiLSTM",
+    "title_en": "Financial News Sentiment Classification: Classical ML vs Bidirectional LSTM",
+    "category": "NLP & Financial Deep Learning",
+    "institution": "McMaster University (DATASCI 3ML3)",
+    "year": "2026",
+    "role": "NLP & Machine Learning Engineer",
+    "technologies": [
+      "Python",
+      "PyTorch",
+      "BiLSTM",
+      "TF-IDF",
+      "Scikit-Learn",
+      "NLP",
+      "Financial Sentiment",
+      "Cross-Validation"
+    ],
+    "keywords": [
+      "sentiment",
+      "finance",
+      "nlp",
+      "bilstm",
+      "lstm",
+      "deep learning",
+      "pytorch",
+      "classification",
+      "mcmaster"
+    ],
+    "pitch_fr": "Benchmark comparatif de modèles de classification de sentiments sur 9 549 titres d'actualité financière (Financial PhraseBank) comparant modèles classiques (SVM, Random Forest) et réseaux neuronaux récurrents bidirectionnels (BiLSTM).",
+    "pitch_en": "Comparative benchmark for 3-class sentiment classification across 9,549 financial headlines comparing classical machine learning with Bidirectional LSTMs.",
+    "star_bullet_points_fr": [
+      "Traitement et vectorisation d'un corpus de 9 549 titres financiers avec analyse lexicale et gestion du déséquilibre de classes.",
+      "Implémentation et optimisation d'une architecture neuronale Bidirectional LSTM sous PyTorch surpassant les baselines classiques.",
+      "Rédaction d'un rapport de recherche académique de 11 pages détaillant les courbes d'apprentissage, F1-scores et analyses d'erreurs."
+    ],
+    "star_bullet_points_en": [
+      "Curated and preprocessed 9,549 financial news headlines addressing class imbalance and specialized financial vocabularies.",
+      "Implemented and trained a Bidirectional LSTM neural network in PyTorch achieving superior accuracy and macro F1 over classical baselines.",
+      "Authored an 11-page comparative research paper detailing convergence dynamics, confusion matrices, and ablation findings."
+    ],
+    "reports": [
+      "reports/Financial_News_Sentiment_Classification_Report.pdf",
+      "reports/Sujet_FinalProject.pdf"
+    ],
+    "presentations": []
+  },
+  {
+    "id": "19_mcmaster_canadian_retail_ts",
+    "folder": "19_McMaster_Canadian_Retail_Time_Series",
+    "title_fr": "Prévision de la Demande Saisonnière dans le Commerce de Détail Canadien",
+    "title_en": "Seasonal Demand Forecasting in Canadian Retail Trade (1992–2019)",
+    "category": "Time Series & Applied Econometrics",
+    "institution": "McMaster University (STATS 4A03)",
+    "year": "2026",
+    "role": "Time Series Analyst",
+    "technologies": [
+      "R",
+      "RMarkdown",
+      "SARIMA",
+      "Holt-Winters",
+      "Décomposition STL",
+      "Tests de Stationnarité (ADF/KPSS)",
+      "Validation Croisée"
+    ],
+    "keywords": [
+      "time series",
+      "series temporelles",
+      "sarima",
+      "r",
+      "retail",
+      "prevision",
+      "forecast",
+      "holt winters",
+      "mcmaster"
+    ],
+    "pitch_fr": "Modélisation économétrique et prévision de séries temporelles sur 27 ans de ventes mensuelles du commerce de détail canadien (Statistique Canada) par décomposition STL, lissage exponentiel Holt-Winters et modèles SARIMA multiplicatifs.",
+    "pitch_en": "Econometric modeling and 27-year time series forecasting of monthly Canadian retail sales data using STL decomposition, Holt-Winters exponential smoothing, and SARIMA models.",
+    "star_bullet_points_fr": [
+      "Analyse exploratoire et tests statistiques de stationnarité (ADF, KPSS) sur 27 années de séries mensuelles de consommation.",
+      "Identification et estimation de modèles SARIMA multiplicatifs avec validation rigoureuse des résidus (Ljung-Box, normalité).",
+      "Production d'un rapport de prévision de 12 pages compilé sous RMarkdown avec intervalles de confiance prospectifs."
+    ],
+    "star_bullet_points_en": [
+      "Conducted stationarity diagnostics (ADF, KPSS tests) and seasonal decomposition on a 27-year macroeconomic time series.",
+      "Identified and tuned multiplicative SARIMA models validating residual white noise assumptions via Ljung-Box tests.",
+      "Delivered a reproducible 12-page RMarkdown technical forecasting paper providing multi-step forward horizon projections."
+    ],
+    "reports": [
+      "reports/Canadian_Retail_Time_Series_Forecasting_Report.pdf"
+    ],
+    "presentations": []
+  },
+  {
+    "id": "20_mcmaster_vqa",
+    "folder": "20_McMaster_Visual_Question_Answering_VQA",
+    "title_fr": "Visual Question Answering (VQA) : Fusion Multimodale Vision & Langage",
+    "title_en": "Visual Question Answering (VQA): Multimodal Vision-Language Deep Learning",
+    "category": "Multimodal Deep Learning & Computer Vision",
+    "institution": "McMaster University (MECHENG 4AI3)",
+    "year": "2026",
+    "role": "Multimodal Deep Learning Engineer",
+    "technologies": [
+      "Python",
+      "PyTorch",
+      "Torchvision",
+      "CNN (ResNet)",
+      "LSTM",
+      "Multimodal Fusion",
+      "VQA v2.0 Dataset",
+      "Streamlit"
+    ],
+    "keywords": [
+      "vqa",
+      "multimodal",
+      "computer vision",
+      "nlp",
+      "pytorch",
+      "deep learning",
+      "resnet",
+      "lstm",
+      "fusion",
+      "mcmaster"
+    ],
+    "pitch_fr": "Système de Question-Réponse Visuelle (VQA) entraîné sur le dataset VQA v2.0 associant extraction de caractéristiques visuelles par CNN (ResNet), encodage linguistique par LSTM et module de fusion multimodale.",
+    "pitch_en": "Multimodal Visual Question Answering architecture on VQA v2.0 dataset fusing deep convolutional image features (ResNet) with LSTM question embeddings.",
+    "star_bullet_points_fr": [
+      "Pipeline d'ingestion et d'alignement multimodal image-texte sur le benchmark VQA v2.0.",
+      "Conception d'une architecture de fusion multimodale (produit tensoriel / concaténation dense) pour la génération de réponses visuelles.",
+      "Déploiement d'une application de démonstration interactive avec roadmap de développement produit."
+    ],
+    "star_bullet_points_en": [
+      "Engineered multimodal data preprocessing and spatial visual alignment pipeline on the standard VQA v2.0 dataset.",
+      "Implemented multimodal fusion architectures combining deep visual representations with recurrent sentence encodings.",
+      "Developed an interactive web application demo and structured sprint engineering roadmap."
+    ],
+    "reports": [
+      "reports/VQA_Project_Roadmap.pdf"
+    ],
+    "presentations": []
+  },
+  {
+    "id": "21_mcmaster_glm",
+    "folder": "21_McMaster_Generalized_Linear_Models",
+    "title_fr": "Modèles Linéaires Généralisés : Régressions Poisson, Gamma & Binomiales",
+    "title_en": "Applied Generalized Linear Models: Poisson, Gamma, and Logistic Regressions",
+    "category": "Applied Statistics & GLM",
+    "institution": "McMaster University (STATS 4GLM)",
+    "year": "2026",
+    "role": "Applied Statistician",
+    "technologies": [
+      "R",
+      "RMarkdown",
+      "GLM",
+      "Régression Poisson",
+      "Régression Gamma",
+      "Régression Logistique",
+      "Analyse de Déviance",
+      "Surdispersion"
+    ],
+    "keywords": [
+      "glm",
+      "statistiques",
+      "poisson",
+      "gamma",
+      "r",
+      "econometrie",
+      "deviance",
+      "mcmaster"
+    ],
+    "pitch_fr": "Suite d'études statistiques approfondies appliquant la théorie des modèles linéaires généralisés (famille exponentielle, fonctions de lien, quasi-vraisemblance) sur des problématiques réelles d'assurance et d'épidémiologie.",
+    "pitch_en": "Comprehensive statistical modeling assignments applying Generalized Linear Model theory (exponential dispersion family, link functions, quasi-likelihood) to actuarial and empirical datasets.",
+    "star_bullet_points_fr": [
+      "Ajustement de modèles GLM Poisson et quasi-Poisson pour données de comptage avec diagnostic de surdispersion.",
+      "Modélisation de données continues positives asymétriques via GLM Gamma et sélection de variables par analyse de déviance.",
+      "Production de 5 rapports d'analyse sous RMarkdown démontrant une maîtrise rigoureuse de l'inférence statistique."
+    ],
+    "star_bullet_points_en": [
+      "Fitted Poisson and Quasi-Poisson GLMs for count data with diagnostics for overdispersion and zero inflation.",
+      "Modeled right-skewed continuous responses using Gamma GLMs with deviance goodness-of-fit hypothesis testing.",
+      "Authored 5 comprehensive reproducible RMarkdown statistical reports demonstrating deep mastery of statistical inference."
+    ],
+    "reports": [],
+    "presentations": []
   }
 ]

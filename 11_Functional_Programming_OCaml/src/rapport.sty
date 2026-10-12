@@ -1,0 +1,154 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+\title{Projet INPF12 2024–2025\\\large Éditeur de texte en OCaml}
+\author{Mouhamed CISSE}
+\date{03 mai 2025}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+Ce projet consiste à concevoir un éditeur de texte simple en OCaml, basé sur la structure de données \textit{zipper}. L'objectif est de manipuler un tampon (buffer) de lignes, chaque ligne étant elle-même un \textit{zipper} de caractères, avec un curseur en plus d'un curseur.
+
+\section{Choix de conception}
+
+\subsection{Structure \texttt{zipper}}
+Nous avons utilisé la structure de type zipper proposée:
+\begin{itemize}
+  \item \texttt{before} : les éléments avant le curseur (dans l'ordre inverse),
+  \item \texttt{current} : l'élément courant pointé par le curseur,
+  \item \texttt{after} : les éléments après le curseur,
+  \item \texttt{pos} : la position actuelle du curseur (int).
+\end{itemize}
+
+Cette structure permet de réaliser facilement et efficacement des déplacements et des insertions locales.
+
+\subsection{Tampon de texte}
+Le buffer est un \texttt{zipper} de lignes, où chaque ligne est elle-même un \texttt{zipper} de caractères. Cette façon de faire facilite les déplacements et modifications ligne par ligne, caractère par caractère.
+
+\section{Fonctionnalités implémentées}
+
+\begin{itemize}
+  \item Déplacements gauche/droite/haut/bas du curseur ;
+  \item Insertion d’un caractère à la position du curseur ;
+  \item Suppression (Delete) et retour arrière (Backspace) ;
+  \item Insertion d’un saut de ligne.
+\end{itemize}
+
+Toutes ces actions sont réalisées grâce à des raccourcis clavier via l'interface graphique OCaml Graphics.
+
+\section{Implémentation des fonctions}
+
+\subsection{Fonctions sur les zipper}
+
+\paragraph{\texttt{get\_current : ('a, 'b) zipper -> 'b}}\\
+Retourne l’élément courant dans un zipper.
+
+\paragraph{\texttt{get\_pos : buffer -> int}}\\
+Retourne la position actuelle du curseur dans la ligne courante.
+
+\paragraph{\texttt{fold : ('a -> 'c -> 'c) -> ('b -> 'c -> 'c) -> 'c -> ('a, 'b) zipper -> 'c}}\\
+Fonction de fold personnalisée sur un zipper.
+
+\paragraph{\texttt{update\_with : (line -> line) -> buffer -> buffer}}\\
+Applique une transformation à la ligne courante du buffer.
+
+\subsection{Fonctions de déplacement}
+
+\paragraph{\texttt{move\_left : buffer -> buffer}}\\
+Déplace le curseur d’un caractère vers la gauche.
+
+\paragraph{\texttt{move\_right : buffer -> buffer}}\\
+Déplace le curseur d’un caractère vers la droite.
+
+\paragraph{\texttt{move\_up : buffer -> buffer}}\\
+Monte le curseur à la ligne précédente, en conservant la colonne.
+
+\paragraph{\texttt{move\_down : buffer -> buffer}}\\
+Descend le curseur à la ligne suivante, en conservant la colonne.
+
+\subsection{Fonctions de modification de texte}
+
+\paragraph{\texttt{insert\_char : char -> buffer -> buffer}}\\
+Insère un caractère à la position du curseur.
+
+\paragraph{\texttt{do\_suppr : buffer -> buffer}}\\
+Supprime le caractère situé après le curseur.
+
+\paragraph{\texttt{do\_backspace : buffer -> buffer}}\\
+Supprime le caractère juste avant le curseur.
+
+\paragraph{\texttt{create\_newline : buffer -> buffer}}\\
+Insère une nouvelle ligne à la position courante.
+
+\section{Problèmes rencontrés et solutions}
+
+\subsection{Gestion du zipper et du curseur}
+\begin{itemize}
+  \item \textbf{Problème :} Oubli que la liste \texttt{before} était inversée, entraînant des erreurs d’ordre des caractères.  
+        \textbf{Solution :} Porter une attention systématique à l’inversion dans tous les tests unitaires.
+  \item \textbf{Problème :} Difficulté à savoir quelle liste (\texttt{before} ou \texttt{after}) modifier dans les fonctions de déplacement.  
+        \textbf{Solution :} Analyser précisément chaque cas et visualiser l’état du tampon après chaque opération.
+\end{itemize}
+
+\subsection{Gestion du curseur en fin/début de ligne}
+\begin{itemize}
+  \item \textbf{Problème :} Position horizontale du curseur non conservée lors de déplacements verticaux.  
+        \textbf{Solution :} Ajout d’un ajustement de colonne après le swap de ligne.
+  \item \textbf{Problème :} Lancement de l’interface graphique lors des tests unitaires.  
+        \textbf{Solution :} Commenter l’appel à \texttt{main} ou fermer l’interface (\texttt{Échap}) avant de lancer les tests.
+\end{itemize}
+
+\section{Améliorations apportées}
+
+Pour les déplacements verticaux (\texttt{move\_up} et \texttt{move\_down}) :
+\begin{itemize}
+  \item Calcul de la colonne cible à partir de la position initiale.
+  \item Swap des listes \texttt{before}/\texttt{after} pour changer de ligne.
+  \item Réajustement de la position horizontale en fonction de la longueur de la ligne cible.
+\end{itemize}
+
+Aucune amélioration spécifique n’a été apportée pour \texttt{do\_suppr} et \texttt{do\_backspace}.
+
+\section{Limites de l’implémentation}
+
+Notre éditeur de texte, bien que fonctionnel, présente encore certaines limitations :
+\begin{itemize}
+  \item \textbf{Sélection et copier–coller} : non supportés.
+  \item \textbf{Sauvegarde et chargement} : non supportés.
+  \item \textbf{Interface graphique} : minimaliste, à moderniser.
+\end{itemize}
+
+\section{Manuel d'utilisation}
+
+\begin{itemize}
+  \item \texttt{Ctrl-q / Ctrl-d / Ctrl-z / Ctrl-s} : déplacements du curseur.
+  \item \texttt{Backspace} : supprime le caractère précédent.
+  \item \texttt{Delete} : supprime le caractère courant.
+  \item \texttt{Entrée} : insère un retour à la ligne.
+  \item \texttt{Échap} : quitte l’éditeur.
+\end{itemize}
+
+\section{Conclusion}
+Ce projet a permis de manipuler de manière approfondie les structures fonctionnelles telles que les zippers, et d’utiliser la bibliothèque graphique OCaml pour visualiser les opérations. Le code est facilement extensible pour ajouter de nouvelles fonctionnalités.
+
+\vspace{1cm}
+\noindent\textbf{Fichiers fournis :}
+\begin{itemize}
+  \item \texttt{rapport.pdf} : ce rapport
+  \item \texttt{projet.ml} : le code OCaml du projet
+  \item \texttt{Makefile} : script de compilation
+  \item \texttt{tests.ml} : tests unitaires
+\end{itemize}
+
+\end{document}
