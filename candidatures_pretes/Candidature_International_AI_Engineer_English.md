@@ -23,15 +23,15 @@ Engineered an enterprise platform unifying cross-agency operational data and orc
     • Architected an enterprise data hub using FastAPI to centralize operational data feeds across Publicis agencies.
     • Engineered a production-ready RAG pipeline featuring optimized semantic chunking and metadata-aware vector retrieval for specialized AI agents.
 
+**Nash-DQN: Deep Q-Learning for Nash Equilibria in Multi-Agent Optimal Execution** (McMaster University (MATH 4FM3)):
+Engineered an N-agent stochastic market simulator and trained Deep Q-Networks (Nash-DQN) converging to Nash equilibrium for multi-agent optimal liquidation (Casgrain, Ning & Jaimungal, 2022).
+    • Architected an N-agent stochastic differential game environment modeling temporary and permanent market price impact.
+    • Trained a Nash-DQN multi-agent reinforcement learning policy with experience replay to discover competitive Nash equilibrium strategies.
+
 **Semantic Representations, Text Classification & Named Entity Recognition (NER)** (ENSIIE (M2IA Master IA)):
 Trained and evaluated dense semantic embeddings (Word2Vec, FastText), neural text classifiers (CNN, Transformers), and hybrid BiLSTM-CNN for Named Entity Recognition on French corpora.
     • Trained dense word representation models (Word2Vec Skip-Gram/CBOW, FastText) on the QUAERO French news corpus.
     • Implemented and benchmarked deep text classification pipelines comparing 1D CNNs against Transformer architectures.
-
-**Financial Time Series Forecasting & Credit Scoring ML (Infinity Analytics)** (Gainde 2000 / Bangath Systems):
-Predictive modeling of financial time series (SARIMAX, VAR, Deep Learning) and development of calibrated credit default risk scoring algorithms.
-    • Formulated multivariate econometric forecasting pipelines leveraging SARIMA, SARIMAX, and VAR models.
-    • Built and calibrated a credit default scoring model (Use Case 7) optimizing probability calibration curves and decision thresholds.
 
 I am confident that my technical proficiency in modern AI frameworks, data pipelines, and analytical problem-solving would enable me to make an immediate impact on your strategic initiatives at **[Target Company — Ex: Google DeepMind / OpenAI / Cohere]**.
 
@@ -56,7 +56,7 @@ I have been following **[Target Company — Ex: Google DeepMind / OpenAI / Coher
 
 My previous engineering and applied research work includes:
 - Engineered an enterprise platform unifying cross-agency operational data and orchestrating AI agents through a high-precision RAG pipeline built on FastAPI.
-- Trained and evaluated dense semantic embeddings (Word2Vec, FastText), neural text classifiers (CNN, Transformers), and hybrid BiLSTM-CNN for Named Entity Recognition on French corpora.
+- Engineered an N-agent stochastic market simulator and trained Deep Q-Networks (Nash-DQN) converging to Nash equilibrium for multi-agent optimal liquidation (Casgrain, Ning & Jaimungal, 2022).
 
 You can explore my complete open portfolio with documented source code, technical reports, and defense decks on GitHub:
 🔗 [https://github.com/nourou-dine-mahy](https://github.com/nourou-dine-mahy)
@@ -77,15 +77,15 @@ Best regards,
 - Engineered a production-ready RAG pipeline featuring optimized semantic chunking and metadata-aware vector retrieval for specialized AI agents.
 - Authored a comprehensive 54-page engineering thesis and defended before an academic/corporate jury with 22 presentation slides.
 
+**Nash-DQN: Deep Q-Learning for Nash Equilibria in Multi-Agent Optimal Execution** | *Python, PyTorch, Deep Q-Learning (DQN), Multi-Agent RL, Stochastic Games, Optimal Execution* (McMaster University (MATH 4FM3), 2026)
+- Architected an N-agent stochastic differential game environment modeling temporary and permanent market price impact.
+- Trained a Nash-DQN multi-agent reinforcement learning policy with experience replay to discover competitive Nash equilibrium strategies.
+- Authored a comprehensive 34-page quantitative research paper with extensive trajectory and convergence reward diagnostics.
+
 **Semantic Representations, Text Classification & Named Entity Recognition (NER)** | *PyTorch, Transformers, Word2Vec, FastText, BiLSTM-CNN, NER* (ENSIIE (M2IA Master IA), 2025-2026)
 - Trained dense word representation models (Word2Vec Skip-Gram/CBOW, FastText) on the QUAERO French news corpus.
 - Implemented and benchmarked deep text classification pipelines comparing 1D CNNs against Transformer architectures.
 - Engineered a hybrid BiLSTM-CNN neural architecture for Named Entity Recognition (NER) and authored an extensive research report.
-
-**Financial Time Series Forecasting & Credit Scoring ML (Infinity Analytics)** | *Python, Pandas, Scikit-Learn, Statsmodels, SARIMAX, VAR* (Gainde 2000 / Bangath Systems, 2024-2025)
-- Formulated multivariate econometric forecasting pipelines leveraging SARIMA, SARIMAX, and VAR models.
-- Built and calibrated a credit default scoring model (Use Case 7) optimizing probability calibration curves and decision thresholds.
-- Authored full technical internship report and delivered a 23-slide defense presentation.
 
 
 
@@ -97,11 +97,10 @@ Best regards,
   - [Rapport PDF] `01_Spielberg_AI_Data_Platform/reports/Rapport_de_Stage_Spielberg_2026.pdf`
   - [Présentation/Slides] `01_Spielberg_AI_Data_Platform/presentations/Soutenance_Spielberg.pdf`
   - [Présentation/Slides] `01_Spielberg_AI_Data_Platform/presentations/Presentation_Stage_ENSIIE.pdf`
+**17_McMaster_Nash_DQN_MultiAgent_Trading** :
+  - [Rapport PDF] `17_McMaster_Nash_DQN_MultiAgent_Trading/reports/Rapport_Nash_DQN_Optimal_Trading.pdf`
+  - [Rapport PDF] `17_McMaster_Nash_DQN_MultiAgent_Trading/reports/Project_Roadmap.pdf`
 **05_NLP_Semantic_Representations_NER** :
   - [Rapport PDF] `05_NLP_Semantic_Representations_NER/reports/Report_CISSE_DIOP.pdf`
   - [Rapport PDF] `05_NLP_Semantic_Representations_NER/reports/Rapport_TP_Embeddings.pdf`
-**04_Infinity_Analytics_Time_Series_ML** :
-  - [Rapport PDF] `04_Infinity_Analytics_Time_Series_ML/reports/Rapport_de_Stage.pdf`
-  - [Rapport PDF] `04_Infinity_Analytics_Time_Series_ML/reports/Rapport_Use_Case_7_Scoring.pdf`
-  - [Présentation/Slides] `04_Infinity_Analytics_Time_Series_ML/presentations/Presentation_de_Stage.pdf`
 

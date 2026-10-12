@@ -23,15 +23,15 @@ Passionné par la mise en production de solutions d'intelligence artificielle ro
     • Exploration et prétraitement de données génomiques et cliniques haute dimension (cohorte METABRIC de 2000+ patientes).
     • Ajustement de modèles linéaires généralisés (GLM binomial) et sélection parcimonieuse de covariables (AIC/BIC, régularisation Lasso/Elastic Net).
 
+**Modèles Linéaires Généralisés : Régressions Poisson, Gamma & Binomiales** (McMaster University (STATS 4GLM)) :
+Suite d'études statistiques approfondies appliquant la théorie des modèles linéaires généralisés (famille exponentielle, fonctions de lien, quasi-vraisemblance) sur des problématiques réelles d'assurance et d'épidémiologie.
+    • Ajustement de modèles GLM Poisson et quasi-Poisson pour données de comptage avec diagnostic de surdispersion.
+    • Modélisation de données continues positives asymétriques via GLM Gamma et sélection de variables par analyse de déviance.
+
 **Analyse Factorielle & Clustering sur le Marché Airbnb New York City** (ENSIIE (2A ANDO)) :
 Analyse multidimensionnelle et segmentation du marché locatif new-yorkais (48 000+ logements) par ACP, analyse canonique des corrélations (ACC) et clustering K-Means.
     • Traitement et analyse exploratoire de 48 000+ observations du marché Airbnb New York.
     • Réduction de dimensionnalité via Analyse en Composantes Principales (ACP) et analyse des relations multidimensionnelles par ACC.
-
-**Machine Learning Appliqué à l'Économétrie des Salaires (Wage Data)** (DAMI / Économie) :
-Modélisation de dynamiques salariales par régression polynomiale, sélection de sous-ensembles de variables et régularisation Lasso/Ridge avec validation croisée.
-    • Modélisation prédictive des salaires à l'aide de régressions polynomiales d'ordres croissants et sélection par validation croisée.
-    • Application de techniques de régularisation (Lasso et Ridge) pour isoler les facteurs d'impact économiques prépondérants.
 
 Rejoindre **[Entreprise Cible — Ex: Sanofi / Servier / Institut Curie]** représente pour moi l'opportunité de mettre à profit mon autonomie, ma maîtrise des architectures IA/Data et ma rigueur analytique au service de vos projets stratégiques. Je serais ravi de contribuer activement aux défis techniques de vos équipes.
 
@@ -56,7 +56,7 @@ Suivant de près les avancées de **[Entreprise Cible — Ex: Sanofi / Servier /
 
 Lors de mes précédentes expériences et projets, j'ai notamment conçu des solutions concrètes telles que :
 - Étude biostatistique et modélisation binomiale de la survie à 5 ans de patientes atteintes de cancer du sein à partir de données cliniques et d'expression génomique (cohorte METABRIC).
-- Analyse multidimensionnelle et segmentation du marché locatif new-yorkais (48 000+ logements) par ACP, analyse canonique des corrélations (ACC) et clustering K-Means.
+- Suite d'études statistiques approfondies appliquant la théorie des modèles linéaires généralisés (famille exponentielle, fonctions de lien, quasi-vraisemblance) sur des problématiques réelles d'assurance et d'épidémiologie.
 
 Vous pouvez retrouver mon portfolio complet avec code source, rapports techniques et présentations de soutenance sur mon GitHub :
 🔗 [https://github.com/nourou-dine-mahy](https://github.com/nourou-dine-mahy)
@@ -77,15 +77,15 @@ Bien cordialement,
 - Ajustement de modèles linéaires généralisés (GLM binomial) et sélection parcimonieuse de covariables (AIC/BIC, régularisation Lasso/Elastic Net).
 - Évaluation rigoureuse des performances prédictives via courbes ROC-AUC, matrice de confusion et validation croisée.
 
+**Modèles Linéaires Généralisés : Régressions Poisson, Gamma & Binomiales** | *R, RMarkdown, GLM, Régression Poisson, Régression Gamma, Régression Logistique* (McMaster University (STATS 4GLM), 2026)
+- Ajustement de modèles GLM Poisson et quasi-Poisson pour données de comptage avec diagnostic de surdispersion.
+- Modélisation de données continues positives asymétriques via GLM Gamma et sélection de variables par analyse de déviance.
+- Production de 5 rapports d'analyse sous RMarkdown démontrant une maîtrise rigoureuse de l'inférence statistique.
+
 **Analyse Factorielle & Clustering sur le Marché Airbnb New York City** | *Python, Scikit-Learn, Pandas, Matplotlib, Seaborn, ACP (PCA)* (ENSIIE (2A ANDO), 2024-2025)
 - Traitement et analyse exploratoire de 48 000+ observations du marché Airbnb New York.
 - Réduction de dimensionnalité via Analyse en Composantes Principales (ACP) et analyse des relations multidimensionnelles par ACC.
 - Segmentation des logements et des quartiers par K-Means et Classification Ascendante Hiérarchique (CAH) avec soutenance et rapport.
-
-**Machine Learning Appliqué à l'Économétrie des Salaires (Wage Data)** | *R, RMarkdown, ISLR2, Glmnet, Régression Polynomiale, Cross-Validation* (DAMI / Économie, 2025-2026)
-- Modélisation prédictive des salaires à l'aide de régressions polynomiales d'ordres croissants et sélection par validation croisée.
-- Application de techniques de régularisation (Lasso et Ridge) pour isoler les facteurs d'impact économiques prépondérants.
-- Génération d'un rapport académique complet compilé sous RMarkdown.
 
 
 
@@ -95,10 +95,10 @@ Bien cordialement,
 
 **07_Breast_Cancer_Biostatistics_MERR** :
   - [Rapport PDF] `07_Breast_Cancer_Biostatistics_MERR/reports/Rapport_Cancer_Survie_MERR.pdf`
+**21_McMaster_Generalized_Linear_Models** :
+  - [Dépôt GitHub / Code] Voir dossier `21_McMaster_Generalized_Linear_Models`
 **08_Airbnb_NYC_Data_Analysis_ANDO** :
   - [Rapport PDF] `08_Airbnb_NYC_Data_Analysis_ANDO/reports/Rapport_Analyse_Donnees_ANDO.pdf`
   - [Présentation/Slides] `08_Airbnb_NYC_Data_Analysis_ANDO/presentations/Presentation_Partie_1.pdf`
   - [Présentation/Slides] `08_Airbnb_NYC_Data_Analysis_ANDO/presentations/Presentation_Partie_2.pdf`
-**09_Machine_Learning_Economics_DAMI** :
-  - [Rapport PDF] `09_Machine_Learning_Economics_DAMI/reports/Rapport_ML_Econometrics.pdf`
 

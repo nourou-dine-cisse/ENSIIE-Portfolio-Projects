@@ -23,15 +23,15 @@ Conception et déploiement d'une plateforme d'entreprise unifiant les données o
     • Conception d'une plateforme unifiée (FastAPI) pour l'ingestion, l'indexation et la centralisation des flux de données opérationnelles de plusieurs agences.
     • Développement d'un pipeline RAG (Retrieval-Augmented Generation) avec chunking sémantique optimisé et filtrage par métadonnées pour des agents IA spécialisés.
 
+**Nash-DQN : Deep Q-Learning pour Équilibres de Nash en Trading Multi-Agents** (McMaster University (MATH 4FM3)) :
+Implémentation sous PyTorch d'un environnement de jeu stochastique à N agents (Casgrain, Ning & Jaimungal, 2022) et entraînement d'architectures Deep Q-Network (Nash-DQN) pour converger vers l'équilibre de Nash en exécution optimale d'ordres.
+    • Conception d'un simulateur de marché stochastique sous forme de jeu différentiel à N agents avec impact de marché temporaire et permanent.
+    • Développement d'un algorithme Nash-DQN avec replay buffer priorisé et réseaux cible pour l'apprentissage de politiques de trading compétitives.
+
 **Représentations Sémantiques, Classification & Reconnaissance d'Entités (NER)** (ENSIIE (M2IA Master IA)) :
 Entraînement et benchmark de représentations sémantiques (Word2Vec, FastText), classification de texte (CNN, Transformers) et reconnaissance d'entités nommées par architecture hybride BiLSTM-CNN.
     • Entraînement de modèles de plongements lexicaux (Word2Vec Skip-gram/CBOW, FastText) sur le corpus journalistique français QUAERO.
     • Implémentation et comparaison d'architectures de classification de texte : Convolutions 1D (CNN) vs modèles Transformers.
-
-**Séries Temporelles & Scoring Prédictif ML (Infinity Analytics / Gainde 2000)** (Gainde 2000 / Bangath Systems) :
-Modélisation prédictive de séries temporelles financières (SARIMAX, VAR, DLTS) et élaboration de modèles de scoring de crédit avec calibration probabiliste.
-    • Modélisation économétrique et stochastique de flux financiers via SARIMA, SARIMAX et VAR (Vector Auto-Regression).
-    • Développement et calibration d'un modèle de scoring d'octroi de crédit (Use Case 7) avec optimisation des courbes de calibration et seuils de décision.
 
 Rejoindre **[Entreprise Cible — Ex: Mistral AI / Google / Meta]** représente pour moi l'opportunité de mettre à profit mon autonomie, ma maîtrise des architectures IA/Data et ma rigueur analytique au service de vos projets stratégiques. Je serais ravi de contribuer activement aux défis techniques de vos équipes.
 
@@ -56,7 +56,7 @@ Suivant de près les avancées de **[Entreprise Cible — Ex: Mistral AI / Googl
 
 Lors de mes précédentes expériences et projets, j'ai notamment conçu des solutions concrètes telles que :
 - Conception et déploiement d'une plateforme d'entreprise unifiant les données opérationnelles des filiales et orchestrant des agents IA via un pipeline RAG haute précision avec FastAPI.
-- Entraînement et benchmark de représentations sémantiques (Word2Vec, FastText), classification de texte (CNN, Transformers) et reconnaissance d'entités nommées par architecture hybride BiLSTM-CNN.
+- Implémentation sous PyTorch d'un environnement de jeu stochastique à N agents (Casgrain, Ning & Jaimungal, 2022) et entraînement d'architectures Deep Q-Network (Nash-DQN) pour converger vers l'équilibre de Nash en exécution optimale d'ordres.
 
 Vous pouvez retrouver mon portfolio complet avec code source, rapports techniques et présentations de soutenance sur mon GitHub :
 🔗 [https://github.com/nourou-dine-mahy](https://github.com/nourou-dine-mahy)
@@ -77,15 +77,15 @@ Bien cordialement,
 - Développement d'un pipeline RAG (Retrieval-Augmented Generation) avec chunking sémantique optimisé et filtrage par métadonnées pour des agents IA spécialisés.
 - Rédaction d'un rapport de stage de 54 pages et présentation devant jury académique et industriel (soutenance de 22 slides).
 
+**Nash-DQN : Deep Q-Learning pour Équilibres de Nash en Trading Multi-Agents** | *Python, PyTorch, Deep Q-Learning (DQN), Multi-Agent RL, Stochastic Games, Optimal Execution* (McMaster University (MATH 4FM3), 2026)
+- Conception d'un simulateur de marché stochastique sous forme de jeu différentiel à N agents avec impact de marché temporaire et permanent.
+- Développement d'un algorithme Nash-DQN avec replay buffer priorisé et réseaux cible pour l'apprentissage de politiques de trading compétitives.
+- Rédaction d'une thèse de recherche mathématique de 34 pages accompagnée de visualisations des trajectoires browniennes et récompenses cumulées.
+
 **Représentations Sémantiques, Classification & Reconnaissance d'Entités (NER)** | *PyTorch, Transformers, Word2Vec, FastText, BiLSTM-CNN, NER* (ENSIIE (M2IA Master IA), 2025-2026)
 - Entraînement de modèles de plongements lexicaux (Word2Vec Skip-gram/CBOW, FastText) sur le corpus journalistique français QUAERO.
 - Implémentation et comparaison d'architectures de classification de texte : Convolutions 1D (CNN) vs modèles Transformers.
 - Conception d'une architecture neuronale hybride BiLSTM-CNN pour la reconnaissance d'entités nommées (NER) avec rapport de recherche détaillé.
-
-**Séries Temporelles & Scoring Prédictif ML (Infinity Analytics / Gainde 2000)** | *Python, Pandas, Scikit-Learn, Statsmodels, SARIMAX, VAR* (Gainde 2000 / Bangath Systems, 2024-2025)
-- Modélisation économétrique et stochastique de flux financiers via SARIMA, SARIMAX et VAR (Vector Auto-Regression).
-- Développement et calibration d'un modèle de scoring d'octroi de crédit (Use Case 7) avec optimisation des courbes de calibration et seuils de décision.
-- Rédaction d'un rapport de stage complet et soutenance devant jury avec support de présentation de 23 slides.
 
 
 
@@ -97,11 +97,10 @@ Bien cordialement,
   - [Rapport PDF] `01_Spielberg_AI_Data_Platform/reports/Rapport_de_Stage_Spielberg_2026.pdf`
   - [Présentation/Slides] `01_Spielberg_AI_Data_Platform/presentations/Soutenance_Spielberg.pdf`
   - [Présentation/Slides] `01_Spielberg_AI_Data_Platform/presentations/Presentation_Stage_ENSIIE.pdf`
+**17_McMaster_Nash_DQN_MultiAgent_Trading** :
+  - [Rapport PDF] `17_McMaster_Nash_DQN_MultiAgent_Trading/reports/Rapport_Nash_DQN_Optimal_Trading.pdf`
+  - [Rapport PDF] `17_McMaster_Nash_DQN_MultiAgent_Trading/reports/Project_Roadmap.pdf`
 **05_NLP_Semantic_Representations_NER** :
   - [Rapport PDF] `05_NLP_Semantic_Representations_NER/reports/Report_CISSE_DIOP.pdf`
   - [Rapport PDF] `05_NLP_Semantic_Representations_NER/reports/Rapport_TP_Embeddings.pdf`
-**04_Infinity_Analytics_Time_Series_ML** :
-  - [Rapport PDF] `04_Infinity_Analytics_Time_Series_ML/reports/Rapport_de_Stage.pdf`
-  - [Rapport PDF] `04_Infinity_Analytics_Time_Series_ML/reports/Rapport_Use_Case_7_Scoring.pdf`
-  - [Présentation/Slides] `04_Infinity_Analytics_Time_Series_ML/presentations/Presentation_de_Stage.pdf`
 

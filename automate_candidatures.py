@@ -15,13 +15,15 @@ CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 CATALOG_PATH = os.path.join(CURRENT_DIR, "projects_catalog.json")
 
 PROFILES = {
-    "ai": ["01_spielberg", "05_nlp_representations", "04_infinity_analytics"],
-    "ml": ["01_spielberg", "04_infinity_analytics", "05_nlp_representations"],
+    "ai": ["01_spielberg", "17_mcmaster_nash_dqn", "05_nlp_representations"],
+    "ml": ["01_spielberg", "18_mcmaster_financial_sentiment", "04_infinity_analytics"],
     "de": ["01_spielberg", "03_sunsejour_etl", "02_etlia"],
     "data_engineering": ["01_spielberg", "03_sunsejour_etl", "02_etlia"],
-    "quant": ["06_black_scholes", "04_infinity_analytics", "09_ml_econometrics"],
-    "finance": ["06_black_scholes", "04_infinity_analytics", "09_ml_econometrics"],
-    "biostat": ["07_breast_cancer_merr", "08_airbnb_ando", "09_ml_econometrics"],
+    "quant": ["17_mcmaster_nash_dqn", "06_black_scholes", "18_mcmaster_financial_sentiment"],
+    "finance": ["17_mcmaster_nash_dqn", "06_black_scholes", "04_infinity_analytics"],
+    "time_series": ["19_mcmaster_canadian_retail_ts", "04_infinity_analytics", "09_ml_econometrics"],
+    "multimodal": ["20_mcmaster_vqa", "05_nlp_representations", "15_face_data_readiness"],
+    "biostat": ["07_breast_cancer_merr", "21_mcmaster_glm", "08_airbnb_ando"],
     "software": ["01_spielberg", "10_c_image_processing", "14_javafx_parser"]
 }
 
