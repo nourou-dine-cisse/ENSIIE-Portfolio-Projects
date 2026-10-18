@@ -1,0 +1,26 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      SAFE_MODE: "${SAFE_MODE:-true}"
+      ENABLE_OPENAI: "${ENABLE_OPENAI:-false}"
+      OPENAI_API_KEY: "${OPENAI_API_KEY:-}"
+      OPENAI_MODEL: "${OPENAI_MODEL:-gpt-4.1-mini}"
+      INTERNAL_DEMO_NAMES: "${INTERNAL_DEMO_NAMES:-false}"
+      BASIC_AUTH_USER: "${BASIC_AUTH_USER:-}"
+      BASIC_AUTH_PASS: "${BASIC_AUTH_PASS:-}"
+      LOG_LEVEL: "${LOG_LEVEL:-INFO}"
+      LOG_FILE: "${LOG_FILE:-logs/spielberg.log}"
+      KISSFLOW_BASE_URL: "${KISSFLOW_BASE_URL:-https://prodigious.kissflow.eu}"
+      KISSFLOW_ACCOUNT_ID: "${KISSFLOW_ACCOUNT_ID:-AcC01OGTcTPg}"
+      KISSFLOW_PROCESS_ID: "${KISSFLOW_PROCESS_ID:-Spielberg_BDC_Request}"
+      KISSFLOW_ACCESS_KEY_ID: "${KISSFLOW_ACCESS_KEY_ID:-}"
+      KISSFLOW_ACCESS_KEY_SECRET: "${KISSFLOW_ACCESS_KEY_SECRET:-}"
+      KISSFLOW_TIMEOUT_SECONDS: "${KISSFLOW_TIMEOUT_SECONDS:-30}"
+    volumes:
+      - ./backend:/app/backend
+      - ./frontend:/app/frontend
+      - ./data:/app/data
+      - ./logs:/app/logs

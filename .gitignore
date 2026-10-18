@@ -1,0 +1,39 @@
+# === OS & IDE ===
+.DS_Store
+.vscode/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# === Large data files (too big for GitHub) ===
+*.pt
+*.pth
+*.h5
+*.hdf5
+*.pkl
+*.joblib
+*.model
+*.bin
+
+# === Large CSV/datasets (>10MB) ===
+12_McMaster_Visual_Question_Answering_VQA/src/VQA_merged_final.csv
+12_McMaster_Visual_Question_Answering_VQA/src/VQA_Dataset.csv
+12_McMaster_Visual_Question_Answering_VQA/src/best_vqa_bert.pt
+
+# === Sorbonne Challenge raw CFG data ===
+15_Sorbonne_Cyber_Malware_GNN_Challenge/json_files/
+15_Sorbonne_Cyber_Malware_GNN_Challenge/test.ipynb
+
+# === Environment & secrets ===
+.env
+.env.*
+*.secret
+node_modules/
+venv/
+.venv/
+
+# === Build artifacts ===
+*.o
+*.exe
+dist/
+build/

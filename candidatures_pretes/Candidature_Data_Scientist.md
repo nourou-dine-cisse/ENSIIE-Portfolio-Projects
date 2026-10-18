@@ -2,7 +2,7 @@
 
 **Mohamed Nourou Dine CISSE**  
 Élève-Ingénieur en Mathématiques Appliquées & Intelligence Artificielle  
-ENSIIE (Évry-Courcouronnes) | Échange à l'Université McMaster (Canada)  
+ENSIIE / Université Paris-Saclay (M2IA) | Échange à McMaster University effectué à l'hiver 2026
 Email : mouhamed.nouroudine.cisse@gmail.com | Tél : +33 7 65 60 09 97  
 GitHub : [github.com/nourou-dine-mahy](https://github.com/nourou-dine-mahy)  
 
@@ -14,7 +14,7 @@ Date : 12/10/2026
 
 Madame, Monsieur,
 
-Actuellement en dernière année du cycle ingénieur à l’**ENSIIE** (spécialité Intelligence Artificielle et Mathématiques Appliquées), après un semestre d'échange académique à l’**Université McMaster** au Canada, je vous adresse ma candidature pour rejoindre **[Entreprise Cible — Ex: Publicis / TotalEnergies / BCG]** en tant que **Stagiaire Data Scientist — Séries Temporelles & Prédiction (PFE 6 mois)**.
+Actuellement en troisième année du cycle ingénieur à l’**ENSIIE**, je poursuis un double diplôme avec l’**Université Paris-Saclay** en Master 2 Intelligence Artificielle (M2IA). J'ai effectué mon échange académique à **McMaster University** durant l'hiver 2026. Je vous adresse ma candidature pour rejoindre **[Entreprise Cible — Ex: Publicis / TotalEnergies / BCG]** en tant que **Stagiaire Data Scientist — Séries Temporelles & Prédiction (PFE 6 mois)**.
 
 Passionné par la mise en production de solutions d'intelligence artificielle robustes et l'ingénierie des données à forte valeur ajoutée, j'ai développé une double compétence alliant rigueur mathématique et excellence logicielle. Mon parcours m'a permis de concevoir des architectures complètes, depuis la modélisation théorique jusqu'au déploiement :
 
@@ -50,7 +50,7 @@ Dans cette attente, je vous prie d'agréer, Madame, Monsieur, l'expression de me
 
 Bonjour,
 
-Étudiant-ingénieur en IA et Mathématiques Appliquées à l'ENSIIE et actuellement en échange à McMaster University, je suis activement à la recherche de mon stage de fin d'études (PFE, 6 mois) à partir de mai/juin 2026.
+Étudiant-ingénieur en IA et Mathématiques Appliquées à l'ENSIIE, je poursuis un double diplôme avec l'Université Paris-Saclay en Master 2 Intelligence Artificielle (M2IA), après un échange académique à McMaster University effectué durant l'hiver 2026.
 
 Suivant de près les avancées de **[Entreprise Cible — Ex: Publicis / TotalEnergies / BCG]**, je souhaiterais vivement contribuer à vos projets en tant que **Stagiaire Data Scientist — Séries Temporelles & Prédiction (PFE 6 mois)**.
 
@@ -104,4 +104,3 @@ Bien cordialement,
   - [Rapport PDF] `04_Infinity_Analytics_Time_Series_ML/reports/Rapport_de_Stage.pdf`
   - [Rapport PDF] `04_Infinity_Analytics_Time_Series_ML/reports/Rapport_Use_Case_7_Scoring.pdf`
   - [Présentation/Slides] `04_Infinity_Analytics_Time_Series_ML/presentations/Presentation_de_Stage.pdf`
-

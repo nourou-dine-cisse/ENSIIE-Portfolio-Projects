@@ -1,0 +1,8 @@
+{
+  "python_version": "3.12",
+  "dependencies": ["./backend"],
+  "graphs": {
+    "supervisor": "backend.supervisor.graph:supervisor_graph"
+  },
+  "env": "./.env"
+}

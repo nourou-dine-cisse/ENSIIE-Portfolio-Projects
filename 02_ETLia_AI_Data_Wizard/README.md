@@ -1,55 +1,87 @@
-# ETLia : Plateforme ETL Augmentée par l'IA (Lauréat Challenge Entreprendre)
+# ETLia: AI-Assisted Data Extraction, Transformation & Loading Interface
 
-> **Institution / Contexte** : ENSIIE (Challenge Entreprendre) (2025-2026)  
-> **Rôle** : Co-fondateur & Développeur Lead AI / Data  
-> **Domaine** : `Data Engineering & Fullstack AI SaaS`  
-> **Technologies** : `React` `TypeScript` `Vite` `TailwindCSS` `Python` `Streamlit` `Pandas` `ETL` `AI Assistants`
-
----
-
-## 📌 Présentation du Projet (Executive Summary)
-
-**En français :**  
-Co-fondation d'une solution SaaS d'ETL assistée par IA automatisant le profilage, le nettoyage et le chargement de données hétérogènes. Projet récompensé par le 1er prix du Challenge Entreprendre ENSIIE.
-
-**In English :**  
-Co-founded an AI-assisted ETL SaaS streamlining profiling, data cleaning, and automated schema mapping. Won 1st place at ENSIIE Entrepreneurship Challenge.
+> **Cadre académique** : ENSIIE — Projet Ingénierie Logicielle & Systèmes Décisionnels  
+> **Auteur** : Mohamed Nourou Dine CISSE  
+> **Domaine** : `Data Engineering & Interactive Web Interfaces`  
+> **Stack Technique** : `Python` `Streamlit` `SQL Server (T-SQL)` `PyODBC` `React` `TypeScript` `TailwindCSS` `Vite`
 
 ---
 
-## 🏆 Réalisations Clés & Résultats (STAR Format)
+## 📌 Présentation Réelle du Projet (Honest Overview)
 
-### Version Française (CV & Entretiens) :
-- Co-fondation et développement de la plateforme ETLia, récompensée par le 1er prix du Challenge Entreprendre ENSIIE.
-- Développement d'une interface web moderne (React/TypeScript/Tailwind) et de moteurs de transformation de données en Python/Streamlit.
-- Automatisation du mapping de schéma et de la détection d'anomalies de données à l'aide d'assistants IA intégrés.
-
-### English Version (Resume & Interviews) :
-- Co-founded and engineered ETLia, winning 1st place in the ENSIIE Entrepreneurship Challenge.
-- Built a modern React/TypeScript/Tailwind dashboard coupled with Python/Streamlit data processing engines.
-- Automated schema mapping and data anomaly detection utilizing integrated AI models.
+**ETLia** est un prototype d'application conçu pour simplifier les opérations d'extraction, de transformation et de chargement (ETL) à destination des équipes data et des analystes métier. Le projet explore deux approches complémentaires :
+1. Une **application interactive Python / Streamlit** (`backend/appETLia.py`) connectée à Microsoft SQL Server, permettant l'exploration du schéma de base de données, la configuration de règles de validation et la visualisation des flux de données.
+2. Une **interface vitrine web moderne** (`frontend/`) développée sous React / Vite / TailwindCSS présentant le produit et ses fonctionnalités d'automatisation ETL.
 
 ---
 
-## 📂 Livrables Disponibles dans ce Répertoire
+## 🏗️ Structure du Dépôt
 
-### 📄 Rapports & Documentation :
-- *Documentation technique & code source intégrés dans le dépôt.*
-
-### 📊 Présentations & Soutenances :
-- *Pas de présentation diapositive distincte pour ce projet.*
+```text
+02_ETLia_AI_Data_Wizard/
+├── README.md                      # Présentation et documentation
+├── backend/
+│   ├── appETLia.py                # Application Streamlit principale avec design personnalisé
+│   ├── config.py                  # Identifiants et paramètres de connexion SQL Server
+│   └── load.py                    # Script d'inspection des tables et colonnes (schéma dbo)
+├── frontend/                      # Interface web React / TypeScript
+│   ├── index.html
+│   ├── package.json
+│   ├── vite.config.ts
+│   └── src/
+│       ├── App.tsx
+│       ├── components/            # Composants (Hero, Features, Navigation, Contact, UI Radix)
+│       └── pages/                 # Index.tsx, NotFound.tsx
+└── assets/
+    ├── ensiie_logo_fx_RVB_0.png   # Logo institutionnel ENSIIE
+    └── Designsanstitre.png        # Bannière visuelle ETLia
+```
 
 ---
 
-## 🛠️ Stack Technique & Compétences Clés
-`React` `TypeScript` `Vite` `TailwindCSS` `Python` `Streamlit` `Pandas` `ETL` `AI Assistants`
+## ⚙️ Fonctionnalités Développées
+
+1. **Exploration du Schéma Relationnel** :
+   - Requêtage dynamique des tables et métadonnées via `INFORMATION_SCHEMA.TABLES` et `COLUMNS`.
+2. **Interface Streamlit Personnalisée** :
+   - Mode clair / sombre avec thémage CSS injecté dynamiquement.
+   - Sélection interactive des tables sources, prévisualisation des lignes et suivi des statuts de chargement.
+3. **Application Web Moderne** :
+   - Composants réutilisables basés sur TailwindCSS et Radix UI pour la présentation du pipeline de données.
 
 ---
 
-## 🚀 À propos de l'Auteur
+## 🚀 Guide d'Exécution
+
+### 1. Lancement du Backend Streamlit
+```bash
+# Installation des dépendances
+pip install streamlit pyodbc pandas
+
+# Exécution de l'application
+cd backend
+streamlit run appETLia.py
+```
+> *Remarque : La connexion à SQL Server requiert le pilote ODBC (ex. `msodbcsql18`) configuré localement ou via Docker.*
+
+### 2. Lancement du Frontend React
+```bash
+cd frontend
+npm install
+npm run dev
+```
+L'interface est accessible sur `http://localhost:5173`.
+
+---
+
+## 🔍 Limites Honnêtes (Honest Assessment)
+- Ce projet est un **prototype d'interface** (Proof of Concept) développé dans un cadre académique.
+- La persistance SQL s'appuie sur une instance locale de SQL Server.
+
+---
+
+## 📬 Profil de l'Auteur
 - **Mohamed Nourou Dine CISSE**
-- Élève-ingénieur en Mathématiques Appliquées & Intelligence Artificielle à l'**ENSIIE** (Évry-Courcouronnes, France)
-- Semestre d'échange à l'**Université McMaster** (Canada)
-- **Email** : [mouhamed.nouroudine.cisse@gmail.com](mailto:mouhamed.nouroudine.cisse@gmail.com)
-- **GitHub** : [@nourou-dine-mahy](https://github.com/nourou-dine-mahy)
-- **LinkedIn** : [Mohamed Nourou Dine CISSE](https://www.linkedin.com)
+- **ENSIIE** & **Université Paris-Saclay** — Double diplôme, Master 2 Intelligence Artificielle (M2IA)
+- Échange académique : **McMaster University** (Canada)
+- **GitHub** : [@nourou-dine-cisse](https://github.com/nourou-dine-cisse)

@@ -6,7 +6,7 @@ import base64
 import json
 
 # Configuration de la page (doit être en premier)
-st.set_page_config(page_title="ETLIA", initial_sidebar_state="collapsed")
+st.set_page_config(page_title="ETLIA", initial_sidebar_state="expanded")
 
 # Charger et encoder ton image
 with open("Designsanstitre.png", "rb") as f:
@@ -24,115 +24,164 @@ if "connection_status" not in st.session_state:
 
 # Injecter le CSS et l'image dans un conteneur fixe
 st.markdown(
-   f"""
-   <style>
-       /* Variables de couleurs */
-       :root {{
-           --bg-primary: {'#1a1d24' if st.session_state.dark_mode else '#ffffff'};
-           --bg-secondary: {'#2d3139' if st.session_state.dark_mode else '#f0f2f6'};
-           --bg-tertiary: {'#3a3f4b' if st.session_state.dark_mode else '#e6e9ef'};
-           --text-primary: {'#e8eaed' if st.session_state.dark_mode else '#31333F'};
-           --text-secondary: {'#9aa0a6' if st.session_state.dark_mode else '#69707f'};
-           --border-color: {'#4a4f5c' if st.session_state.dark_mode else '#d0d5dd'};
-           --input-bg: {'#16181d' if st.session_state.dark_mode else '#ffffff'};
-           --success-color: {'#4caf50' if st.session_state.dark_mode else '#2e7d32'};
-           --error-color: {'#f44336' if st.session_state.dark_mode else '#c62828'};
-       }}
-      
-       /* Force le thème sur toute la page */
-       html, body, [data-testid="stAppViewContainer"], [data-testid="stApp"] {{
-           background-color: var(--bg-primary) !important;
-           color: var(--text-primary) !important;
-       }}
-      
-       /* Application du thème */
-       .main {{
-           background-color: var(--bg-primary) !important;
-           color: var(--text-primary) !important;
-       }}
-      
-       .stApp {{
-           background-color: var(--bg-primary) !important;
-       }}
-      
-       /* Conteneur principal */
-       .block-container {{
-           background-color: var(--bg-primary) !important;
-           color: var(--text-primary) !important;
-       }}
-      
-       /* SIDEBAR FIXE - Largeur constante */
-       section[data-testid="stSidebar"] {{
-           background-color: var(--bg-secondary) !important;
-           width: 300px !important;
-           min-width: 300px !important;
-           max-width: 300px !important;
-       }}
-      
-       section[data-testid="stSidebar"] > div {{
-           background-color: var(--bg-secondary) !important;
-       }}
-      
-       section[data-testid="stSidebar"] [data-testid="stMarkdownContainer"] {{
-           color: var(--text-primary) !important;
-       }}
-      
-       section[data-testid="stSidebar"] h1,
-       section[data-testid="stSidebar"] h2,
-       section[data-testid="stSidebar"] h3,
-       section[data-testid="stSidebar"] label {{
-           color: var(--text-primary) !important;
-       }}
-      
-       /* Bouton de collapse - positionné à droite de la sidebar quand ouverte */
-       [data-testid="collapsedControl"] {{
-           left: 300px !important;
-           transition: left 0.3s ease !important;
-       }}
-       
-       /* Quand la sidebar est fermée, le bouton va à gauche */
-       section[data-testid="stSidebar"][aria-expanded="false"] ~ [data-testid="collapsedControl"] {{
-           left: 0 !important;
-       }}
-      
-       /* Cache le padding par défaut de Streamlit en haut */
-       .main > div {{
-           padding-top: 2rem;
-       }}
-      
-       /* Style du logo fixe dans un cercle */
-       #logo-container {{
-           position: fixed;
-           top: 70px;
-           left: 320px;
-           z-index: 999999;
-           background-color: {'#2d3139' if st.session_state.dark_mode else '#ffffff'};
-           border: {'2px solid #4a4f5c' if st.session_state.dark_mode else '2px solid #e6e9ef'};
-           border-radius: 50%;
-           transition: left 0.3s ease;
-           box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-           width: 150px;
-           height: 150px;
-           display: flex;
-           align-items: center;
-           justify-content: center;
-           overflow: hidden;
-           padding: 0;
-       }}
-      
-       #logo-container img {{
-           width: 100%;
-           height: 100%;
-           display: block;
-           object-fit: cover;
-       }}
-      
-       /* Ajustement quand la sidebar est fermée */
-       section[data-testid="stSidebar"][aria-expanded="false"] ~ div #logo-container {{
-           left: 20px !important;
-       }}
-      
-       /* Indicateur de statut de connexion */
+    f"""
+    <style>
+        /* Variables de couleurs */
+        :root {{
+            --bg-primary: {'#1a1d24' if st.session_state.dark_mode else '#ffffff'};
+            --bg-secondary: {'#2d3139' if st.session_state.dark_mode else '#f0f2f6'};
+            --bg-tertiary: {'#3a3f4b' if st.session_state.dark_mode else '#e6e9ef'};
+            --text-primary: {'#e8eaed' if st.session_state.dark_mode else '#31333F'};
+            --text-secondary: {'#9aa0a6' if st.session_state.dark_mode else '#69707f'};
+            --border-color: {'#4a4f5c' if st.session_state.dark_mode else '#d0d5dd'};
+            --input-bg: {'#16181d' if st.session_state.dark_mode else '#ffffff'};
+            --success-color: {'#4caf50' if st.session_state.dark_mode else '#2e7d32'};
+            --error-color: {'#f44336' if st.session_state.dark_mode else '#c62828'};
+        }}
+
+        /* Force le thème sur toute la page */
+        html, body, [data-testid="stAppViewContainer"], [data-testid="stApp"] {{
+            background-color: var(--bg-primary) !important;
+            color: var(--text-primary) !important;
+        }}
+
+        /* Sidebar fixe */
+        section[data-testid="stSidebar"] {{
+            background-color: var(--bg-secondary) !important;
+            width: 300px !important;
+            min-width: 300px !important;
+        }}
+
+        /* ===== Logo derrière la sidebar ===== */
+        #background-logo {{
+            position: fixed;
+            top: 70px;
+            left: 0px; /* derrière la sidebar */
+            width: 165px;
+            height: 165x;
+            margin: 20px auto; /* centre horizontalement */
+            border-radius: 50%;
+            border: 10px solid {'#4a4f5c' if st.session_state.dark_mode else '#e6e9ef'};
+            overflow: hidden;
+            text-align: center;
+            margin-left: 50px;
+        }}
+        #background-logo img {{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }}
+
+        /* Indicateur de statut de connexion */
+        .connection-status {{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 0.9em;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }}
+        .status-indicator {{
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }}
+        @keyframes pulse {{
+            0%, 100% {{ opacity: 1; }}
+            50% {{ opacity: 0.5; }}
+        }}
+        .status-connected {{
+            background-color: rgba(76, 175, 80, 0.2);
+            color: var(--success-color);
+            border: 1px solid var(--success-color);
+        }}
+        .status-connected .status-indicator {{
+            background-color: var(--success-color);
+        }}
+        .status-disconnected {{
+            background-color: rgba(158, 158, 158, 0.2);
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+        }}
+        .status-disconnected .status-indicator {{
+            background-color: var(--text-secondary);
+            animation: none;
+        }}
+        .status-error {{
+            background-color: rgba(244, 67, 54, 0.2);
+            color: var(--error-color);
+            border: 1px solid var(--error-color);
+        }}
+        .status-error .status-indicator {{
+            background-color: var(--error-color);
+        }}
+
+        /* Inputs */
+        .stTextInput > div > div > input {{
+            background-color: var(--input-bg) !important;
+            color: var(--text-primary) !important;
+            border: 2px solid var(--border-color) !important;
+            border-radius: 6px !important;
+        }}
+        .stTextInput > div > div > input:focus {{
+            border-color: {'#5b9bd5' if st.session_state.dark_mode else '#0066cc'} !important;
+            box-shadow: 0 0 0 1px {'#5b9bd5' if st.session_state.dark_mode else '#0066cc'} !important;
+        }}
+        .stTextInput label, .stTextArea label {{
+            color: var(--text-primary) !important;
+        }}
+        .stTextArea textarea {{
+            background-color: var(--input-bg) !important;
+            color: var(--text-primary) !important;
+            border: 2px solid var(--border-color) !important;
+            border-radius: 6px !important;
+        }}
+
+        /* Chat */
+        [data-testid="stChatInput"] textarea {{
+            background-color: var(--input-bg) !important;
+            color: var(--text-primary) !important;
+            caret-color: var(--text-primary) !important;
+        }}
+        [data-testid="stChatInput"] button {{
+            background-color: var(--bg-tertiary) !important;
+            color: var(--text-primary) !important;
+            border: 1px solid var(--border-color) !important;
+        }}
+        [data-testid="stChatInput"] button:hover {{
+            background-color: {'#5b9bd5' if st.session_state.dark_mode else '#0066cc'} !important;
+            border-color: {'#5b9bd5' if st.session_state.dark_mode else '#0066cc'} !important;
+        }}
+        [data-testid="stChatMessage"] {{
+            background-color: var(--bg-tertiary) !important;
+            border: 1px solid var(--border-color) !important;
+            border-radius: 8px !important;
+            color: var(--text-primary) !important;
+        }}
+
+        /* Boutons */
+        .stButton > button {{
+            background-color: var(--bg-secondary) !important;
+            color: var(--text-primary) !important;
+            border: 1px solid var(--border-color) !important;
+            border-radius: 6px !important;
+            transition: all 0.2s ease !important;
+        }}
+        .stButton > button:hover {{
+            background-color: var(--bg-tertiary) !important;
+            border-color: {'#5b9bd5' if st.session_state.dark_mode else '#0066cc'} !important;
+        }}
+
+        /* Titres et textes */
+        h1,h2,h3,h4,h5,h6,p,span,div {{
+            color: var(--text-primary) !important;
+        }}
+        /* Indicateur de statut de connexion */
        .connection-status {{
            display: flex;
            align-items: center;
@@ -320,81 +369,19 @@ st.markdown(
            background-color: var(--bg-tertiary) !important;
            border-color: {'#5b9bd5' if st.session_state.dark_mode else '#0066cc'} !important;
        }}
-      
-       /* Titres */
-       h1, h2, h3, h4, h5, h6 {{
-           color: var(--text-primary) !important;
-       }}
-      
-       /* Texte général */
-       p, span, div {{
-           color: var(--text-primary) !important;
-       }}
-      
        /* Header Streamlit */
        header[data-testid="stHeader"] {{
            background-color: var(--bg-primary) !important;
        }}
-      
-       /* Code blocks dans les messages */
-       [data-testid="stChatMessage"] pre {{
-           background-color: var(--input-bg) !important;
-           border: 1px solid var(--border-color) !important;
-           color: var(--text-primary) !important;
-       }}
-      
-       [data-testid="stChatMessage"] code {{
-           background-color: var(--input-bg) !important;
-           color: var(--text-primary) !important;
-       }}
-      
-       /* Footer et éléments en bas de page */
-       footer {{
-           background-color: var(--bg-primary) !important;
-           color: var(--text-secondary) !important;
-       }}
-      
-       /* Tous les éléments de la zone bottom */
-       .stBottom, .stBottom > *, [class*="stBottom"] {{
-           background-color: var(--bg-primary) !important;
-       }}
-   </style>
-  
-   <div id="logo-container">
-       <img src="data:image/png;base64,{data}" alt="Logo ETLIA">
-   </div>
-  
-   <script>
-       // Script pour détecter l'état de la sidebar et ajuster le logo
-       const observer = new MutationObserver(() => {{
-           const sidebar = document.querySelector('[data-testid="stSidebar"]');
-           const logo = document.getElementById('logo-container');
-          
-           if (sidebar && logo) {{
-               const isCollapsed = sidebar.getAttribute('aria-expanded') === 'false';
-               logo.style.left = isCollapsed ? '20px' : '320px';
-           }}
-       }});
-      
-       observer.observe(document.body, {{
-           attributes: true,
-           subtree: true,
-           attributeFilter: ['aria-expanded', 'class']
-       }});
-      
-       setTimeout(() => {{
-           const sidebar = document.querySelector('[data-testid="stSidebar"]');
-           const logo = document.getElementById('logo-container');
-           if (sidebar && logo) {{
-               const isCollapsed = sidebar.getAttribute('aria-expanded') === 'false';
-               logo.style.left = isCollapsed ? '20px' : '320px';
-           }}
-       }}, 100);
-   </script>
-   """,
-   unsafe_allow_html=True
-)
+             
+    </style>
 
+    <div id="background-logo">
+        <img src="data:image/png;base64,{data}" alt="Logo ETLIA">
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 
 # Titre sans bouton mode sombre
 st.title("Par quoi commençons-nous ?")
@@ -403,6 +390,36 @@ st.title("Par quoi commençons-nous ?")
 # Side bar connection a la base de donnees
 with st.sidebar:
   # Indicateur de statut de connexion en haut
+  with st.sidebar:
+    st.markdown(
+        f"""
+        <style>
+            .sidebar-logo {{
+                width: 165px;
+                height: 165x;
+                margin: 20px auto; /* centre horizontalement */
+                border-radius: 50%;
+                border: 10px solid {'#4a4f5c' if st.session_state.dark_mode else '#e6e9ef'};
+                overflow: hidden;
+                text-align: center;
+            }}
+
+            .sidebar-logo img {{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+            }}
+        </style>
+
+        <div class="sidebar-logo">
+            <img src="data:image/png;base64,{data}" alt="Logo ETLIA">
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
+
   status_class = f"status-{st.session_state.connection_status}"
   status_text = {
       "connected": "✓ Connecté",
@@ -421,7 +438,7 @@ with st.sidebar:
   if st.button("🌓 Mode sombre" if not st.session_state.dark_mode else "☀️ Mode clair", use_container_width=True):
       st.session_state.dark_mode = not st.session_state.dark_mode
       st.rerun()
-  
+      
   st.markdown("---")  # Séparateur
   
   st.header("Connexion à la base de données")
@@ -429,7 +446,7 @@ with st.sidebar:
   db_user = st.text_input("Utilisateur", value="sa")
   db_pass = st.text_input("Mot de passe", value="MyStrongPass123", type="password")
   db_name = st.text_input("Base de données", value="master")
-  webhook_url = st.text_input("URL Webhook n8n", value="https://de7150e06a6a.ngrok-free.app/webhook/etlia-chat\"")
+  webhook_url = st.text_input("URL Webhook n8n", value="https://c40693b742e6.ngrok-free.app/webhook/etlia-chat\"")
 
 
 # Historique des messages
@@ -486,7 +503,7 @@ conn.close()
 # --- Préparation du prompt complet ---
 preprompt = f"""
 You are ETLIA, an intelligent agent specialized in the analysis, transformation, and automation of data flows (ETL).
-You always respond professionally, concisely, and precisely in pure JSON format.
+You always respond professionally in french, concisely, and precisely in pure JSON format.
 
 Your mission is to handle the full ETL process, including:
 - Extract: interact with the SQL Server database to retrieve or filter relevant data.
@@ -551,7 +568,7 @@ if user_input:
     }
 
     try:
-        response = requests.post(webhook_url, json=payload, timeout=200)
+        response = requests.post(webhook_url, json=payload, timeout=60)
         if response.status_code == 200:
             assistant_reply = response.json()
             st.session_state.connection_status = "connected"
@@ -577,6 +594,11 @@ if user_input:
                         # Tableau SQL
                         df = pd.DataFrame(assistant_reply)
                         if "message" in df.columns:
+                            message = df['message'][0]
+                            st.session_state.history.append({
+                            "role": "assistant",
+                            "content": f"{message}"
+                        })
                             df = df.drop(columns=["message"])
                         st.session_state.df_result = df
                         st.session_state.history.append({

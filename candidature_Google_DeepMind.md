@@ -2,7 +2,7 @@
 
 **Mohamed Nourou Dine CISSE**  
 Master's Student in Applied Mathematics & Artificial Intelligence  
-ENSIIE (Paris-Saclay affiliate, France) | Exchange at McMaster University (Canada)  
+ENSIIE / Université Paris-Saclay (M2IA) | Completed exchange at McMaster University (Winter 2026)
 Email: mouhamed.nouroudine.cisse@gmail.com | Phone: +33 7 65 60 09 97  
 GitHub: [github.com/nourou-dine-mahy](https://github.com/nourou-dine-mahy)  
 
@@ -14,7 +14,7 @@ Date: October 12, 2026
 
 Dear Hiring Team,
 
-Currently completing my final year of engineering studies in Applied Mathematics and Artificial Intelligence at **ENSIIE** (France), alongside an academic exchange semester at **McMaster University** (Canada), I am writing to express my strong enthusiasm for joining **Google DeepMind** as an intern in **Research Engineer Intern (PFE)**.
+I am currently completing my third year of engineering studies at **ENSIIE** (France) while pursuing a double degree with **Université Paris-Saclay** in the Master 2 Artificial Intelligence program (M2IA). I completed my academic exchange at **McMaster University** in Winter 2026. I am writing to express my strong enthusiasm for joining **Google DeepMind** as an intern in **Research Engineer Intern (PFE)**.
 
 Throughout my academic journey and previous industry experiences, I have developed a solid foundation combining theoretical machine learning with production-grade software and data engineering:
 
@@ -50,7 +50,7 @@ Sincerely,
 
 Dear Hiring Manager,
 
-I am a final-year graduate engineering student in Artificial Intelligence and Applied Mathematics at ENSIIE (France), currently completing an exchange semester at McMaster University (Canada). I am actively seeking my 6-month end-of-studies internship starting May/June 2026.
+I am an engineering student at ENSIIE (France), currently pursuing a double degree with Université Paris-Saclay in the Master 2 Artificial Intelligence program (M2IA). I completed an academic exchange at McMaster University in Winter 2026.
 
 I have been following **Google DeepMind**'s work with great interest and would love to contribute to your engineering efforts as a **Research Engineer Intern (PFE)**.
 
@@ -104,4 +104,3 @@ Best regards,
   - [Rapport PDF] `04_Infinity_Analytics_Time_Series_ML/reports/Rapport_de_Stage.pdf`
   - [Rapport PDF] `04_Infinity_Analytics_Time_Series_ML/reports/Rapport_Use_Case_7_Scoring.pdf`
   - [Présentation/Slides] `04_Infinity_Analytics_Time_Series_ML/presentations/Presentation_de_Stage.pdf`
-

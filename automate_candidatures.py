@@ -15,16 +15,18 @@ CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 CATALOG_PATH = os.path.join(CURRENT_DIR, "projects_catalog.json")
 
 PROFILES = {
-    "ai": ["01_spielberg", "17_mcmaster_nash_dqn", "05_nlp_representations"],
-    "ml": ["01_spielberg", "18_mcmaster_financial_sentiment", "04_infinity_analytics"],
+    "ai": ["01_spielberg", "09_mcmaster_nash_dqn", "05_nlp_representations"],
+    "ml": ["01_spielberg", "10_mcmaster_financial_sentiment", "04_infinity_analytics"],
     "de": ["01_spielberg", "03_sunsejour_etl", "02_etlia"],
     "data_engineering": ["01_spielberg", "03_sunsejour_etl", "02_etlia"],
-    "quant": ["17_mcmaster_nash_dqn", "06_black_scholes", "18_mcmaster_financial_sentiment"],
-    "finance": ["17_mcmaster_nash_dqn", "06_black_scholes", "04_infinity_analytics"],
-    "time_series": ["19_mcmaster_canadian_retail_ts", "04_infinity_analytics", "09_ml_econometrics"],
-    "multimodal": ["20_mcmaster_vqa", "05_nlp_representations", "15_face_data_readiness"],
-    "biostat": ["07_breast_cancer_merr", "21_mcmaster_glm", "08_airbnb_ando"],
-    "software": ["01_spielberg", "10_c_image_processing", "14_javafx_parser"]
+    "quant": ["09_mcmaster_nash_dqn", "06_black_scholes", "10_mcmaster_financial_sentiment"],
+    "finance": ["09_mcmaster_nash_dqn", "06_black_scholes", "04_infinity_analytics"],
+    "time_series": ["11_mcmaster_canadian_retail_ts", "04_infinity_analytics", "09_mcmaster_nash_dqn"],
+    "multimodal": ["12_mcmaster_vqa", "05_nlp_representations", "01_spielberg"],
+    "biostat": ["07_breast_cancer_merr", "13_mcmaster_glm", "08_airbnb_ando"],
+    "software": ["01_spielberg", "02_etlia", "06_black_scholes"],
+    "startup": ["01_spielberg", "02_etlia", "14_kryptosphere"],
+    "cybersecurity": ["15_sorbonne_malware_gnn", "01_spielberg", "09_mcmaster_nash_dqn"]
 }
 
 def load_catalog():
@@ -82,8 +84,10 @@ def generate_cover_letter_fr(candidate, entreprise, poste, selected_projects):
     letter = f"""# Lettre de Motivation — Candidature Stage de Fin d'Études (PFE)
 
 **Mohamed Nourou Dine CISSE**  
-Élève-Ingénieur en Mathématiques Appliquées & Intelligence Artificielle  
-ENSIIE (Évry-Courcouronnes) | Échange à l'Université McMaster (Canada)  
+Élève-Ingénieur en Double Diplôme :  
+• **ENSIIE** (Grande École d'Ingénieurs, Évry-Courcouronnes)  
+• **Université Paris-Saclay** (Master 2 Intelligence Artificielle — M2IA, LISN / DATAIA)  
+• Échange Académique : **McMaster University** (Dept. of Mathematics & Statistics, Canada)  
 Email : mouhamed.nouroudine.cisse@gmail.com | Tél : +33 7 65 60 09 97  
 GitHub : [github.com/nourou-dine-mahy](https://github.com/nourou-dine-mahy)  
 
@@ -95,9 +99,9 @@ Date : {date_str}
 
 Madame, Monsieur,
 
-Actuellement en dernière année du cycle ingénieur à l’**ENSIIE** (spécialité Intelligence Artificielle et Mathématiques Appliquées), après un semestre d'échange académique à l’**Université McMaster** au Canada, je vous adresse ma candidature pour rejoindre **{entreprise}** en tant que **{poste}**.
+Actuellement en double diplôme au sein de l’**ENSIIE** et du **Master 2 Intelligence Artificielle (M2IA)** de l’**Université Paris-Saclay** (écosystème LISN / DATAIA), après un semestre d'échange académique en mathématiques appliquées et apprentissage automatique à l’**Université McMaster** au Canada, je vous adresse ma candidature pour rejoindre **{entreprise}** en tant que **{poste}** (Stage de fin d'études de 6 mois).
 
-Passionné par la mise en production de solutions d'intelligence artificielle robustes et l'ingénierie des données à forte valeur ajoutée, j'ai développé une double compétence alliant rigueur mathématique et excellence logicielle. Mon parcours m'a permis de concevoir des architectures complètes, depuis la modélisation théorique jusqu'au déploiement :
+Passionné par la recherche appliquée et la mise en production de solutions d'IA avancées (LLM, systèmes multi-agents, apprentissage par renforcement, séries temporelles et modélisation quantitative), j'allie une solide rigueur mathématique à une forte exigence d'ingénierie logicielle :
 
 {projects_block}
 
@@ -128,8 +132,10 @@ def generate_cover_letter_en(candidate, entreprise, poste, selected_projects):
     letter = f"""# Cover Letter — End-of-Studies Internship (6 Months)
 
 **Mohamed Nourou Dine CISSE**  
-Master's Student in Applied Mathematics & Artificial Intelligence  
-ENSIIE (Paris-Saclay affiliate, France) | Exchange at McMaster University (Canada)  
+Dual-Degree Graduate Engineering Student:  
+• **ENSIIE** (Leading French Grande École in Computer Science & Applied Mathematics)  
+• **Université Paris-Saclay** (Master 2 in Artificial Intelligence — M2IA, LISN / DATAIA)  
+• Academic Exchange: **McMaster University** (Dept. of Mathematics & Statistics, Canada)  
 Email: mouhamed.nouroudine.cisse@gmail.com | Phone: +33 7 65 60 09 97  
 GitHub: [github.com/nourou-dine-mahy](https://github.com/nourou-dine-mahy)  
 
@@ -137,13 +143,13 @@ Hiring Team / Engineering Leadership
 **{entreprise}**  
 Date: {date_str}  
 
-**Subject: Application for {poste} (End-of-Studies Internship)**
+**Subject: Application for {poste} (End-of-Studies Internship — 6 Months)**
 
 Dear Hiring Team,
 
-Currently completing my final year of engineering studies in Applied Mathematics and Artificial Intelligence at **ENSIIE** (France), alongside an academic exchange semester at **McMaster University** (Canada), I am writing to express my strong enthusiasm for joining **{entreprise}** as an intern in **{poste}**.
+Currently completing a dual Master's degree in Artificial Intelligence at **Université Paris-Saclay (M2IA)** and **ENSIIE** (France), alongside an academic exchange semester in applied mathematics and machine learning at **McMaster University** (Canada), I am writing to express my strong enthusiasm for joining **{entreprise}** as an intern in **{poste}**.
 
-Throughout my academic journey and previous industry experiences, I have developed a solid foundation combining theoretical machine learning with production-grade software and data engineering:
+Passionate about applied research and production-grade AI systems (LLMs, multi-agent workflows, reinforcement learning, time-series forecasting, and high-performance quantitative computing), I bring a blend of mathematical rigor and modern software engineering:
 
 {projects_block}
 
@@ -162,22 +168,22 @@ def generate_pitch_email(candidate, entreprise, poste, selected_projects, lang="
     if lang == "fr":
         return f"""### 📧 Message Court d'Accroche (Email / LinkedIn)
 
-**Objet** : Candidature {poste} — Mohamed Nourou Dine CISSE (ENSIIE / McMaster)
+**Objet** : Candidature {poste} — Mohamed Nourou Dine CISSE (ENSIIE & Paris-Saclay M2IA / McMaster)
 
 Bonjour,
 
-Étudiant-ingénieur en IA et Mathématiques Appliquées à l'ENSIIE et actuellement en échange à McMaster University, je suis activement à la recherche de mon stage de fin d'études (PFE, 6 mois) à partir de mai/juin 2026.
+Actuellement en double diplôme ingénieur à l’**ENSIIE** et en **Master 2 Intelligence Artificielle (M2IA) à l'Université Paris-Saclay**, après un échange académique à **McMaster University** (Canada), je suis activement à la recherche de mon stage de fin d'études (PFE, 6 mois) à partir de mai/juin 2026.
 
-Suivant de près les avancées de **{entreprise}**, je souhaiterais vivement contribuer à vos projets en tant que **{poste}**.
+Suivant de près l'excellence technologique de **{entreprise}**, je souhaiterais vivement contribuer à vos projets en tant que **{poste}**.
 
-Lors de mes précédentes expériences et projets, j'ai notamment conçu des solutions concrètes telles que :
+Lors de mes précédents projets d'ingénierie et de recherche appliquée, j'ai notamment conçu :
 - {selected_projects[0]['pitch_fr']}
 - {selected_projects[1]['pitch_fr']}
 
-Vous pouvez retrouver mon portfolio complet avec code source, rapports techniques et présentations de soutenance sur mon GitHub :
+Vous pouvez consulter mon portfolio complet réunissant code source, rapports académiques/industriels et supports de soutenance sur mon GitHub :
 🔗 [https://github.com/nourou-dine-mahy](https://github.com/nourou-dine-mahy)
 
-Seriez-vous disponible pour un court échange téléphonique de 10 minutes cette semaine ?
+Seriez-vous ouvert à un court échange téléphonique de 10 à 15 minutes pour discuter des opportunités au sein de votre équipe ?
 
 Bien cordialement,  
 **Mohamed Nourou Dine CISSE**  
@@ -186,13 +192,13 @@ Bien cordialement,
     else:
         return f"""### 📧 Cold Email / LinkedIn Pitch (English)
 
-**Subject**: Application for {poste} — Mohamed Nourou Dine CISSE (ENSIIE / McMaster)
+**Subject**: Application for {poste} — Mohamed Nourou Dine CISSE (ENSIIE & Paris-Saclay M2IA / McMaster)
 
 Dear Hiring Manager,
 
-I am a final-year graduate engineering student in Artificial Intelligence and Applied Mathematics at ENSIIE (France), currently completing an exchange semester at McMaster University (Canada). I am actively seeking my 6-month end-of-studies internship starting May/June 2026.
+I am a dual-degree graduate student in Artificial Intelligence at **Université Paris-Saclay (Master 2 IA)** and **ENSIIE** (France), currently completing an academic exchange semester at **McMaster University** (Canada). I am actively seeking a 6-month end-of-studies internship starting May/June 2026.
 
-I have been following **{entreprise}**'s work with great interest and would love to contribute to your engineering efforts as a **{poste}**.
+I have been following **{entreprise}**'s advancements with deep interest and would love to contribute to your engineering and applied research initiatives as a **{poste}**.
 
 My previous engineering and applied research work includes:
 - {selected_projects[0]['pitch_en']}

@@ -1,8 +1,8 @@
 # Hi there, I'm Mohamed Nourou Dine CISSE 👋
 
-### Applied Mathematics & Artificial Intelligence Engineer
-🎓 **ENSIIE** (Évry-Courcouronnes, France) • 🍁 **McMaster University** (Ontario, Canada)  
-🎯 **Actively seeking a 6-month End-of-Studies Internship (PFE)** in AI / Machine Learning / Data Engineering / Quantitative Finance starting May/June 2026.
+### Applied Mathematics & Artificial Intelligence Engineering Student
+🎓 **Currently pursuing a double degree:** ENSIIE & Université Paris-Saclay, Master 2 Artificial Intelligence (M2IA, 2026–2027)  
+🍁 **Completed academic exchange:** McMaster University, Department of Mathematics & Statistics (Winter 2026)
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=flat-square&logo=linkedin)](https://www.linkedin.com)
 [![GitHub](https://img.shields.io/badge/GitHub-Portfolio-181717?style=flat-square&logo=github)](https://github.com/nourou-dine-mahy)
@@ -10,41 +10,43 @@
 
 ---
 
-## ⚡ What I Do & Core Technical Highlights
+## ⚡ Key Highlights & Core Competencies
 
-- 🤖 **Enterprise AI & RAG Agents** : Architected an operational data hub and multi-agent RAG pipeline at **Publicis Groupe / Prodigious France** (FastAPI, chunking, vector embeddings).
-- 🏆 **Startup Co-Founder & Winner** : Co-founded **ETLia**, an AI-assisted automated ETL SaaS that won **1st place in the ENSIIE Entrepreneurship Challenge** (React/TypeScript + Python/Streamlit).
-- 📈 **Time Series Forecasting & Credit Scoring** : Built multivariate forecasting engines (SARIMAX, VAR, DLTS) and calibrated credit risk models at **Infinity Analytics / Gainde 2000**.
-- 💹 **Quantitative Computing** : Implemented a high-performance C++17 Black-Scholes PDE solver (finite difference explicit/implicit schemes) with real-time SDL2 payoff graphics.
-- 🔤 **Deep NLP & Transformers** : Researched distributional semantics (Word2Vec, FastText), 1D CNN/Transformer classifiers, and hybrid BiLSTM-CNN for Named Entity Recognition.
+- 🤖 **Enterprise AI & Multi-Agent Systems** : Engineered an enterprise operational data hub and LangGraph supervisor-worker multi-agent RAG system at **Publicis Groupe** (54-page thesis, 22-slide defense).
+- 🏆 **Startup Founder & 1st Prize Winner** : Co-founded **ETLia**, an AI-assisted automated ETL SaaS that won **1st place in the ENSIIE Entrepreneurship Challenge**.
+- 🍁 **Quantitative Reinforcement Learning** : Authored a 34-page research thesis on **Nash-DQN Multi-Agent Optimal Execution** (Casgrain, Ning & Jaimungal 2022) at **McMaster University** (PyTorch).
+- 📈 **Predictive Time Series & Scoring ML** : Formulated multivariate forecasting pipelines (SARIMAX, VAR, DLTS) and calibrated default scoring models at **Gainde 2000**.
+- 💹 **Scientific Computing & PDE** : Built an object-oriented modern C++17 Black-Scholes PDE solver (implicit/explicit finite differences) with real-time SDL2 payoff graphics.
+- 🔤 **Deep NLP & Semantic Representations** : Researched dense embeddings (Word2Vec, FastText), 1D CNN/Transformer text classifiers, and hybrid BiLSTM-CNN for Named Entity Recognition.
+- 🛡️ **Cybersecurity AI & Malware Analysis** : Competed in the **Sorbonne × Gendarmerie Nationale (ComCyber)** Data Challenge — multi-label malware classification from Control Flow Graphs via GNN & assembly analysis.
 
 ---
 
-## 🛠️ Tech Stack & Toolbox
+## 🛠️ Technical Toolbox
 
 | Domain | Technologies |
 | :--- | :--- |
-| **Languages** | Python, C++, C, R, TypeScript, JavaScript, SQL, OCaml, Java |
-| **AI / Machine Learning** | PyTorch, Transformers, Scikit-Learn, Statsmodels, RAG, Word2Vec, FastText, GLM |
-| **Data Engineering** | Docker, Docker Compose, Pandas, NumPy, FastAPI, Streamlit, Star Schema Datamarts |
+| **Languages** | Python, C++17, R, TypeScript, JavaScript, SQL, Bash |
+| **AI / Machine Learning** | PyTorch, Transformers, LangGraph, Scikit-Learn, Statsmodels, Multi-Agent RL, RAG, GLM |
+| **Data Engineering** | Docker, Docker Compose, FastAPI, PostgreSQL, Pandas, NumPy, Star Schema Datamarts |
 | **Frontend & Visualization** | React, Vite, TailwindCSS, Matplotlib, Seaborn, SDL2 |
-| **Tools & Environments** | Linux, Git, LaTeX, Make, Jupyter, Valgrind, Bash |
 
 ---
 
-## 🌟 Featured Projects & Documentation
+## 🌟 Featured Projects
 
-| Project | Highlights | Deliverables |
-| :--- | :--- | :--- |
-| **Projet Spielberg** | Enterprise AI platform unifying cross-agency data with RAG agents | [54-page Thesis](https://github.com/nourou-dine-mahy) • [22-slide Deck](https://github.com/nourou-dine-mahy) |
-| **ETLia AI Data Wizard** | 1st Prize Winner — AI-driven automated no-code data profiling and loading | React Frontend & Python Engine |
-| **SunSéjour ETL Pipeline** | Containerized tourism data pipeline with dimensional star-schema datamart | Technical Architecture Report |
-| **Black-Scholes PDE Solver** | Modern C++17 options pricing engine solving Black-Scholes via finite differences | Scientific Research Paper & SDL2 GUI |
-| **Cancer Survival Modeling** | Biostatistical survival inference on the 2000+ patient METABRIC cohort in R | Research Paper & ROC-AUC Benchmarks |
+| Project | Context & Degree | Highlights | Deliverables |
+| :--- | :--- | :--- | :--- |
+| **Projet Spielberg** | Publicis Groupe & Startup Foundation | Enterprise Multi-Agent LangGraph platform & RAG | [54p Thesis](https://github.com/nourou-dine-mahy) • [22p Deck](https://github.com/nourou-dine-mahy) |
+| **ETLia AI Data Wizard** | 1st Prize Challenge Entreprendre | AI-assisted automated no-code data profiling and loading | Complete React & Python Code |
+| **Nash-DQN Trading** | McMaster University (MATH 4FM3) | Deep Q-Learning for Nash equilibria in stochastic trading games | [34p Research Thesis](https://github.com/nourou-dine-mahy) |
+| **SunSéjour ETL Pipeline** | ENSIIE Data Engineering | Containerized production tourism datamart under Docker | [Datamart Report](https://github.com/nourou-dine-mahy) |
+| **Black-Scholes Solver** | ENSIIE (2A PRAV) | Modern C++17 options pricing engine solving Black-Scholes PDE | [Scientific Report](https://github.com/nourou-dine-mahy) |
+| **Sorbonne Malware Challenge** | Sorbonne × Gendarmerie (ComCyber) | Cyber AI — multi-label malware detection from x86 CFGs via GNN | [Challenge Brief](https://github.com/nourou-dine-mahy) |
 
 ---
 
-## 📬 Let's Connect!
+## 📬 Contact
 - **Email** : [mouhamed.nouroudine.cisse@gmail.com](mailto:mouhamed.nouroudine.cisse@gmail.com)
 - **Phone** : +33 7 65 60 09 97
 - **Location** : Paris, France (Available for nationwide and international mobility)
