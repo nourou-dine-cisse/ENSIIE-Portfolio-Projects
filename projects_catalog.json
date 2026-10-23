@@ -928,5 +928,98 @@
     "reports": [],
     "presentations": [],
     "architecture_diagrams": []
+  },
+  {
+    "id": "19_mcmaster_cv_cnn",
+    "folder": "19_McMaster_Computer_Vision_CNN_Suite",
+    "title_fr": "Vision par ordinateur & architectures CNN (McMaster University)",
+    "title_en": "Computer Vision & Deep CNN Architectures Suite (McMaster University)",
+    "category": "Deep Learning & NLP",
+    "institution": "McMaster University (Canada)",
+    "degree": "Exchange Program — Applied Artificial Intelligence",
+    "year": "2026",
+    "role": "Lead Deep Learning Engineer",
+    "technologies": [
+      "TensorFlow",
+      "Keras",
+      "OpenCV",
+      "CNN",
+      "AlexNet",
+      "GTSRB",
+      "Computer Vision"
+    ],
+    "keywords": [
+      "computer vision",
+      "cnn",
+      "alexnet",
+      "gtsrb",
+      "traffic sign",
+      "facial expression",
+      "deep learning",
+      "convolutional neural networks"
+    ],
+    "pitch_fr": "Suite de projets de vision par ordinateur à McMaster University : classification de 43 panneaux routiers (GTSRB) pour véhicules autonomes, étude de l'architecture AlexNet et reconnaissance faciale du sourire par réseaux convolutifs profonds.",
+    "pitch_en": "McMaster University computer vision suite: 43-class autonomous driving traffic sign classification (GTSRB), in-depth AlexNet architectural analysis, and biometric facial smile classification with deep CNNs.",
+    "star_bullet_points_fr": [
+      "Conception d'un pipeline de vision complet : égalisation d'histogramme adaptative, data augmentation et régularisation par dropout.",
+      "Entraînement d'un CNN profond sur 43 classes de signalisation routière GTSRB et analyse des cartes d'activation convolutives.",
+      "Classification binaire d'expressions faciales (smile vs no-smile) sur tenseurs RGB 64x64 avec Batch Normalization."
+    ],
+    "star_bullet_points_en": [
+      "Engineered full CV pipeline: adaptive local histogram equalization, real-time spatial data augmentation, and dropout regularization.",
+      "Trained deep CNN on 43-class German Traffic Sign Recognition Benchmark (GTSRB) with feature map inspection.",
+      "Built biometric facial emotion detector on 64x64x3 RGB image tensors with Batch Normalization."
+    ],
+    "reports": [
+      "https://raw.githubusercontent.com/nourou-dine-cisse/McMaster-Computer-Vision-CNN-Suite/main/02_AlexNet_Architecture_Study/probleme_1.pdf"
+    ],
+    "presentations": [],
+    "architecture_diagrams": []
+  },
+  {
+    "id": "20_mcmaster_ml_foundations",
+    "folder": "20_McMaster_Machine_Learning_Foundations_from_Scratch",
+    "title_fr": "Fondements du machine learning & rétropropagation from scratch (McMaster University)",
+    "title_en": "Machine Learning Foundations & Neural Networks from Scratch (McMaster University)",
+    "category": "Deep Learning & NLP",
+    "institution": "McMaster University (Canada)",
+    "degree": "Exchange Program — Machine Learning & Neural Networks",
+    "year": "2026",
+    "role": "Lead ML Researcher",
+    "technologies": [
+      "NumPy",
+      "Autograd",
+      "Optimization",
+      "Backpropagation",
+      "Decision Trees",
+      "MNIST",
+      "TensorFlow"
+    ],
+    "keywords": [
+      "backpropagation",
+      "numpy",
+      "from scratch",
+      "gradient descent",
+      "optimization",
+      "decision trees",
+      "autograd",
+      "mnist",
+      "machine learning"
+    ],
+    "pitch_fr": "Exploration mathématique et algorithmique des fondements du machine learning à McMaster : rétropropagation vectorisée analytique en pur NumPy, algorithmes d'optimisation non-convexe, arbre de décision récursif développé de zéro et réseaux de neurones profonds sur MNIST.",
+    "pitch_en": "Mathematical and algorithmic exploration of foundational ML at McMaster: vectorized analytical backpropagation from scratch in pure NumPy, non-convex numerical optimization algorithms, custom recursive decision trees, and deep MNIST MLPs.",
+    "star_bullet_points_fr": [
+      "Dérivation analytique et implémentation vectorisée en pur NumPy de la rétropropagation par descente de gradient par lots sans boucle itérative.",
+      "Implémentation d'algorithmes d'optimisation d'ordre zéro (coordinate search) et de descente de gradient accélérée avec momentum.",
+      "Développement de zéro de My_TreeRegressor (partitionnement binaire récursif par réduction d'impureté MSE) et benchmark face à Scikit-learn."
+    ],
+    "star_bullet_points_en": [
+      "Analytically derived and vectorized full multi-layer backpropagation in pure NumPy, leveraging matrix multiplications without sample loops.",
+      "Implemented zero-order coordinate search, gradient descent with step-length selection, and momentum acceleration.",
+      "Engineered recursive binary splitting DecisionTreeRegressor from first principles with MSE impurity reduction benchmarking against Scikit-learn."
+    ],
+    "reports": [],
+    "presentations": [],
+    "architecture_diagrams": []
   }
 ]
