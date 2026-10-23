@@ -9,15 +9,11 @@
 > 🍁 **International Experience**: Department of Mathematics & Statistics, **McMaster University (Ontario, Canada, Winter 2026)**  
 > 🏆 **Startup Founder**: Co-Founder & Lead AI Engineer at **ETLia** (1st Prize Winner, ENSIIE Entrepreneurship Challenge)
 
+
+
 ---
 
-## 🇫🇷 Résumé Rapide en Français (En Bref)
-
-Bienvenue sur le portfolio centralisé de mes **20 projets majeurs d'ingénierie logicielle, de recherche appliquée en intelligence artificielle et de finance quantitative**. 
-
-Ce recueil reflète mon parcours d'élève-ingénieur à l'**ENSIIE**, mon Master 2 en Intelligence Artificielle à l'**Université Paris-Saclay**, mon échange académique à l'**Université McMaster (Canada)**, ainsi que mes réalisations en entreprise (**Publicis Groupe / Prodigious**, **Gainde 2000 / Infinity Analytics**) et en concours d'innovation (**1er prix Challenge Entreprendre**).
-
-Chaque projet est documenté sans artifice, avec son **code source propre et vérifiable**, ses **rapports de recherche complets** (thèses mathématiques de 34 et 54 pages, articles de recherche évalués par les pairs), ses **présentations de soutenance**, et des **indicateurs quantitatifs tangibles** (réduction de 99,6 % des paramètres sous LoRA, 43 classes de vision GTSRB, solveur EDP d'ordre $\mathcal{O}(N)$ en C++17).
+> 🇫🇷 **Note aux recruteurs francophones** : Un résumé rapide du projet en français est disponible en fin de document — [Consulter le résumé en français](#-résumé-rapide-en-français).
 
 ---
 
@@ -102,3 +98,13 @@ python3 automate_candidatures.py --profil de --entreprise "Datadog" --poste "Dat
 - **Phone** : +33 7 65 60 09 97
 - **GitHub** : [github.com/nourou-dine-cisse](https://github.com/nourou-dine-cisse)
 - **Location** : Paris, France (Available for nationwide and international mobility)
+
+---
+
+## 🇫🇷 Résumé Rapide en Français (En Bref)
+
+Bienvenue sur le portfolio centralisé de mes **20 projets majeurs d'ingénierie logicielle, de recherche appliquée en intelligence artificielle et de finance quantitative**. 
+
+Ce recueil reflète mon parcours d'élève-ingénieur à l'**ENSIIE**, mon Master 2 en Intelligence Artificielle à l'**Université Paris-Saclay**, mon échange académique à l'**Université McMaster (Canada)**, ainsi que mes réalisations en entreprise (**Publicis Groupe / Prodigious**, **Gainde 2000 / Infinity Analytics**) et en concours d'innovation (**1er prix Challenge Entreprendre**).
+
+Chaque projet est documenté sans artifice, avec son **code source propre et vérifiable**, ses **rapports de recherche complets** (thèses mathématiques de 34 et 54 pages, articles de recherche évalués par les pairs), ses **présentations de soutenance**, et des **indicateurs quantitatifs tangibles** (réduction de 99,6 % des paramètres sous LoRA, 43 classes de vision GTSRB, solveur EDP d'ordre $\mathcal{O}(N)$ en C++17).

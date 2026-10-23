@@ -10,18 +10,11 @@
 > **Core Stack**: `Vision-Language Models`, `MiniCPM-V 4.6`, `SigLIP 2`, `Counterfactual Design`, `Exact Paired Tests`  
 > **Key Deliverables**: 11-page Research Paper, Final Defense Slide Deck, Counterfactual Dataset Protocol
 
+
+
 ---
 
-## 🇫🇷 Résumé Rapide en Français
-
-Ce travail de recherche de pointe, co-rédigé au sein du **Master 2 Intelligence Artificielle (M2IA) de l'Université Paris-Saclay**, étudie l'impact des accessoires faciaux (lunettes, casquettes de baseball, masques de protection) sur les jugements et prédictions des modèles vision-langage récents (**MiniCPM-V 4.6** génératif et **SigLIP 2** contrastif).
-
-Bien que les accessoires faciaux ne contiennent aucune information intrinsèque sur les compétences professionnelles, le genre ou l'ethnicité d'une personne, ils masquent des traits biométriques clés et véhiculent de puissants stéréotypes sociaux. Pour mesurer cet effet de manière causale, nous avons conçu un protocole expérimental contrefactuel rigoureux :
-- **720 identités synthétiques équilibrées** selon 4 ethnicités, 2 genres et 3 tranches d'âge.
-- Chaque identité est évaluée sans accessoire (baseline) et avec l'ajout contrôlé par édition d'image d'un accessoire, générant **2 880 images contrefactuelles**.
-- Comparaison par tests statistiques appariés exacts sur la reconnaissance d'attributs démographiques et l'adéquation perçue à l'embauche (job-fitness).
-
-L'article de recherche complet (11 pages) a été salué par l'encadrement de recherche CEA-List / Paris-Saclay.
+> 🇫🇷 **Note aux recruteurs francophones** : Un résumé rapide du projet en français est disponible en fin de document — [Consulter le résumé en français](#-résumé-rapide-en-français).
 
 ---
 
@@ -60,6 +53,21 @@ In this paper, we establish a controlled counterfactual benchmark:
 
 - **GitHub Repository**: [examining-the-effect-of-face-accessories-on-vlm-evaluation](https://github.com/SalmaAlkhalily/examining-the-effect-of-face-accessories-on-vlm-evaluation)
 - **Slide Deck**: [Face_accessories_VLM_final_presentation.pptx](https://raw.githubusercontent.com/SalmaAlkhalily/examining-the-effect-of-face-accessories-on-vlm-evaluation/main/presentation/Face_accessories_VLM_final_presentation.pptx)
+
+---
+
+---
+
+## 🇫🇷 Résumé Rapide en Français
+
+Ce travail de recherche de pointe, co-rédigé au sein du **Master 2 Intelligence Artificielle (M2IA) de l'Université Paris-Saclay**, étudie l'impact des accessoires faciaux (lunettes, casquettes de baseball, masques de protection) sur les jugements et prédictions des modèles vision-langage récents (**MiniCPM-V 4.6** génératif et **SigLIP 2** contrastif).
+
+Bien que les accessoires faciaux ne contiennent aucune information intrinsèque sur les compétences professionnelles, le genre ou l'ethnicité d'une personne, ils masquent des traits biométriques clés et véhiculent de puissants stéréotypes sociaux. Pour mesurer cet effet de manière causale, nous avons conçu un protocole expérimental contrefactuel rigoureux :
+- **720 identités synthétiques équilibrées** selon 4 ethnicités, 2 genres et 3 tranches d'âge.
+- Chaque identité est évaluée sans accessoire (baseline) et avec l'ajout contrôlé par édition d'image d'un accessoire, générant **2 880 images contrefactuelles**.
+- Comparaison par tests statistiques appariés exacts sur la reconnaissance d'attributs démographiques et l'adéquation perçue à l'embauche (job-fitness).
+
+L'article de recherche complet (11 pages) a été salué par l'encadrement de recherche CEA-List / Paris-Saclay.
 
 ---
 

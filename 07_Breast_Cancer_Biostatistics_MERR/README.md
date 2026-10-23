@@ -10,18 +10,11 @@
 > **Core Stack**: `R`, `Glmnet`, `Lasso`, `Elastic Net`, `Kaplan-Meier`, `ROC-AUC`, `Cross-Validation`  
 > **Key Deliverables**: Complete Biostatistical Research Thesis, Reproducible R Scripts
 
+
+
 ---
 
-## 🇫🇷 Résumé Rapide en Français
-
-Ce projet de biostatistique et de modélisation prédictive analyse la survie des patientes atteintes de cancer du sein à partir de la cohorte génomique internationale **METABRIC** (plus de 1 900 patientes et des centaines de variables cliniques et moléculaires). 
-
-Face au fléau de la grande dimension ($p \gg n$), j'ai modélisé la survie globale et le statut vital en utilisant des **Modèles Linéaires Généralisés (GLM)** pénalisés :
-- Régression **Lasso ($\ell_1$)** pour opérer une sélection parcimonieuse des biomarqueurs génétiques pertinents.
-- Régression **Elastic Net** pour préserver les groupes de gènes fortement corrélés.
-- Estimateurs non-paramétriques de **Kaplan-Meier** et tests du Log-Rank pour quantifier les écarts de survie entre sous-groupes moléculaires.
-
-Le rapport de recherche complet détaille les coefficients sélectionnés, les courbes ROC et la validation croisée $K$-fold.
+> 🇫🇷 **Note aux recruteurs francophones** : Un résumé rapide du projet en français est disponible en fin de document — [Consulter le résumé en français](#-résumé-rapide-en-français).
 
 ---
 
@@ -30,7 +23,9 @@ Le rapport de recherche complet détaille les coefficients sélectionnés, les c
 ### 1. High-Dimensional Penalized Regression
 Survival classification was estimated via penalized binomial deviance optimization:
 
-$$\min_{eta_0, oldsymbol{eta}} \left\{ -rac{1}{N} \ell(eta_0, oldsymbol{eta}) + \lambda \left( lpha \|oldsymbol{eta}\|_1 + rac{1 - lpha}{2} \|oldsymbol{eta}\|_2^2 ight) ight\}$$
+$$\min_{eta_0, oldsymbol{eta}} \left\{ -rac{1}{N} \ell(eta_0, oldsymbol{eta}) + \lambda \left( lpha \|oldsymbol{eta}\|_1 + rac{1 - lpha}{2} \|oldsymbol{eta}\|_2^2 
+ight) 
+ight\}$$
 
 Hyperparameters $\lambda$ and $lpha$ were calibrated using 10-fold cross-validation targeting minimal deviance ($\lambda_{\min}$) and sparse parsimony ($\lambda_{1	ext{se}}$).
 
@@ -54,6 +49,21 @@ Hyperparameters $\lambda$ and $lpha$ were calibrated using 10-fold cross-valida
 │   └── Rapport_Cancer_Survie_MERR.pdf # Full biostatistical research paper
 └── README.md
 ```
+
+---
+
+---
+
+## 🇫🇷 Résumé Rapide en Français
+
+Ce projet de biostatistique et de modélisation prédictive analyse la survie des patientes atteintes de cancer du sein à partir de la cohorte génomique internationale **METABRIC** (plus de 1 900 patientes et des centaines de variables cliniques et moléculaires). 
+
+Face au fléau de la grande dimension ($p \gg n$), j'ai modélisé la survie globale et le statut vital en utilisant des **Modèles Linéaires Généralisés (GLM)** pénalisés :
+- Régression **Lasso ($\ell_1$)** pour opérer une sélection parcimonieuse des biomarqueurs génétiques pertinents.
+- Régression **Elastic Net** pour préserver les groupes de gènes fortement corrélés.
+- Estimateurs non-paramétriques de **Kaplan-Meier** et tests du Log-Rank pour quantifier les écarts de survie entre sous-groupes moléculaires.
+
+Le rapport de recherche complet détaille les coefficients sélectionnés, les courbes ROC et la validation croisée $K$-fold.
 
 ---
 

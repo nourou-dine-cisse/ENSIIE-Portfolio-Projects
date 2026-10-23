@@ -12,15 +12,11 @@
 > **Core Stack**: `React`, `TypeScript`, `Vite`, `TailwindCSS`, `Python`, `Streamlit`, `Pandas`, `AI Assistant`  
 > **Key Deliverables**: Complete React UI Application, Python Backend Engine, Business Deck
 
+
+
 ---
 
-## 🇫🇷 Résumé Rapide en Français
-
-**ETLia** est une plateforme SaaS d'ETL (Extract, Transform, Load) no-code et assistée par l'intelligence artificielle, développée dans le cadre du **Challenge Entreprendre ENSIIE**, où nous avons remporté le **1er Prix (Grand Prix du Jury)**. 
-
-Le constat de départ était clair : les PME et équipes métiers perdent un temps considérable à nettoyer, aligner et charger des fichiers de données hétérogènes (fichiers Excel mal formatés, encodages corrompus, colonnes manquantes). Avec ETLia, l'utilisateur dépose simplement ses fichiers : notre moteur IA profile la structure, détecte automatiquement les anomalies et infère le mapping sémantique vers la base de données cible.
-
-J'ai piloté la co-fondation, le design du frontend en **React / TypeScript / TailwindCSS**, et le développement des moteurs de profiling et de transformation en **Python / Pandas**.
+> 🇫🇷 **Note aux recruteurs francophones** : Un résumé rapide du projet en français est disponible en fin de document — [Consulter le résumé en français](#-résumé-rapide-en-français).
 
 ---
 
@@ -78,6 +74,18 @@ cd ../backend
 pip install -r requirements.txt
 streamlit run app.py
 ```
+
+---
+
+---
+
+## 🇫🇷 Résumé Rapide en Français
+
+**ETLia** est une plateforme SaaS d'ETL (Extract, Transform, Load) no-code et assistée par l'intelligence artificielle, développée dans le cadre du **Challenge Entreprendre ENSIIE**, où nous avons remporté le **1er Prix (Grand Prix du Jury)**. 
+
+Le constat de départ était clair : les PME et équipes métiers perdent un temps considérable à nettoyer, aligner et charger des fichiers de données hétérogènes (fichiers Excel mal formatés, encodages corrompus, colonnes manquantes). Avec ETLia, l'utilisateur dépose simplement ses fichiers : notre moteur IA profile la structure, détecte automatiquement les anomalies et infère le mapping sémantique vers la base de données cible.
+
+J'ai piloté la co-fondation, le design du frontend en **React / TypeScript / TailwindCSS**, et le développement des moteurs de profiling et de transformation en **Python / Pandas**.
 
 ---
 

@@ -9,18 +9,11 @@
 > **Core Stack**: `Python`, `PCA`, `CCA`, `K-Means`, `Hierarchical Clustering`, `Matplotlib`, `Seaborn`  
 > **Key Deliverables**: Full Multivariate Statistical Report, 2 Defense Slide Decks, Jupyter Notebooks
 
+
+
 ---
 
-## 🇫🇷 Résumé Rapide en Français
-
-Ce projet de data science et d'analyse multivariée explore la dynamique des 48 000 hébergements **Airbnb à New York City**. 
-
-L'objectif mathématique était d'extraire la structure latente sous-jacente aux variables tarifaires, spatiales et réputationnelles via :
-- Une **Analyse en Composantes Principales (ACP / PCA)** décomposant l'inertie du nuage de points et projetant les logements sur les plans factoriels principaux.
-- Une **Analyse Canonique des Corrélations (ACC / CCA)** reliant les variables géographiques aux indicateurs de rentabilité.
-- Une segmentation non-supervisée croisant **K-Means** et **Classification Ascendante Hiérarchique (CAH / Ward)** pour caractériser les sous-marchés immobiliers new-yorkais.
-
-Le dépôt comprend le mémoire d'analyse statistique complet et les deux présentations de soutenance.
+> 🇫🇷 **Note aux recruteurs francophones** : Un résumé rapide du projet en français est disponible en fin de document — [Consulter le résumé en français](#-résumé-rapide-en-français).
 
 ---
 
@@ -44,6 +37,21 @@ Le dépôt comprend le mémoire d'analyse statistique complet et les deux prése
 │   └── Presentation_Partie_2.pdf          # Unsupervised clustering & spatial analysis
 └── README.md
 ```
+
+---
+
+---
+
+## 🇫🇷 Résumé Rapide en Français
+
+Ce projet de data science et d'analyse multivariée explore la dynamique des 48 000 hébergements **Airbnb à New York City**. 
+
+L'objectif mathématique était d'extraire la structure latente sous-jacente aux variables tarifaires, spatiales et réputationnelles via :
+- Une **Analyse en Composantes Principales (ACP / PCA)** décomposant l'inertie du nuage de points et projetant les logements sur les plans factoriels principaux.
+- Une **Analyse Canonique des Corrélations (ACC / CCA)** reliant les variables géographiques aux indicateurs de rentabilité.
+- Une segmentation non-supervisée croisant **K-Means** et **Classification Ascendante Hiérarchique (CAH / Ward)** pour caractériser les sous-marchés immobiliers new-yorkais.
+
+Le dépôt comprend le mémoire d'analyse statistique complet et les deux présentations de soutenance.
 
 ---
 

@@ -9,17 +9,11 @@
 > **Core Stack**: `Python`, `PyTorch`, `BiLSTM`, `TF-IDF`, `GloVe`, `Scikit-Learn`, `NLP`  
 > **Key Deliverables**: 11-page Peer-Reviewed Research Report, End-to-End PyTorch Deep Learning Pipeline
 
+
+
 ---
 
-## 🇫🇷 Résumé Rapide en Français
-
-Développé à l'**Université McMaster (Canada)** dans le cadre du cours **DATASCI 3ML3**, ce projet est un benchmark rigoureux de classification de sentiments sur un corpus de **9 549 titres d'actualités financières** (Financial PhraseBank). 
-
-L'analyse de sentiment financier présente des défis uniques : négations subtiles, acronymes boursiers, et forte dépendance au contexte macroéconomique. J'ai comparé systématiquement :
-- Des modèles statistiques classiques entraînés sur représentations vectorielles **TF-IDF** (Régression Logistique, Linear SVM, Random Forest).
-- Une architecture neuronale profonde **Bidirectional LSTM (BiLSTM)** sous **PyTorch** exploitant des plongements pré-entraînés pour appréhender la sémantique bidirectionnelle des phrases.
-
-Le rapport technique de **11 pages** détaille les courbes d'apprentissage, la gestion du déséquilibre de classes et l'analyse fine des matrices de confusion.
+> 🇫🇷 **Note aux recruteurs francophones** : Un résumé rapide du projet en français est disponible en fin de document — [Consulter le résumé en français](#-résumé-rapide-en-français).
 
 ---
 
@@ -46,6 +40,20 @@ Le rapport technique de **11 pages** détaille les courbes d'apprentissage, la g
 │   └── Financial_News_Sentiment_Report.pdf # Full 11-page research report
 └── README.md
 ```
+
+---
+
+---
+
+## 🇫🇷 Résumé Rapide en Français
+
+Développé à l'**Université McMaster (Canada)** dans le cadre du cours **DATASCI 3ML3**, ce projet est un benchmark rigoureux de classification de sentiments sur un corpus de **9 549 titres d'actualités financières** (Financial PhraseBank). 
+
+L'analyse de sentiment financier présente des défis uniques : négations subtiles, acronymes boursiers, et forte dépendance au contexte macroéconomique. J'ai comparé systématiquement :
+- Des modèles statistiques classiques entraînés sur représentations vectorielles **TF-IDF** (Régression Logistique, Linear SVM, Random Forest).
+- Une architecture neuronale profonde **Bidirectional LSTM (BiLSTM)** sous **PyTorch** exploitant des plongements pré-entraînés pour appréhender la sémantique bidirectionnelle des phrases.
+
+Le rapport technique de **11 pages** détaille les courbes d'apprentissage, la gestion du déséquilibre de classes et l'analyse fine des matrices de confusion.
 
 ---
 

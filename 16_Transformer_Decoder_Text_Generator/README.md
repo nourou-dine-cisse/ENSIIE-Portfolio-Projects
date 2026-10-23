@@ -8,25 +8,18 @@
 > **Core Stack**: `PyTorch`, `RoPE`, `RMSNorm`, `SwiGLU`, `KV Cache`, `Multi-Head Attention`, `TinyStories`  
 > **Key Deliverables**: Full PyTorch Model from Scratch, Generation Engine with Top-$p$/Top-$k$, Interactive Notebook
 
+
+
 ---
 
-## 🇫🇷 Résumé Rapide en Français
-
-Implémentation complète from scratch en pur **PyTorch** d'une architecture **Transformer décodeur autoregressif moderne** (similaire aux familles LLaMA et Mistral), sans utiliser les abstractions préconçues `torch.nn.Transformer`.
-
-Le modèle intègre les briques architecturales les plus récentes de l'état de l'art en LLMs :
-- **Rotary Position Embeddings (RoPE)** : Encodage positionnel relatif appliqué par rotation complexe sur les projections $Q$ et $K$, permettant une généralisation efficace sur de longues séquences.
-- **SwiGLU Activation Function** : Fonction d'activation bilinéaire surpassant le standard ReLU/GELU dans les couches feed-forward.
-- **RMSNorm (Root Mean Square Normalization)** : Normalisation rapide stabilisant l'entraînement des blocs profonds.
-- **KV Cache Optimisé** : Accélération de l'échantillonnage autoregressif éliminant la recalculation quadratique des clés et valeurs antérieures.
-
-Le dépôt fournit le code source exhaustif, l'entraînement sur le dataset **TinyStories** et le notebook de génération interactive.
+> 🇫🇷 **Note aux recruteurs francophones** : Un résumé rapide du projet en français est disponible en fin de document — [Consulter le résumé en français](#-résumé-rapide-en-français).
 
 ---
 
 ## 📌 Architectural Breakdown
 
-$$	ext{Attention}(Q, K, V) = 	ext{softmax}\left( rac{R_{\Theta, m}^d Q (R_{\Theta, n}^d K)^T}{\sqrt{d_k}} + M ight) V$$
+$$	ext{Attention}(Q, K, V) = 	ext{softmax}\left( rac{R_{\Theta, m}^d Q (R_{\Theta, n}^d K)^T}{\sqrt{d_k}} + M 
+ight) V$$
 
 where $R_{\Theta, m}^d$ is the RoPE block-diagonal orthogonal rotation matrix and $M$ is the causal triangular mask.
 
@@ -44,6 +37,22 @@ where $R_{\Theta, m}^d$ is the RoPE block-diagonal orthogonal rotation matrix an
 ├── implement_transformer.ipynb      # Step-by-step training and generation walkthrough
 └── README.md
 ```
+
+---
+
+---
+
+## 🇫🇷 Résumé Rapide en Français
+
+Implémentation complète from scratch en pur **PyTorch** d'une architecture **Transformer décodeur autoregressif moderne** (similaire aux familles LLaMA et Mistral), sans utiliser les abstractions préconçues `torch.nn.Transformer`.
+
+Le modèle intègre les briques architecturales les plus récentes de l'état de l'art en LLMs :
+- **Rotary Position Embeddings (RoPE)** : Encodage positionnel relatif appliqué par rotation complexe sur les projections $Q$ et $K$, permettant une généralisation efficace sur de longues séquences.
+- **SwiGLU Activation Function** : Fonction d'activation bilinéaire surpassant le standard ReLU/GELU dans les couches feed-forward.
+- **RMSNorm (Root Mean Square Normalization)** : Normalisation rapide stabilisant l'entraînement des blocs profonds.
+- **KV Cache Optimisé** : Accélération de l'échantillonnage autoregressif éliminant la recalculation quadratique des clés et valeurs antérieures.
+
+Le dépôt fournit le code source exhaustif, l'entraînement sur le dataset **TinyStories** et le notebook de génération interactive.
 
 ---
 

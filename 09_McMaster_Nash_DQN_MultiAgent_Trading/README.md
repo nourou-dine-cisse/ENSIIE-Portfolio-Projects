@@ -10,15 +10,11 @@
 > **Core Stack**: `PyTorch`, `Deep Q-Learning (DQN)`, `Multi-Agent RL`, `Stochastic Games`, `Brownian Motion`  
 > **Key Deliverables**: 34-page Quantitative Master's Thesis, Trajectory Simulators, Convergence Diagnostics
 
+
+
 ---
 
-## 🇫🇷 Résumé Rapide en Français
-
-Réalisé durant mon échange académique au **Department of Mathematics & Statistics de l'Université McMaster (Canada)**, ce projet de recherche en finance quantitative explore l'exécution optimale d'ordres de trading en présence d'impact de marché par apprentissage par renforcement multi-agents.
-
-En m'appuyant sur les travaux fondateurs de **Casgrain, Ning & Jaimungal (2022)**, j'ai développé sous **PyTorch** un simulateur de jeu différentiel stochastique à $N$ agents concurrents soumis à un impact de prix temporaire et permanent. Pour surmonter la non-stationnarité inhérente aux jeux multi-agents, j'ai implémenté l'algorithme **Nash-DQN** combinant replay buffer étendu et réseaux cibles stabilisés afin de faire converger les politiques de liquidation vers l'**équilibre de Nash**.
-
-Ce travail a abouti à une thèse quantitative de **34 pages** enrichie de trajectoires browniennes simulées et d'analyses de convergence.
+> 🇫🇷 **Note aux recruteurs francophones** : Un résumé rapide du projet en français est disponible en fin de document — [Consulter le résumé en français](#-résumé-rapide-en-français).
 
 ---
 
@@ -27,7 +23,8 @@ Ce travail a abouti à une thèse quantitative de **34 pages** enrichie de traje
 In financial markets, large orders moved simultaneously by institutional traders depress prices. The mid-price $S_t$ satisfies:
 
 $$dS_t = \left( b_t + \kappa \sum_{j=1}^N 
-u_t^j ight) dt + \sigma dW_t$$
+u_t^j 
+ight) dt + \sigma dW_t$$
 
 where $
 u_t^j$ is agent $j$'s liquidation rate, $\kappa$ models permanent price impact, and agent $i$ receives effective transaction price $	ilde{S}_t^i = S_t - \gamma 
@@ -39,7 +36,9 @@ $$\mathcal{J}^i(
 u^1, \dots, 
 u^N) = \mathbb{E} \left[ \int_0^T \left( q_t^i (b_t + \kappa \sum_{j=1}^N 
 u_t^j) - \gamma (
-u_t^i)^2 - \phi (q_t^i)^2 ight) dt + q_T^i (S_T - lpha q_T^i) ight]$$
+u_t^i)^2 - \phi (q_t^i)^2 
+ight) dt + q_T^i (S_T - lpha q_T^i) 
+ight]$$
 
 ---
 
@@ -64,6 +63,18 @@ u_t^i)^2 - \phi (q_t^i)^2 ight) dt + q_T^i (S_T - lpha q_T^i) ight]$$
 │   └── all_agents_rewards.png       # Convergence of cumulative rewards
 └── README.md
 ```
+
+---
+
+---
+
+## 🇫🇷 Résumé Rapide en Français
+
+Réalisé durant mon échange académique au **Department of Mathematics & Statistics de l'Université McMaster (Canada)**, ce projet de recherche en finance quantitative explore l'exécution optimale d'ordres de trading en présence d'impact de marché par apprentissage par renforcement multi-agents.
+
+En m'appuyant sur les travaux fondateurs de **Casgrain, Ning & Jaimungal (2022)**, j'ai développé sous **PyTorch** un simulateur de jeu différentiel stochastique à $N$ agents concurrents soumis à un impact de prix temporaire et permanent. Pour surmonter la non-stationnarité inhérente aux jeux multi-agents, j'ai implémenté l'algorithme **Nash-DQN** combinant replay buffer étendu et réseaux cibles stabilisés afin de faire converger les politiques de liquidation vers l'**équilibre de Nash**.
+
+Ce travail a abouti à une thèse quantitative de **34 pages** enrichie de trajectoires browniennes simulées et d'analyses de convergence.
 
 ---
 

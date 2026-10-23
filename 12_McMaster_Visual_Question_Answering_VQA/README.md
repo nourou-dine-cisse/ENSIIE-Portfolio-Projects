@@ -9,18 +9,11 @@
 > **Core Stack**: `PyTorch`, `ResNet-50`, `LSTM`, `Multimodal Fusion`, `Hadamard Product`, `VQA v2.0`  
 > **Key Deliverables**: Full Technical Sprint Roadmap & Specs, Multimodal Fusion Architecture
 
+
+
 ---
 
-## 🇫🇷 Résumé Rapide en Français
-
-Conçu à l'**Université McMaster (Canada)** dans le cadre du cours d'IA appliquée **MECHENG 4AI3**, ce projet explore le domaine multimodal du **Visual Question Answering (VQA)** : répondre automatiquement à des questions ouvertes en langage naturel portant sur une image d'entrée.
-
-L'architecture neuronale développée sous **PyTorch** opère une fusion d'informations hétérogènes :
-- Une branche **Vision** s'appuyant sur un backbone convolutif profond (**ResNet-50**) pour extraire un vecteur spatial dense décrivant l'image.
-- Une branche **Langage** encodant la question textuelle via un réseau récurrent **LSTM**.
-- Un module de **fusion multimodale** (produit de Hadamard et projections linéaires conjointes) alimentant un classifieur multiclasse sur le vocabulaire de réponses possibles.
-
-Le document de synthèse et le code source complet sont inclus.
+> 🇫🇷 **Note aux recruteurs francophones** : Un résumé rapide du projet en français est disponible en fin de document — [Consulter le résumé en français](#-résumé-rapide-en-français).
 
 ---
 
@@ -57,6 +50,21 @@ Le document de synthèse et le code source complet sont inclus.
 │   └── VQA_Project_Roadmap.pdf      # Sprint roadmap and architecture specifications
 └── README.md
 ```
+
+---
+
+---
+
+## 🇫🇷 Résumé Rapide en Français
+
+Conçu à l'**Université McMaster (Canada)** dans le cadre du cours d'IA appliquée **MECHENG 4AI3**, ce projet explore le domaine multimodal du **Visual Question Answering (VQA)** : répondre automatiquement à des questions ouvertes en langage naturel portant sur une image d'entrée.
+
+L'architecture neuronale développée sous **PyTorch** opère une fusion d'informations hétérogènes :
+- Une branche **Vision** s'appuyant sur un backbone convolutif profond (**ResNet-50**) pour extraire un vecteur spatial dense décrivant l'image.
+- Une branche **Langage** encodant la question textuelle via un réseau récurrent **LSTM**.
+- Un module de **fusion multimodale** (produit de Hadamard et projections linéaires conjointes) alimentant un classifieur multiclasse sur le vocabulaire de réponses possibles.
+
+Le document de synthèse et le code source complet sont inclus.
 
 ---
 

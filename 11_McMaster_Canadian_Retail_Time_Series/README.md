@@ -9,19 +9,11 @@
 > **Core Stack**: `R`, `SARIMA`, `Holt-Winters`, `STL Decomposition`, `Box-Cox`, `Ljung-Box`  
 > **Key Deliverables**: 12-page Econometric Forecasting Monograph, Reproducible R Analysis Code
 
+
+
 ---
 
-## 🇫🇷 Résumé Rapide en Français
-
-Projet d'économétrie et de modélisation statistique avancée réalisé à l'**Université McMaster (Canada)** sur la série temporelle officielle des **ventes au détail au Canada** (Données Statistique Canada). 
-
-Le jeu de données présente à la fois une tendance haussière de long terme et une saisonnalité annuelle prononcée avec pic majeur en décembre. J'ai conduit une méthodologie rigoureuse de **Box-Jenkins** :
-- Transformation stabilisatrice de variance (**Box-Cox**).
-- Différenciations régulière ($d=1$) et saisonnière ($D=1$) pour atteindre la stationnarité stricte (tests KPSS et ADF).
-- Identification et estimation d'un modèle **$	ext{SARIMA}(p,d,q) 	imes (P,D,Q)_{12}$**.
-- Diagnostic résiduel exhaustif vérifiant l'hypothèse de bruit blanc (absence d'autocorrélation résiduelle via le test de Ljung-Box).
-
-Le rapport de **12 pages** synthétise les projections à 24 mois et les intervalles de confiance associés.
+> 🇫🇷 **Note aux recruteurs francophones** : Un résumé rapide du projet en français est disponible en fin de document — [Consulter le résumé en français](#-résumé-rapide-en-français).
 
 ---
 
@@ -46,6 +38,22 @@ Residual diagnostics confirmed zero serial autocorrelation with Ljung-Box $p$-va
 │   └── Canadian_Retail_Time_Series_Report.pdf # 12-page formal forecasting monograph
 └── README.md
 ```
+
+---
+
+---
+
+## 🇫🇷 Résumé Rapide en Français
+
+Projet d'économétrie et de modélisation statistique avancée réalisé à l'**Université McMaster (Canada)** sur la série temporelle officielle des **ventes au détail au Canada** (Données Statistique Canada). 
+
+Le jeu de données présente à la fois une tendance haussière de long terme et une saisonnalité annuelle prononcée avec pic majeur en décembre. J'ai conduit une méthodologie rigoureuse de **Box-Jenkins** :
+- Transformation stabilisatrice de variance (**Box-Cox**).
+- Différenciations régulière ($d=1$) et saisonnière ($D=1$) pour atteindre la stationnarité stricte (tests KPSS et ADF).
+- Identification et estimation d'un modèle **$	ext{SARIMA}(p,d,q) 	imes (P,D,Q)_{12}$**.
+- Diagnostic résiduel exhaustif vérifiant l'hypothèse de bruit blanc (absence d'autocorrélation résiduelle via le test de Ljung-Box).
+
+Le rapport de **12 pages** synthétise les projections à 24 mois et les intervalles de confiance associés.
 
 ---
 

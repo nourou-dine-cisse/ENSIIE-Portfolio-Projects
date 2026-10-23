@@ -10,15 +10,11 @@
 > **Core Stack**: `Python`, `Docker`, `Docker Compose`, `Pandas`, `Star Schema`, `Logging`, `Bash`  
 > **Key Deliverables**: Complete Datamart Architecture Report, Operational User Guide, Fully Containerized Pipeline
 
+
+
 ---
 
-## 🇫🇷 Résumé Rapide en Français
-
-Ce projet d'ingénierie des données modélise et déploie en environnement conteneurisé **Docker** un pipeline ETL complet pour l'agence touristique **SunSéjour**. 
-
-L'enjeu technique résidait dans l'hétérogénéité des données sources (fichiers de réservations hôtelières, catalogues d'excursions, flux de navettes aéroport) comportant des doublons et anomalies de saisie. J'ai conçu un pipeline robuste avec validation stricte des données, traçabilité des rejets dans des logs d'audit, et chargement dans un **Datamart dimensionnel modélisé en schéma en étoile** (tables de faits `Faits_Reservations` et dimensions associées `Dim_Clients`, `Dim_Excursions`, `Dim_Temps`, `Dim_Hotels`).
-
-Le dépôt inclut le rapport complet d'architecture de données, le guide utilisateur d'exploitation et la suite d'exécution Dockerisée.
+> 🇫🇷 **Note aux recruteurs francophones** : Un résumé rapide du projet en français est disponible en fin de document — [Consulter le résumé en français](#-résumé-rapide-en-français).
 
 ---
 
@@ -80,6 +76,18 @@ docker compose up --build
 pip install -r requirements.txt
 python src/etl_pipeline.py --input-dir data_samples --output-dir output_datamart
 ```
+
+---
+
+---
+
+## 🇫🇷 Résumé Rapide en Français
+
+Ce projet d'ingénierie des données modélise et déploie en environnement conteneurisé **Docker** un pipeline ETL complet pour l'agence touristique **SunSéjour**. 
+
+L'enjeu technique résidait dans l'hétérogénéité des données sources (fichiers de réservations hôtelières, catalogues d'excursions, flux de navettes aéroport) comportant des doublons et anomalies de saisie. J'ai conçu un pipeline robuste avec validation stricte des données, traçabilité des rejets dans des logs d'audit, et chargement dans un **Datamart dimensionnel modélisé en schéma en étoile** (tables de faits `Faits_Reservations` et dimensions associées `Dim_Clients`, `Dim_Excursions`, `Dim_Temps`, `Dim_Hotels`).
+
+Le dépôt inclut le rapport complet d'architecture de données, le guide utilisateur d'exploitation et la suite d'exécution Dockerisée.
 
 ---
 

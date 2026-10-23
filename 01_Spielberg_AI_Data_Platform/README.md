@@ -12,15 +12,11 @@
 > **Core Stack**: `Python`, `FastAPI`, `LangGraph`, `RAG`, `PostgreSQL`, `Docker Compose`, `AsyncIO`  
 > **Key Deliverables**: 54-page Master Engineering Thesis, 22-slide Jury Defense Deck, Multi-Agent RAG Service
 
+
+
 ---
 
-## 🇫🇷 Résumé Rapide en Français
-
-Durant mon stage d'ingénieur au sein de **Prodigious France (Publicis Groupe)**, j'ai conçu et déployé la plateforme **Spielberg**, une infrastructure centralisée unifiant les données opérationnelles et techniques dispersées de multiples agences (Altair, Roar, OneClick). 
-
-Au-delà de l'unification relationnelle sous **PostgreSQL**, le cœur de mon travail a porté sur l'orchestration de systèmes multi-agents sous **LangGraph** articulés autour d'un **Superviseur** d'intentions et d'un **Orchestrateur** de sous-tâches opérationnelles. J'ai également implémenté un pipeline **RAG** (Retrieval-Augmented Generation) complet avec stratégie de découpage sémantique contextuel (`chunking.py`), optimisé pour conserver l'intégrité technique des documents internes.
-
-Ce travail a abouti à un rapport d'ingénieur de **54 pages**, une soutenance de **22 slides** devant jury académique et d'entreprise, et a posé les bases techniques d'une future spin-off IA data interne.
+> 🇫🇷 **Note aux recruteurs francophones** : Un résumé rapide du projet en français est disponible en fin de document — [Consulter le résumé en français](#-résumé-rapide-en-français).
 
 ---
 
@@ -131,6 +127,18 @@ docker compose up -d --build
 # 3. Verify healthcheck and API docs
 open http://localhost:8000/docs
 ```
+
+---
+
+---
+
+## 🇫🇷 Résumé Rapide en Français
+
+Durant mon stage d'ingénieur au sein de **Prodigious France (Publicis Groupe)**, j'ai conçu et déployé la plateforme **Spielberg**, une infrastructure centralisée unifiant les données opérationnelles et techniques dispersées de multiples agences (Altair, Roar, OneClick). 
+
+Au-delà de l'unification relationnelle sous **PostgreSQL**, le cœur de mon travail a porté sur l'orchestration de systèmes multi-agents sous **LangGraph** articulés autour d'un **Superviseur** d'intentions et d'un **Orchestrateur** de sous-tâches opérationnelles. J'ai également implémenté un pipeline **RAG** (Retrieval-Augmented Generation) complet avec stratégie de découpage sémantique contextuel (`chunking.py`), optimisé pour conserver l'intégrité technique des documents internes.
+
+Ce travail a abouti à un rapport d'ingénieur de **54 pages**, une soutenance de **22 slides** devant jury académique et d'entreprise, et a posé les bases techniques d'une future spin-off IA data interne.
 
 ---
 

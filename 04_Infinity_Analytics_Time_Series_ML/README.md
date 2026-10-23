@@ -10,15 +10,11 @@
 > **Core Stack**: `Python`, `SARIMAX`, `VAR`, `DLTS`, `Scikit-Learn`, `Model Calibration`, `ROC-AUC`  
 > **Key Deliverables**: 2 Formal Research Reports, Final Defense Slide Deck, Calibrated Credit Scoring Pipeline
 
+
+
 ---
 
-## 🇫🇷 Résumé Rapide en Français
-
-Durant mon stage au sein d'**Infinity Analytics (Gainde 2000)**, j'ai développé deux moteurs analytiques critiques :
-1. **Prévision Économétrique Multivariée de Séries Temporelles** : Modélisation des flux financiers et macroéconomiques via des approches univariées (**SARIMAX**) et multivariées vectorielles (**VAR** - Vector AutoRegression), combinées à des décompositions de tendances et saisonnalités (DLTS).
-2. **Modèle de Scoring et de Risque de Crédit Calibré** : Conception d'un pipeline de scoring client évaluant la probabilité de défaut. L'accent a été mis sur la calibration rigoureuse des probabilités (Isotonic Regression & Platt Scaling), garantissant que le score émis reflète fidèlement le taux de risque empirique.
-
-Ce dépôt réunit les deux rapports d'expertise rédigés en entreprise, la présentation de soutenance, les notebooks d'expérimentation et le code source de production.
+> 🇫🇷 **Note aux recruteurs francophones** : Un résumé rapide du projet en français est disponible en fin de document — [Consulter le résumé en français](#-résumé-rapide-en-français).
 
 ---
 
@@ -61,6 +57,18 @@ $$\min_{\hat{p}} rac{1}{N} \sum_{i=1}^N (y_i - \hat{p}_i)^2$$
 - **Stationarity & Invertibility**: Attained stable vector autoregression with eigenvalue moduli strictly inside the unit circle.
 - **Probability Calibration**: Brier score improved by **18.4%** post-isotonic calibration over raw tree-based output probabilities.
 - **Discriminative Power**: Achieved **0.86 ROC-AUC** on out-of-time credit default validation datasets.
+
+---
+
+---
+
+## 🇫🇷 Résumé Rapide en Français
+
+Durant mon stage au sein d'**Infinity Analytics (Gainde 2000)**, j'ai développé deux moteurs analytiques critiques :
+1. **Prévision Économétrique Multivariée de Séries Temporelles** : Modélisation des flux financiers et macroéconomiques via des approches univariées (**SARIMAX**) et multivariées vectorielles (**VAR** - Vector AutoRegression), combinées à des décompositions de tendances et saisonnalités (DLTS).
+2. **Modèle de Scoring et de Risque de Crédit Calibré** : Conception d'un pipeline de scoring client évaluant la probabilité de défaut. L'accent a été mis sur la calibration rigoureuse des probabilités (Isotonic Regression & Platt Scaling), garantissant que le score émis reflète fidèlement le taux de risque empirique.
+
+Ce dépôt réunit les deux rapports d'expertise rédigés en entreprise, la présentation de soutenance, les notebooks d'expérimentation et le code source de production.
 
 ---
 

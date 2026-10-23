@@ -9,15 +9,11 @@
 > **Core Stack**: `Python`, `Scikit-Learn`, `Pandas`, `Clustering`, `Time Series`, `Evaluation Metrics`  
 > **Key Deliverables**: 2 Pedagogical Slide Decks, Interactive Hands-on Notebooks
 
+
+
 ---
 
-## 🇫🇷 Résumé Rapide en Français
-
-Au sein de l'association **Kryptosphere** (première association étudiante tech & IA en France), j'ai conçu et animé une série d'ateliers pratiques et de formations d'excellence à destination des étudiants en ingénierie et data science.
-
-Ce recueil contient deux formations phares :
-1. **Évaluation Rigoureuse des Modèles de Machine Learning** : Dépasser le simple taux d'exactitude (accuracy) pour analyser les matrices de confusion, la précision, le rappel, le F1-score, les courbes ROC-AUC, le compromis biais-variance et les stratégies de validation croisée temporelle et stratifiée.
-2. **Clustering & Apprentissage Non-Supervisé** : Fondements mathématiques et mise en pratique de K-Means, DBSCAN et Classification Ascendante Hiérarchique, avec métriques de validation intrinsèque (coefficient de Silhouette, indice de Davies-Bouldin).
+> 🇫🇷 **Note aux recruteurs francophones** : Un résumé rapide du projet en français est disponible en fin de document — [Consulter le résumé en français](#-résumé-rapide-en-français).
 
 ---
 
@@ -33,6 +29,18 @@ Ce recueil contient deux formations phares :
 │   └── workshop_clustering.ipynb           # Hands-on implementation of K-Means & DBSCAN
 └── README.md
 ```
+
+---
+
+---
+
+## 🇫🇷 Résumé Rapide en Français
+
+Au sein de l'association **Kryptosphere** (première association étudiante tech & IA en France), j'ai conçu et animé une série d'ateliers pratiques et de formations d'excellence à destination des étudiants en ingénierie et data science.
+
+Ce recueil contient deux formations phares :
+1. **Évaluation Rigoureuse des Modèles de Machine Learning** : Dépasser le simple taux d'exactitude (accuracy) pour analyser les matrices de confusion, la précision, le rappel, le F1-score, les courbes ROC-AUC, le compromis biais-variance et les stratégies de validation croisée temporelle et stratifiée.
+2. **Clustering & Apprentissage Non-Supervisé** : Fondements mathématiques et mise en pratique de K-Means, DBSCAN et Classification Ascendante Hiérarchique, avec métriques de validation intrinsèque (coefficient de Silhouette, indice de Davies-Bouldin).
 
 ---
 

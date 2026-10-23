@@ -10,15 +10,11 @@
 > **Core Stack**: `C++17`, `Finite Differences`, `Implicit Scheme`, `Thomas Algorithm`, `SDL2`, `OOP`  
 > **Key Deliverables**: 25-page Formal Scientific Report, High-Performance Solver, Interactive Visualizer
 
+
+
 ---
 
-## 🇫🇷 Résumé Rapide en Français
-
-Ce projet de calcul scientifique haute performance implémente en **C++17 moderne** un solveur numérique pour l'**Équation aux Dérivées Partielles (EDP) de Black-Scholes**, utilisée pour la valorisation d'options financières européennes (Call et Put). 
-
-Sur le plan mathématique, nous avons discrétisé l'EDP selon les schémas aux **différences finies explicites et implicites**. Pour garantir la stabilité numérique inconditionnelle et éliminer les contraintes strictes du critère CFL (Courant-Friedrichs-Lewy), le schéma implicite aboutit à un système linéaire tridiagonal résolu en complexité linéaire $\mathcal{O}(N)$ via l'**algorithme de Thomas**. 
-
-L'application intègre une architecture orientée objet rigoureuse, une gestion de mémoire RAII sans fuite, et un moteur de rendu graphique en temps réel sous **SDL2** affichant dynamiquement la convergence du payoff vers la solution théorique fermée.
+> 🇫🇷 **Note aux recruteurs francophones** : Un résumé rapide du projet en français est disponible en fin de document — [Consulter le résumé en français](#-résumé-rapide-en-français).
 
 ---
 
@@ -76,6 +72,18 @@ make -j4
 # Execute solver with interactive SDL2 payoff renderer
 ./black_scholes_solver --strike 100 --spot 100 --vol 0.2 --rate 0.05 --maturity 1.0 --type call
 ```
+
+---
+
+---
+
+## 🇫🇷 Résumé Rapide en Français
+
+Ce projet de calcul scientifique haute performance implémente en **C++17 moderne** un solveur numérique pour l'**Équation aux Dérivées Partielles (EDP) de Black-Scholes**, utilisée pour la valorisation d'options financières européennes (Call et Put). 
+
+Sur le plan mathématique, nous avons discrétisé l'EDP selon les schémas aux **différences finies explicites et implicites**. Pour garantir la stabilité numérique inconditionnelle et éliminer les contraintes strictes du critère CFL (Courant-Friedrichs-Lewy), le schéma implicite aboutit à un système linéaire tridiagonal résolu en complexité linéaire $\mathcal{O}(N)$ via l'**algorithme de Thomas**. 
+
+L'application intègre une architecture orientée objet rigoureuse, une gestion de mémoire RAII sans fuite, et un moteur de rendu graphique en temps réel sous **SDL2** affichant dynamiquement la convergence du payoff vers la solution théorique fermée.
 
 ---
 

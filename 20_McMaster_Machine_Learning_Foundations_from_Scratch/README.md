@@ -10,15 +10,11 @@
 > **Core Stack**: `NumPy`, `Vectorized Backprop`, `Autograd`, `Optimization`, `Decision Trees from Scratch`, `MNIST`  
 > **Key Deliverables**: 6 Rigorous Homework & Research Suites, Vectorized Engine, Comparative Benchmarks
 
+
+
 ---
 
-## 🇫🇷 Résumé Rapide en Français
-
-Développée au sein du département de recherche en apprentissage automatique de l'**Université McMaster (Canada)**, cette suite d'ingénierie algorithmique explore les fondements mathématiques et l'implémentation de zéro (*from scratch*) des piliers du Machine Learning :
-1. **Rétropropagation Vectorisée en pur NumPy** : Dérivation matricielle analytique complète des gradients sur un réseau multicouche, éliminant toute boucle itérative par échantillon via des opérations tensorielles vectorisées.
-2. **Algorithmes d'Optimisation Non-Convexe** : Implémentation de la recherche par coordonnées d'ordre zéro, de la descente de gradient avec recherche linéaire de pas, de l'accélération par momentum et de la méthode du second ordre de Newton.
-3. **Arbre de Décision from Scratch (`My_TreeRegressor`)** : Implémentation récursive complète de l'algorithme de partitionnement binaire gourmand basé sur la réduction d'impureté MSE, benchmarké face à Scikit-learn.
-4. **Perceptrons Profonds sur MNIST** : Entraînement de classifieurs neuronaux sur données de haute dimension (784 dimensions) avec étude des frontières de décision non-linéaires.
+> 🇫🇷 **Note aux recruteurs francophones** : Un résumé rapide du projet en français est disponible en fin de document — [Consulter le résumé en français](#-résumé-rapide-en-français).
 
 ---
 
@@ -31,7 +27,8 @@ $$\mathbf{Z}^{(l)} = \mathbf{A}^{(l-1)} \mathbf{W}^{(l)} + \mathbf{b}^{(l)}, \qu
 Output error and recursive upstream backward propagation:
 
 $$oldsymbol{\delta}^{(L)} = 
-abla_{\mathbf{A}^{(L)}} \mathcal{L} \odot \sigma'(\mathbf{Z}^{(L)}), \quad oldsymbol{\delta}^{(l)} = \left(oldsymbol{\delta}^{(l+1)} (\mathbf{W}^{(l+1)})^Tight) \odot \sigma'(\mathbf{Z}^{(l)})$$
+abla_{\mathbf{A}^{(L)}} \mathcal{L} \odot \sigma'(\mathbf{Z}^{(L)}), \quad oldsymbol{\delta}^{(l)} = \left(oldsymbol{\delta}^{(l+1)} (\mathbf{W}^{(l+1)})^T
+ight) \odot \sigma'(\mathbf{Z}^{(l)})$$
 
 Parameter gradients computed in a single vectorized matrix product:
 
@@ -71,6 +68,18 @@ McMaster-Machine-Learning-Foundations-from-Scratch/
     ├── exercise3.ipynb                               # My_TreeRegressor recursive implementation
     └── exercise5.ipynb                               # Non-linear sine wave regression vs. Scikit-learn
 ```
+
+---
+
+---
+
+## 🇫🇷 Résumé Rapide en Français
+
+Développée au sein du département de recherche en apprentissage automatique de l'**Université McMaster (Canada)**, cette suite d'ingénierie algorithmique explore les fondements mathématiques et l'implémentation de zéro (*from scratch*) des piliers du Machine Learning :
+1. **Rétropropagation Vectorisée en pur NumPy** : Dérivation matricielle analytique complète des gradients sur un réseau multicouche, éliminant toute boucle itérative par échantillon via des opérations tensorielles vectorisées.
+2. **Algorithmes d'Optimisation Non-Convexe** : Implémentation de la recherche par coordonnées d'ordre zéro, de la descente de gradient avec recherche linéaire de pas, de l'accélération par momentum et de la méthode du second ordre de Newton.
+3. **Arbre de Décision from Scratch (`My_TreeRegressor`)** : Implémentation récursive complète de l'algorithme de partitionnement binaire gourmand basé sur la réduction d'impureté MSE, benchmarké face à Scikit-learn.
+4. **Perceptrons Profonds sur MNIST** : Entraînement de classifieurs neuronaux sur données de haute dimension (784 dimensions) avec étude des frontières de décision non-linéaires.
 
 ---
 

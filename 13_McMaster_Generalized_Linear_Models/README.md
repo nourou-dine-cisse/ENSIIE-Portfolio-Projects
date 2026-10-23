@@ -9,17 +9,11 @@
 > **Core Stack**: `R`, `Logistic Regression`, `Poisson Regression`, `Gamma Models`, `Deviance`, `IRLS`  
 > **Key Deliverables**: 5 Comprehensive Applied Statistical Papers, Complete R Code
 
+
+
 ---
 
-## 🇫🇷 Résumé Rapide en Français
-
-Développé au sein du **Department of Mathematics & Statistics de l'Université McMaster (Canada)**, ce recueil regroupe cinq études statistiques approfondies autour de la famille des **Modèles Linéaires Généralisés (GLM)** et des familles exponentielles de dispersion.
-
-Les travaux couvrent l'ensemble du spectre théorique et appliqué :
-1. **Régression Logistique Binaire & Multinomiale** : Dérivation des estimateurs du maximum de vraisemblance via l'algorithme des moindres carrés repondérés itérativement (**IRLS**).
-2. **Modèles de Comptage de Poisson & Surdispersion** : Traitement de la surdispersion via des formulations Quasi-Poisson et Binomiale Négative.
-3. **Modélisation Gamma & Inverse-Gaussienne** : Application aux données continues asymétriques positives (temps d'attente, montants de sinistres financiers).
-4. **Analyse de la Déviance & Diagnostic des Résidus** : Résidus de Pearson, résidus de déviance et distance de Cook.
+> 🇫🇷 **Note aux recruteurs francophones** : Un résumé rapide du projet en français est disponible en fin de document — [Consulter le résumé en français](#-résumé-rapide-en-français).
 
 ---
 
@@ -37,6 +31,20 @@ Les travaux couvrent l'ensemble du spectre théorique et appliqué :
 │   └── glm_models.R                  # Full reproducible statistical scripts
 └── README.md
 ```
+
+---
+
+---
+
+## 🇫🇷 Résumé Rapide en Français
+
+Développé au sein du **Department of Mathematics & Statistics de l'Université McMaster (Canada)**, ce recueil regroupe cinq études statistiques approfondies autour de la famille des **Modèles Linéaires Généralisés (GLM)** et des familles exponentielles de dispersion.
+
+Les travaux couvrent l'ensemble du spectre théorique et appliqué :
+1. **Régression Logistique Binaire & Multinomiale** : Dérivation des estimateurs du maximum de vraisemblance via l'algorithme des moindres carrés repondérés itérativement (**IRLS**).
+2. **Modèles de Comptage de Poisson & Surdispersion** : Traitement de la surdispersion via des formulations Quasi-Poisson et Binomiale Négative.
+3. **Modélisation Gamma & Inverse-Gaussienne** : Application aux données continues asymétriques positives (temps d'attente, montants de sinistres financiers).
+4. **Analyse de la Déviance & Diagnostic des Résidus** : Résidus de Pearson, résidus de déviance et distance de Cook.
 
 ---
 

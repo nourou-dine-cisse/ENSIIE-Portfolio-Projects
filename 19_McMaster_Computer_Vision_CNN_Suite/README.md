@@ -10,14 +10,11 @@
 > **Core Stack**: `TensorFlow`, `Keras`, `OpenCV`, `CNN`, `AlexNet`, `GTSRB`, `Batch Normalization`  
 > **Key Deliverables**: 3 End-to-End Vision Modules, 2 Technical Reports with Loss Curves, Full Code
 
+
+
 ---
 
-## 🇫🇷 Résumé Rapide en Français
-
-Développée au sein du cursus d'**Intelligence Artificielle Appliquée de l'Université McMaster (Canada)**, cette suite de vision par ordinateur regroupe trois modules d'ingénierie et de recherche appliqués aux réseaux de neurones convolutifs profonds (CNN) :
-1. **Perception pour Véhicules Autonomes (GTSRB)** : Classification de **43 catégories de panneaux de signalisation routière** sur le benchmark allemand GTSRB. Le pipeline intègre une égalisation d'histogramme adaptative pour normaliser les variations d'éclairage et une data augmentation en temps réel.
-2. **Étude Théorique et Empirique d'AlexNet** : Analyse approfondie de la dynamique d'apprentissage d'AlexNet (champs récepteurs, activations ReLU, régularisation par dropout et weight decay) avec rapport d'expertise détaillé.
-3. **Reconnaissance Faciale Biométrique d'Émotions** : Détection binaire du sourire (*smile classification*) sur des tenseurs d'images faciales 64x64x3 avec couches de Batch Normalization.
+> 🇫🇷 **Note aux recruteurs francophones** : Un résumé rapide du projet en français est disponible en fin de document — [Consulter le résumé en français](#-résumé-rapide-en-français).
 
 ---
 
@@ -35,6 +32,17 @@ McMaster-Computer-Vision-CNN-Suite/
     ├── problem_2.pdf                                 # Technical evaluation report
     └── Problem 2/                                    # Facial image datasets (.h5)
 ```
+
+---
+
+---
+
+## 🇫🇷 Résumé Rapide en Français
+
+Développée au sein du cursus d'**Intelligence Artificielle Appliquée de l'Université McMaster (Canada)**, cette suite de vision par ordinateur regroupe trois modules d'ingénierie et de recherche appliqués aux réseaux de neurones convolutifs profonds (CNN) :
+1. **Perception pour Véhicules Autonomes (GTSRB)** : Classification de **43 catégories de panneaux de signalisation routière** sur le benchmark allemand GTSRB. Le pipeline intègre une égalisation d'histogramme adaptative pour normaliser les variations d'éclairage et une data augmentation en temps réel.
+2. **Étude Théorique et Empirique d'AlexNet** : Analyse approfondie de la dynamique d'apprentissage d'AlexNet (champs récepteurs, activations ReLU, régularisation par dropout et weight decay) avec rapport d'expertise détaillé.
+3. **Reconnaissance Faciale Biométrique d'Émotions** : Détection binaire du sourire (*smile classification*) sur des tenseurs d'images faciales 64x64x3 avec couches de Batch Normalization.
 
 ---
 

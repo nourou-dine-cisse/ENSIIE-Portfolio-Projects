@@ -9,17 +9,11 @@
 > **Core Stack**: `PyTorch`, `Transformers`, `Word2Vec`, `FastText`, `BiLSTM-CNN`, `Seqeval`  
 > **Key Deliverables**: 2 Research Papers, Comprehensive Benchmark Suite, Full PyTorch Models
 
+
+
 ---
 
-## 🇫🇷 Résumé Rapide en Français
-
-Ce projet de recherche approfondie, mené dans le cadre du **Master 2 Intelligence Artificielle (M2IA) de l'Université Paris-Saclay**, explore le continuum des représentations sémantiques en traitement automatique du langage naturel (NLP). 
-
-Nous avons mené une étude comparative rigoureuse :
-1. **Espaces d'Embeddings Statiques vs Sous-Motiques** : Analyse géométrique et tests d'analogie lexicale comparant **Word2Vec** (Skip-Gram, CBOW) et **FastText** (n-grammes de caractères pour pallier le vocabulaire hors-dictionnaire OOV).
-2. **Architecture Hybride BiLSTM-CNN pour la Reconnaissance d'Entités Nommées (NER)** : Implémentation sous **PyTorch** d'une architecture neuronale combinant un CNN extracteur d'attributs morphologiques au niveau caractère et un BiLSTM bidirectionnel au niveau mot pour capturer la dépendance contextuelle à longue portée.
-
-Les deux rapports de recherche détaillés et le code PyTorch documenté sont inclus dans le dépôt.
+> 🇫🇷 **Note aux recruteurs francophones** : Un résumé rapide du projet en français est disponible en fin de document — [Consulter le résumé en français](#-résumé-rapide-en-français).
 
 ---
 
@@ -67,6 +61,20 @@ Effective sequence labeling and token classification requires capturing both wor
 │   └── Rapport_TP_Embeddings.pdf    # Quantitative study on dense embeddings geometry
 └── README.md
 ```
+
+---
+
+---
+
+## 🇫🇷 Résumé Rapide en Français
+
+Ce projet de recherche approfondie, mené dans le cadre du **Master 2 Intelligence Artificielle (M2IA) de l'Université Paris-Saclay**, explore le continuum des représentations sémantiques en traitement automatique du langage naturel (NLP). 
+
+Nous avons mené une étude comparative rigoureuse :
+1. **Espaces d'Embeddings Statiques vs Sous-Motiques** : Analyse géométrique et tests d'analogie lexicale comparant **Word2Vec** (Skip-Gram, CBOW) et **FastText** (n-grammes de caractères pour pallier le vocabulaire hors-dictionnaire OOV).
+2. **Architecture Hybride BiLSTM-CNN pour la Reconnaissance d'Entités Nommées (NER)** : Implémentation sous **PyTorch** d'une architecture neuronale combinant un CNN extracteur d'attributs morphologiques au niveau caractère et un BiLSTM bidirectionnel au niveau mot pour capturer la dépendance contextuelle à longue portée.
+
+Les deux rapports de recherche détaillés et le code PyTorch documenté sont inclus dans le dépôt.
 
 ---
 
