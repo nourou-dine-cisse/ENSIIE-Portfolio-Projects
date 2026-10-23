@@ -831,5 +831,102 @@
     "reports": [],
     "presentations": [],
     "architecture_diagrams": []
+  },
+  {
+    "id": "17_vlm_face_accessories",
+    "folder": "17_Examining_the_effect_of_face_accessories_on_VLM_face_evaluation",
+    "title_fr": "Effet des accessoires faciaux sur l’évaluation des modèles vision-langage",
+    "title_en": "Examining the Effect of Face Accessories on VLM Face Evaluation",
+    "category": "AI Evaluation & Fairness",
+    "institution": "Université Paris-Saclay & CEA-List",
+    "degree": "M2 Intelligence Artificielle (M2IA)",
+    "year": "2026",
+    "role": "Co-Author & ML Researcher",
+    "technologies": [
+      "Vision-Language Models",
+      "MiniCPM-V 4.6",
+      "SigLIP 2",
+      "Counterfactual Evaluation",
+      "Fairness",
+      "Synthetic Data"
+    ],
+    "keywords": [
+      "vlm",
+      "multimodal",
+      "counterfactual",
+      "social bias",
+      "fairness",
+      "minicpm",
+      "siglip",
+      "face evaluation",
+      "vision-language"
+    ],
+    "pitch_fr": "Recherche empirique menée à l’Université Paris-Saclay évaluant l’effet des accessoires faciaux (lunettes, casquettes, masques) sur les modèles vision-langage à travers un benchmark contrefactuel de 720 identités synthétiques et 2 880 images.",
+    "pitch_en": "Empirical research co-authored at Université Paris-Saclay studying how facial accessories affect vision-language model predictions across 720 synthetic identities and 2,880 counterfactual images.",
+    "star_bullet_points_fr": [
+      "Conception d’un protocole contrefactuel rigoureux sur 2 880 images évaluant MiniCPM-V 4.6 et SigLIP 2.",
+      "Mesure quantitative des dérives de classification d’attributs et des biais sociologiques induits par les accessoires.",
+      "Rédaction d’un article de recherche et présentation des perspectives d’évaluation de robustesse des VLMs."
+    ],
+    "star_bullet_points_en": [
+      "Designed a rigorous counterfactual evaluation benchmark across 2,880 synthetic images evaluating MiniCPM-V 4.6 and SigLIP 2.",
+      "Quantified attribute recognition shifts and social biases induced by facial accessories.",
+      "Co-authored research paper and delivered presentation praised by CEA-List research supervisor."
+    ],
+    "reports": [
+      "https://raw.githubusercontent.com/SalmaAlkhalily/examining-the-effect-of-face-accessories-on-vlm-evaluation/main/paper/Examining_the_effect_of_face_accessories_in_VLM_face_evaluation.pdf"
+    ],
+    "presentations": [
+      "https://raw.githubusercontent.com/SalmaAlkhalily/examining-the-effect-of-face-accessories-on-vlm-evaluation/main/presentation/Face_accessories_VLM_final_presentation.pptx"
+    ],
+    "architecture_diagrams": []
+  },
+  {
+    "id": "18_lora",
+    "folder": "18_LoRA",
+    "title_fr": "LoRA : Low-Rank Adaptation et PEFT de zéro sous PyTorch",
+    "title_en": "LoRA: Low-Rank Adaptation & PEFT from Scratch in PyTorch",
+    "category": "Deep Learning & NLP",
+    "institution": "Université Paris-Saclay & ENSIIE",
+    "degree": "M2 Intelligence Artificielle & Diplôme d'Ingénieur",
+    "year": "2026",
+    "role": "Lead Researcher & Engineer",
+    "technologies": [
+      "PyTorch",
+      "LoRA",
+      "PEFT",
+      "Transformers",
+      "BERT",
+      "Hugging Face",
+      "Model Efficiency"
+    ],
+    "keywords": [
+      "lora",
+      "peft",
+      "parameter-efficient fine-tuning",
+      "low-rank adaptation",
+      "transformers",
+      "llm fine-tuning",
+      "bert",
+      "intrinsic dimensionality",
+      "matrix decomposition",
+      "deep learning",
+      "nlp"
+    ],
+    "pitch_fr": "Implémentation complète from scratch sous PyTorch de Low-Rank Adaptation (LoRA, Hu et al. 2021) pour l'ajustement fin économe en paramètres (PEFT) de modèles Transformer. Décomposition matricielle W0 + (alpha/r)*BA sur les projections d'attention (Q, K, V), gelant 99,6 % des poids du modèle de base tout en conservant 97 % des performances du fine-tuning complet sur BERT.",
+    "pitch_en": "End-to-end PyTorch from-scratch implementation of Low-Rank Adaptation (LoRA, Hu et al. 2021) for parameter-efficient fine-tuning (PEFT) of Transformers. Implements low-rank decomposition matrices W0 + (alpha/r)*BA on self-attention projections, freezing 99.6% of base weights while retaining 97% of full fine-tuning performance on BERT.",
+    "star_bullet_points_fr": [
+      "Implémentation from scratch du module LoRALinear en PyTorch avec décomposition de bas rang BA, mise à l'échelle alpha/r et fusion matricielle à l'inférence pour une surcharge de latence nulle.",
+      "Adaptation ciblée des projections de requête, clé et valeur sur les 12 couches de BERT, réduisant les paramètres entraînables à 443 906 (0,41 % du modèle).",
+      "Évaluation empirique comparative sur IMDB : 87,9 % de précision (proche des 90,9 % du fine-tuning complet à 108M paramètres) avec une réduction de plus de 99,5 % des paramètres entraînables."
+    ],
+    "star_bullet_points_en": [
+      "Implemented LoRALinear from first principles in PyTorch with low-rank decomposition BA, alpha/r scaling, and zero-latency inference weight merging.",
+      "Targeted adaptation of query, key, and value self-attention projections across all 12 BERT layers, constraining trainable parameters to 443,906 (0.41% of model).",
+      "Benchmarked against full fine-tuning and PEFT on IMDB sentiment classification, achieving 87.9% test accuracy with >99.5% reduction in trainable parameters."
+    ],
+    "reports": [],
+    "presentations": [],
+    "architecture_diagrams": []
   }
 ]
