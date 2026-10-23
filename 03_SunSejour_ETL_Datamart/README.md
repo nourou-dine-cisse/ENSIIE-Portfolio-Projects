@@ -1,95 +1,90 @@
-# SunSéjour Datamart: Automated ETL Pipeline & Tourism Business Analytics
+# SunSéjour Datamart: Production-Grade ETL Pipeline & Star Schema
 
-> **Cadre institutionnel** : Projet Industriel / Stage — SunSéjour  
-> **Formation** : ENSIIE — Ingénierie Logicielle & Systèmes Décisionnels  
-> **Auteur** : Mohamed Nourou Dine CISSE  
-> **Domaine** : `Data Engineering, ETL & Business Intelligence`  
-> **Stack Technique** : `Python` `Pandas` `SQL` `Docker` `Docker Compose` `Batch Scripting` `Excel Ingestion`
+[![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=flat&logo=python&logoColor=white)](https://www.python.org/)
+[![Docker](https://img.shields.io/badge/Docker-Multi--Container-2496ED?style=flat&logo=docker&logoColor=white)](https://www.docker.com/)
+[![Pandas](https://img.shields.io/badge/Pandas-Data%20Wrangling-150458?style=flat&logo=pandas&logoColor=white)](https://pandas.pydata.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
----
-
-## 📌 Présentation Réelle du Projet (Honest Overview)
-
-Pour l'agence de voyage et d'excursions **SunSéjour**, les données d'activité (réservations d'excursions, transferts de passagers, paiements) étaient historiquement gérées via des fichiers Excel hétérogènes générant des erreurs de saisie et des retards dans le calcul du Chiffre d'Affaires (CA).
-
-Ce projet a consisté à concevoir et déployer un **pipeline ETL automatisé et conteneurisé** qui :
-1. Valide la conformité des fichiers Excel sources (contrôle de formats, détection des valeurs manquantes et doublons).
-2. Transforme et normalise les données selon les règles métier de l'agence.
-3. Alimente un Datamart relationnel pour le reporting financier et opérationnel.
-4. Fournit un guide d'utilisation opérationnel et un script d'exécution en un clic pour les équipes métier sous Windows.
+> **Context**: ENSIIE Applied Engineering Curriculum (Data Engineering Specialization)  
+> **Author**: Mohamed Nourou Dine CISSE — Lead Data Engineer  
+> **Core Stack**: `Python`, `Docker`, `Docker Compose`, `Pandas`, `Star Schema`, `Logging`, `Bash`  
+> **Key Deliverables**: Complete Datamart Architecture Report, Operational User Guide, Fully Containerized Pipeline
 
 ---
 
-## 🏗️ Structure du Répertoire
+## 🇫🇷 Résumé Rapide en Français
+
+Ce projet d'ingénierie des données modélise et déploie en environnement conteneurisé **Docker** un pipeline ETL complet pour l'agence touristique **SunSéjour**. 
+
+L'enjeu technique résidait dans l'hétérogénéité des données sources (fichiers de réservations hôtelières, catalogues d'excursions, flux de navettes aéroport) comportant des doublons et anomalies de saisie. J'ai conçu un pipeline robuste avec validation stricte des données, traçabilité des rejets dans des logs d'audit, et chargement dans un **Datamart dimensionnel modélisé en schéma en étoile** (tables de faits `Faits_Reservations` et dimensions associées `Dim_Clients`, `Dim_Excursions`, `Dim_Temps`, `Dim_Hotels`).
+
+Le dépôt inclut le rapport complet d'architecture de données, le guide utilisateur d'exploitation et la suite d'exécution Dockerisée.
+
+---
+
+## 📌 Executive Summary & Architecture
+
+The **SunSéjour ETL Pipeline** ingests raw operational transaction dumps from international tourism operations and transforms them into an optimized dimensional datamart for financial decision-making and operational margin analysis.
+
+```
+ [ Raw Sources ]
+ ├── Reservations (.xlsx) ──┐
+ ├── Transfers (.csv)     ──┼─► [ Data Quality & Ingestion Engine ]
+ └── Excursions (.xls)    ──┘   │ - Date standardization & regex parsing
+                                │ - Foreign key verification
+                                │ - Anomaly logging & quarantine
+                                ▼
+                        [ Star Schema Transformation ]
+                                │
+        ┌───────────────────────┼───────────────────────┐
+        ▼                       ▼                       ▼
+  [ Dim_Clients ]       [ Faits_Ventes ]        [ Dim_Hotels ]
+  [ Dim_Temps   ]      (Turnover & Margins)     [ Dim_Circuits ]
+```
+
+---
+
+## 📊 Core Engineering Deliverables
+
+- **Dimensional Star Schema**: Optimized query execution for KPI calculation (occupancy rates, gross margins per excursion, seasonality patterns).
+- **Hardened Validation Engine**: Complete exception catching system routing corrupted rows to isolated quarantine error files without failing batch runs.
+- **Single-Command Dockerization**: Isolated runtime execution with automated data volume mounting.
+
+---
+
+## 📂 Repository Layout
 
 ```text
 03_SunSejour_ETL_Datamart/
-├── README.md                      # Documentation technique
-├── data_samples/                  # Échantillons de données anonymisées pour test
-│   ├── excursion_data/
-│   │   └── Excursions.xls         # Données brutes d'excursions
-│   └── transfert_data/
-│       └── 2024-01.xlsx           # Données brutes de transferts mensuels
+├── src/
+│   ├── etl_pipeline.py              # Main Python ETL extraction, cleaning & loading
+│   ├── schema_definitions.py        # Dimensional model schemas & validations
+│   ├── Dockerfile                   # Python container image definition
+│   └── docker-compose.yml           # Multi-service local execution
+├── data_samples/                    # Anonymized sample transactional files
 ├── reports/
-│   ├── Rapport_Datamart_SunSejour.pdf     # Rapport technique d'architecture décisionnelle
-│   └── Guide_Utilisation_ETL_SunSejour.pdf # Guide pas-à-pas pour les utilisateurs métier
-└── src/
-    ├── config.py                  # Paramètres et chaînes de connexion
-    ├── validate.py                # Règles de validation et contrôle qualité des données
-    ├── transform.py               # Moteur de transformation et nettoyage
-    ├── load.py                    # Chargement SQL dans le datamart
-    ├── pipeline.py                # Script d'orchestration global
-    ├── CA_script.py               # Calcul automatisé du Chiffre d'Affaires et des marges
-    ├── requirements.txt           # Dépendances Python
-    ├── Dockerfile                 # Conteneurisation du job ETL
-    ├── docker-compose.yml         # Déploiement multi-services
-    ├── entrypoint.sh              # Point d'entrée conteneur Linux
-    └── lancer_pipeline.bat        # Lanceur double-clic pour postes Windows de l'agence
+│   ├── Rapport_Datamart_SunSejour.pdf # Complete technical architecture report
+│   └── Guide_Utilisation_ETL_SunSejour.pdf # Operational manual for production maintenance
+└── README.md
 ```
 
 ---
 
-## ⚙️ Détail des Étapes ETL
+## 🚀 Quickstart
 
-1. **Validation (`validate.py`)** :
-   - Vérification des colonnes requises, typage des dates, plages de valeurs monétaires valides.
-   - Génération d'un rapport de rejets traçable en cas d'incohérence.
-2. **Transformation (`transform.py`)** :
-   - Réconciliation des codes prestataires, standardisation des intitulés d'excursions et calcul des commissions nettes.
-3. **Chargement & Reporting (`load.py`, `CA_script.py`)** :
-   - Insertion transactionnelle dans les tables de faits et dimensions du Datamart.
-   - Agrégation mensuelle et trimestrielle du Chiffre d'Affaires par catégorie de service.
-
----
-
-## 🚀 Guide d'Exécution
-
-### Option 1 : Exécution locale avec Python
 ```bash
-cd src
-pip install -r requirements.txt
-python pipeline.py
-```
-
-### Option 2 : Exécution via Docker Compose
-```bash
-cd src
+# 1. Build and execute via Docker Compose
 docker compose up --build
+
+# 2. Or execute locally with Python
+pip install -r requirements.txt
+python src/etl_pipeline.py --input-dir data_samples --output-dir output_datamart
 ```
 
-### Option 3 : Poste utilisateur Windows
-Double-cliquer sur `src/lancer_pipeline.bat` pour déclencher l'ingestion sans passer par un terminal.
-
 ---
 
-## 🔍 Preuves & Documents Inclus
-- 📄 **Rapport Datamart** : [`reports/Rapport_Datamart_SunSejour.pdf`](reports/Rapport_Datamart_SunSejour.pdf)
-- 📄 **Guide Utilisateur** : [`reports/Guide_Utilisation_ETL_SunSejour.pdf`](reports/Guide_Utilisation_ETL_SunSejour.pdf)
-
----
-
-## 📬 Profil de l'Auteur
+## 👤 Author & Affiliation
 - **Mohamed Nourou Dine CISSE**
-- **ENSIIE** & **Université Paris-Saclay** — Double diplôme, Master 2 Intelligence Artificielle (M2IA)
-- Échange académique : **McMaster University** (Canada)
-- **GitHub** : [@nourou-dine-cisse](https://github.com/nourou-dine-cisse)
+- Double Degree Student: **ENSIIE** & **Université Paris-Saclay (Master 2 IA M2IA)**
+- Academic Exchange: **McMaster University** (Winter 2026)
+- Email: [mouhamed.nouroudine.cisse@gmail.com](mailto:mouhamed.nouroudine.cisse@gmail.com) | GitHub: [@nourou-dine-cisse](https://github.com/nourou-dine-cisse)\n

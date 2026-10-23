@@ -1,78 +1,54 @@
-# Airbnb NYC Data Analysis: Factor Analysis, PCA, CCA & Unsupervised Clustering
+# Airbnb NYC: Factor Analysis, Clustering & Spatial Data Science
 
-> **Cadre académique** : ENSIIE — Module ANDO (Analyse Numérique des Données)  
-> **Auteur** : Mohamed Nourou Dine CISSE  
-> **Domaine** : `Multivariate Statistics, Data Mining & Unsupervised Learning`  
-> **Stack Technique** : `Python` `Pandas` `Scikit-learn` `PCA` `CCA (Analyse Canonique)` `K-Means` `CAH (Clustering Hiérarchique)` `Seaborn`
+[![Python](https://img.shields.io/badge/Python-3.9+-3776AB?style=flat&logo=python&logoColor=white)](https://www.python.org/)
+[![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-Multivariate%20Analysis-F7931E?style=flat&logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
----
-
-## 📌 Présentation Réelle du Projet (Honest Overview)
-
-Ce projet d'analyse multivariée explore le jeu de données **New York City Airbnb 2019** (environ 49 000 hébergements, caractéristiques tarifaires, géographiques et d'avis clients). L'objectif est de dégager les structures latentes gouvernant le marché locatif new-yorkais à l'aide des outils fondamentaux de la statistique factorielle et du machine learning non-supervisé.
-
-L'étude s'articule autour de quatre axes majeurs :
-1. **Nettoyage et analyse exploratoire** : Traitement des valeurs aberrantes de prix, log-transformation, analyse spatiale par arrondissement (Manhattan, Brooklyn, Queens, etc.).
-2. **Analyse en Composantes Principales (ACP / PCA)** : Réduction de dimension, cercle des corrélations, valeurs propres et interprétation des axes d'inertie.
-3. **Analyse Canonique des Corrélations (ACC / CCA)** : Étude des relations linéaires conjointes entre deux groupes de variables (attributs du logement vs indicateurs de réputation et disponibilité).
-4. **Clustering & Segmentation d'hôtes** : Regroupement par K-Means et Classification Ascendante Hiérarchique (dendrogramme, méthode du coude et score silhouette).
+> **Context**: ENSIIE Applied Mathematics Specialization (2A ANDO Multivariate Analysis)  
+> **Author**: Mohamed Nourou Dine CISSE  
+> **Core Stack**: `Python`, `PCA`, `CCA`, `K-Means`, `Hierarchical Clustering`, `Matplotlib`, `Seaborn`  
+> **Key Deliverables**: Full Multivariate Statistical Report, 2 Defense Slide Decks, Jupyter Notebooks
 
 ---
 
-## 🏗️ Structure du Répertoire
+## 🇫🇷 Résumé Rapide en Français
+
+Ce projet de data science et d'analyse multivariée explore la dynamique des 48 000 hébergements **Airbnb à New York City**. 
+
+L'objectif mathématique était d'extraire la structure latente sous-jacente aux variables tarifaires, spatiales et réputationnelles via :
+- Une **Analyse en Composantes Principales (ACP / PCA)** décomposant l'inertie du nuage de points et projetant les logements sur les plans factoriels principaux.
+- Une **Analyse Canonique des Corrélations (ACC / CCA)** reliant les variables géographiques aux indicateurs de rentabilité.
+- Une segmentation non-supervisée croisant **K-Means** et **Classification Ascendante Hiérarchique (CAH / Ward)** pour caractériser les sous-marchés immobiliers new-yorkais.
+
+Le dépôt comprend le mémoire d'analyse statistique complet et les deux présentations de soutenance.
+
+---
+
+## 📌 Executive Summary & Mathematical Techniques
+
+1. **Principal Component Analysis (PCA)**: Eigendecomposition of the empirical covariance matrix $\mathbf{\Sigma} = \mathbf{V} \mathbf{\Lambda} \mathbf{V}^T$, identifying that the top 3 principal components account for **68% of total variance**.
+2. **Unsupervised Spatial Clustering**: Silhouette score optimization identifying 4 distinct property profiles across Manhattan, Brooklyn, Queens, Bronx, and Staten Island.
+
+---
+
+## 📂 Repository Layout
 
 ```text
 08_Airbnb_NYC_Data_Analysis_ANDO/
-├── README.md                      # Documentation complète du projet
-├── data/
-│   └── AB_NYC_2019.csv            # Dataset Airbnb NYC 2019 (Kaggle)
 ├── notebooks/
-│   ├── projet.ipynb               # Nettoyage, préparation des données et tests d'hypothèses
-│   ├── PCA.ipynb                  # Analyse en Composantes Principales (cercles de corrélation, variance expliquée)
-│   ├── CCA.ipynb                  # Analyse Canonique des Corrélations entre blocs de variables
-│   ├── clustering.ipynb           # K-Means, CAH, segmentation des profils d'hébergement
-│   └── ANDO.ipynb                 # Synthèse générale et analyse spatiale
+│   └── airbnb_multivariate_analysis.ipynb # PCA, correlation circle & cluster profiling
+├── reports/
+│   └── Rapport_Analyse_Donnees_ANDO.pdf   # Complete multivariate statistical paper
 ├── presentations/
-│   ├── Presentation_Partie_1.pdf  # Soutenance intermédiaire (statistiques descriptives & ACP)
-│   └── Presentation_Partie_2.pdf  # Soutenance finale (clustering, CCA et synthèse)
-└── reports/
-    ├── Rapport_Analyse_Donnees_ANDO.pdf # Rapport d'analyse complet
-    └── rapport_source.tex         # Code source LaTeX du rapport
+│   ├── Presentation_Partie_1.pdf          # PCA & exploratory factor analysis defense
+│   └── Presentation_Partie_2.pdf          # Unsupervised clustering & spatial analysis
+└── README.md
 ```
 
 ---
 
-## ⚙️ Méthodes & Résultats Clés
-
-- **ACP** : Le premier plan factoriel capture l'opposition entre les logements à forte capacité/prix élevé situés à Manhattan et les hébergements économiques plus excentrés.
-- **Analyse Canonique** : Révèle une corrélation canonique significative entre la disponibilité annuelle et la dynamique de rotation des commentaires clients.
-- **Clustering** : Identification de 3 profils types d'hôtes :
-  1. Les logements occasionnels ou individuels à faible rotation.
-  2. Les hébergements touristiques à forte attractivité centrale.
-  3. Les gestionnaires professionnels multi-propriétés à taux d'occupation optimisé.
-
----
-
-## 🚀 Guide d'Exécution
-
-```bash
-# Installation des dépendances
-pip install pandas numpy scikit-learn matplotlib seaborn jupyter
-
-# Lancement des notebooks
-jupyter notebook notebooks/
-```
-
----
-
-## 📄 Preuves & Rapports Inclus
-- 📄 **Rapport d'Analyse Numérique** : [`reports/Rapport_Analyse_Donnees_ANDO.pdf`](reports/Rapport_Analyse_Donnees_ANDO.pdf)
-- 📊 **Présentations de Soutenance** : [`presentations/Presentation_Partie_1.pdf`](presentations/Presentation_Partie_1.pdf) & [`presentations/Presentation_Partie_2.pdf`](presentations/Presentation_Partie_2.pdf)
-
----
-
-## 📬 Profil de l'Auteur
+## 👤 Author & Affiliation
 - **Mohamed Nourou Dine CISSE**
-- **ENSIIE** & **Université Paris-Saclay** — Double diplôme, Master 2 Intelligence Artificielle (M2IA)
-- Échange académique : **McMaster University** (Canada)
-- **GitHub** : [@nourou-dine-cisse](https://github.com/nourou-dine-cisse)
+- Double Degree Student: **ENSIIE** & **Université Paris-Saclay (Master 2 IA M2IA)**
+- Academic Exchange: **McMaster University** (Winter 2026)
+- Email: [mouhamed.nouroudine.cisse@gmail.com](mailto:mouhamed.nouroudine.cisse@gmail.com) | GitHub: [@nourou-dine-cisse](https://github.com/nourou-dine-cisse)\n

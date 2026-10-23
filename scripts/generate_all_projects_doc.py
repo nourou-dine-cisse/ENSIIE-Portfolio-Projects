@@ -5,7 +5,10 @@ from docx.shared import Inches, Pt, RGBColor
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.enum.table import WD_TABLE_ALIGNMENT
 
-CATALOG_PATH = os.path.abspath("All projects/projects_catalog.json")
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+ALL_PROJ_DIR = os.path.dirname(SCRIPT_DIR)
+CATALOG_PATH = os.path.join(ALL_PROJ_DIR, "projects_catalog.json")
+
 with open(CATALOG_PATH, "r", encoding="utf-8") as f:
     catalog = json.load(f)
 
@@ -28,7 +31,7 @@ title_run.font.color.rgb = RGBColor(16, 44, 87)
 title_p.alignment = WD_ALIGN_PARAGRAPH.CENTER
 
 sub_p = doc.add_paragraph()
-sub_run = sub_p.add_run("Mohamed Nourou Dine CISSE — Élève-Ingénieur ENSIIE & McMaster University\nSpécialisation : Intelligence Artificielle, Data Engineering & Mathématiques Appliquées\nEmail : mouhamed.nouroudine.cisse@gmail.com | Tél : +33 7 65 60 09 97 | GitHub : github.com/nourou-dine-mahy")
+sub_run = sub_p.add_run("Mohamed Nourou Dine CISSE — Élève-Ingénieur ENSIIE & Université Paris-Saclay (Master M2IA) | Échange McMaster University\nSpécialisation : Intelligence Artificielle, Deep Learning & Mathématiques Appliquées\nEmail : mouhamed.nouroudine.cisse@gmail.com | Tél : +33 7 65 60 09 97 | GitHub : github.com/nourou-dine-cisse")
 sub_run.font.name = "Calibri"
 sub_run.font.size = Pt(10.5)
 sub_run.font.italic = True
@@ -38,11 +41,11 @@ doc.add_paragraph("-" * 80)
 
 # Intro
 p_intro = doc.add_paragraph()
-r_intro = p_intro.add_run("Ce document rassemble la documentation exhaustive, les rapports d'expertise et les présentations de soutenance des 16 projets réalisés au cours de mon cursus d'ingénieur et de mes expériences en entreprise (Publicis Groupe, Infinity Analytics / Gainde 2000, Challenge Entreprendre ENSIIE). Il sert de référence complète pour mes candidatures au Stage de Fin d'Études (PFE).")
+r_intro = p_intro.add_run(f"Ce document rassemble la documentation exhaustive, les rapports d'expertise et les présentations de soutenance des {len(catalog)} projets d'ingénierie et de recherche réalisés au cours de mon cursus à l'ENSIIE, mon Master 2 en Intelligence Artificielle (Université Paris-Saclay), mon échange académique à McMaster University (Canada) et mes expériences industrielles (Publicis Groupe, Gainde 2000 / Infinity Analytics, Challenge Entreprendre).")
 r_intro.font.name = "Calibri"
 r_intro.font.size = Pt(11)
 
-doc.add_heading("Tableau Récapitulatif des 16 Projets", level=1)
+doc.add_heading(f"Tableau Récapitulatif des {len(catalog)} Projets", level=1)
 
 table = doc.add_table(rows=1, cols=4)
 table.alignment = WD_TABLE_ALIGNMENT.CENTER
@@ -113,8 +116,8 @@ for i, p in enumerate(catalog, 1):
 
     doc.add_paragraph("")
 
-doc_path_all = os.path.abspath("All projects/All_Projects.docx")
-doc_path_root = os.path.abspath("All projects.docx")
+doc_path_all = os.path.join(ALL_PROJ_DIR, "All_Projects.docx")
+doc_path_root = os.path.abspath("/Users/nouroudine/Documents/ENSIIE/All projects.docx")
 
 doc.save(doc_path_all)
 doc.save(doc_path_root)

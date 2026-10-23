@@ -1,71 +1,43 @@
-# Kryptosphere AI Workshops: Hands-On Machine Learning & Data Science Training Suite
+# Kryptosphere AI Workshops: Hands-On Machine Learning & Data Science Curriculum
 
-> **Cadre associatif & pédagogique** : KRYPTOSPHERE (Association Étudiante d'Innovation Technologique & IA)  
-> **Formateur & Concepteur** : Mohamed Nourou Dine CISSE — Responsable Formations IA  
-> **Domaine** : `Applied Data Science, Machine Learning Pedagogy & Technical Training`  
-> **Stack Technique** : `Python` `Jupyter Notebook` `Pandas` `Scikit-learn` `Seaborn` `Time Series` `Clustering`
+[![Python](https://img.shields.io/badge/Python-3.9+-3776AB?style=flat&logo=python&logoColor=white)](https://www.python.org/)
+[![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-Workshops-F7931E?style=flat&logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
----
-
-## 📌 Présentation Réelle du Projet (Honest Overview)
-
-Ce dépôt regroupe l'ensemble du matériel pédagogique (supports de cours, slides PowerPoint/PDF, jeux de données d'exercice et notebooks interactifs avec solutions) conçu et dispensé lors des **formations en Intelligence Artificielle et Data Science de l'association KRYPTOSPHERE**.
-
-Destiné aux étudiants ingénieurs débutants et intermédiaires, le cursus privilégie une approche par la pratique (*learning by doing*) à travers 4 ateliers modulaires :
-1. **Atelier 1 — Manipulation & Visualisation de Données** : Exploration du jeu de données des joueurs FIFA (`fifa_players.csv`), indexation Pandas, traitement des valeurs nulles et visualisations Seaborn / Matplotlib.
-2. **Atelier 2 — Prétraitement & Évaluation de Modèles** : Encodage (*One-Hot*, *Label Encoding*), normalisation, division train/test sans fuite de données (*data leakage*), matrices de confusion, compromis biais-variance et métriques de classification/régression.
-3. **Atelier 3 — Apprentissage Non-Supervisé & Clustering** : Algorithme des K-Moyennes (*K-Means*), méthode du coude (*Elbow Method*), indice silhouette et projection PCA.
-4. **Atelier 4 — Introduction aux Séries Temporelles** : Analyse de la fréquentation aérienne historique (`AirPassengers.csv`), décomposition de tendance et saisonnalité.
+> **Context**: Kryptosphere (Premier French Student Tech & AI Association)  
+> **Author**: Mohamed Nourou Dine CISSE — Head of AI Formations  
+> **Core Stack**: `Python`, `Scikit-Learn`, `Pandas`, `Clustering`, `Time Series`, `Evaluation Metrics`  
+> **Key Deliverables**: 2 Pedagogical Slide Decks, Interactive Hands-on Notebooks
 
 ---
 
-## 🏗️ Structure du Répertoire
+## 🇫🇷 Résumé Rapide en Français
+
+Au sein de l'association **Kryptosphere** (première association étudiante tech & IA en France), j'ai conçu et animé une série d'ateliers pratiques et de formations d'excellence à destination des étudiants en ingénierie et data science.
+
+Ce recueil contient deux formations phares :
+1. **Évaluation Rigoureuse des Modèles de Machine Learning** : Dépasser le simple taux d'exactitude (accuracy) pour analyser les matrices de confusion, la précision, le rappel, le F1-score, les courbes ROC-AUC, le compromis biais-variance et les stratégies de validation croisée temporelle et stratifiée.
+2. **Clustering & Apprentissage Non-Supervisé** : Fondements mathématiques et mise en pratique de K-Means, DBSCAN et Classification Ascendante Hiérarchique, avec métriques de validation intrinsèque (coefficient de Silhouette, indice de Davies-Bouldin).
+
+---
+
+## 📂 Repository Layout
 
 ```text
 14_Kryptosphere_AI_Workshops/
-├── README.md                      # Présentation générale du cycle de formation
-├── presentations/                 # Diaporama de cours dispensés (PowerPoint & PDF)
-│   ├── Formation_Evaluation_Modeles_ML.pdf / .pptx  # Support complet Atelier 2
-│   └── Formation_Clustering.pdf / .pptx            # Support complet Atelier 3
-└── workshops/                     # Dossiers d'exercices pratiques par atelier
-    ├── 01_data_manipulation_viz/
-    │   ├── data_manip_viz.ipynb   # Notebook pas-à-pas de manipulation Pandas & Seaborn
-    │   └── fifa_players.csv       # Dataset d'apprentissage FIFA
-    ├── 02_preprocessing_evaluation/
-    │   ├── Preprocessing_ML.ipynb # Notebook de nettoyage, feature engineering et validation croisée
-    │   ├── train.csv              # Jeu d'entraînement
-    │   └── test.csv               # Jeu de test
-    ├── 03_clustering/
-    │   └── Clustering.ipynb       # Notebook d'implémentation K-Means et visualisation
-    └── 04_time_series/
-        ├── series_temporelles.ipynb # Notebook d'initiation aux séries temporelles
-        └── AirPassengers.csv      # Dataset classique AirPassengers
+├── presentations/
+│   ├── Formation_Evaluation_Modeles_ML.pdf # Complete presentation on ML model validation
+│   └── Formation_Clustering.pdf            # Pedagogical deck on unsupervised clustering
+├── workshops/
+│   ├── workshop_evaluation_metrics.ipynb   # Interactive coding session with real datasets
+│   └── workshop_clustering.ipynb           # Hands-on implementation of K-Means & DBSCAN
+└── README.md
 ```
 
 ---
 
-## 🎯 Objectifs Pédagogiques & Compétences Transmises
-
-- **Bonnes pratiques en ingénierie de données** : Structuration de pipelines Scikit-learn reproductibles.
-- **Rigueur méthodologique** : Choix des métriques adaptées aux déséquilibres de classes (F1-score vs Accuracy).
-- **Communication technique** : Capacité à vulgariser les concepts mathématiques sous-jacents auprès d'un public technique.
-
----
-
-## 🚀 Guide d'Exécution pour les Participants
-
-```bash
-# Installation de l'environnement Python d'atelier
-pip install pandas numpy scikit-learn matplotlib seaborn jupyter
-
-# Démarrage de Jupyter
-jupyter notebook workshops/
-```
-
----
-
-## 📬 Profil de l'Auteur
+## 👤 Author & Affiliation
 - **Mohamed Nourou Dine CISSE**
-- **ENSIIE** & **Université Paris-Saclay** — Double diplôme, Master 2 Intelligence Artificielle (M2IA)
-- Échange académique : **McMaster University** (Canada)
-- **GitHub** : [@nourou-dine-cisse](https://github.com/nourou-dine-cisse)
+- Double Degree Student: **ENSIIE** & **Université Paris-Saclay (Master 2 IA M2IA)**
+- Academic Exchange: **McMaster University** (Winter 2026)
+- Email: [mouhamed.nouroudine.cisse@gmail.com](mailto:mouhamed.nouroudine.cisse@gmail.com) | GitHub: [@nourou-dine-cisse](https://github.com/nourou-dine-cisse)\n

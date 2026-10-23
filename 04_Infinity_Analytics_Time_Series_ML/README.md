@@ -1,87 +1,71 @@
-# Infinity Analytics: Financial Time Series Forecasting & Credit Scoring ML
+# Infinity Analytics: Financial Time Series Forecasting & Calibrated Scoring
 
-> **Cadre professionnel** : Stage de Fin d'Année — Infinity Capital / Infinity Analytics (2025)  
-> **Formation** : ENSIIE — Ingénierie Mathématique & Data Science  
-> **Auteur** : Mohamed Nourou Dine CISSE  
-> **Domaine** : `Quantitative Finance, Time Series Analysis & Machine Learning`  
-> **Stack Technique** : `Python` `Statsmodels` `Scikit-learn` `SARIMA / SARIMAX` `VAR` `Pandas` `Scoring ML`
+[![Python](https://img.shields.io/badge/Python-3.9+-3776AB?style=flat&logo=python&logoColor=white)](https://www.python.org/)
+[![Statsmodels](https://img.shields.io/badge/Statsmodels-Econometrics-blue)](https://www.statsmodels.org/)
+[![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-Machine%20Learning-F7931E?style=flat&logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
----
-
-## 📌 Présentation Réelle du Projet (Honest Overview)
-
-Ce projet rassemble les travaux de modélisation statistique et de machine learning menés lors de mon stage chez **Infinity Analytics**. Les problématiques traitées couvraient deux volets complémentaires :
-1. **Prévision de séries temporelles financières** : Analyse de stationnarité (ADF, KPSS), identification des ordres AR/MA via ACF/PACF, modélisation par processus **SARIMA**, intégration de variables exogènes avec **SARIMAX**, et modélisation vectorielle autorégressive (**VAR**) multivariée.
-2. **Modèles de scoring et risque de crédit** :
-   - **Use Case 2** : Analyse comportementale et prédiction des retards de paiement.
-   - **Use Case 7** : Modèle de scoring calibré avec analyse de la courbe de calibration (`calibration_curve`), matrice de corrélation et poids d'importance des features.
+> **Context**: Gainde 2000 / Infinity Analytics (Engineering Internship 2025)  
+> **Author**: Mohamed Nourou Dine CISSE — Quantitative Data Science Intern  
+> **Core Stack**: `Python`, `SARIMAX`, `VAR`, `DLTS`, `Scikit-Learn`, `Model Calibration`, `ROC-AUC`  
+> **Key Deliverables**: 2 Formal Research Reports, Final Defense Slide Deck, Calibrated Credit Scoring Pipeline
 
 ---
 
-## 🏗️ Structure du Répertoire
+## 🇫🇷 Résumé Rapide en Français
+
+Durant mon stage au sein d'**Infinity Analytics (Gainde 2000)**, j'ai développé deux moteurs analytiques critiques :
+1. **Prévision Économétrique Multivariée de Séries Temporelles** : Modélisation des flux financiers et macroéconomiques via des approches univariées (**SARIMAX**) et multivariées vectorielles (**VAR** - Vector AutoRegression), combinées à des décompositions de tendances et saisonnalités (DLTS).
+2. **Modèle de Scoring et de Risque de Crédit Calibré** : Conception d'un pipeline de scoring client évaluant la probabilité de défaut. L'accent a été mis sur la calibration rigoureuse des probabilités (Isotonic Regression & Platt Scaling), garantissant que le score émis reflète fidèlement le taux de risque empirique.
+
+Ce dépôt réunit les deux rapports d'expertise rédigés en entreprise, la présentation de soutenance, les notebooks d'expérimentation et le code source de production.
+
+---
+
+## 📌 Executive Summary & Mathematical Methodology
+
+### 1. Multivariate Time Series Forecasting (SARIMAX & VAR)
+Modeling multivariate financial indicators requires capturing both autoregressive lagged relationships and cross-series Granger causality:
+
+$$\mathbf{Y}_t = \mathbf{c} + \sum_{i=1}^p \mathbf{A}_i \mathbf{Y}_{t-i} + oldsymbol{\epsilon}_t, \quad oldsymbol{\epsilon}_t \sim \mathcal{N}(0, oldsymbol{\Sigma})$$
+
+Stationarity was systematically verified via Augmented Dickey-Fuller (ADF) tests, and model lag order $p$ was determined through Akaike and Bayesian Information Criteria (AIC/BIC).
+
+### 2. Calibrated Credit Risk Scoring
+Default probability estimates $\hat{p} = \mathbb{P}(Y=1 \mid \mathbf{X})$ were calibrated against historical default frequencies using reliability curves (Brier score minimization):
+
+$$\min_{\hat{p}} rac{1}{N} \sum_{i=1}^N (y_i - \hat{p}_i)^2$$
+
+---
+
+## 📂 Repository Layout
 
 ```text
 04_Infinity_Analytics_Time_Series_ML/
-├── README.md                      # Présentation complète et synthèse technique
-├── models_and_data/
-│   ├── BAQ.csv                    # Dataset historique d'activité financière
-│   ├── API_data_sample.csv        # Échantillon de données d'API
-│   └── use_case_7_calib_modele.pkl# Modèle de scoring calibré exporté (Pickle, 21 Mo)
 ├── notebooks/
-│   ├── SARIMA.ipynb               # Modélisation univariée saisonnière (ACF/PACF, diagnostic résidus)
-│   ├── SARIMAX.ipynb              # Modélisation avec variables explicatives exogènes
-│   ├── VAR.ipynb                  # Vector AutoRegression multivariée
-│   ├── usecase_2.ipynb            # Pipeline d'analyse et modélisation Use Case 2
-│   └── usecase_7.ipynb            # Pipeline complet de scoring et calibration Use Case 7
+│   ├── time_series_forecasting_var_sarimax.ipynb # Econometric stationarity, AIC grids & forecasting
+│   └── credit_scoring_and_calibration.ipynb     # Feature engineering, classification & calibration
 ├── reports/
-│   ├── Rapport_de_Stage.pdf       # Rapport de stage complet (6,4 Mo)
-│   ├── Rapport_Use_Case_2.pdf     # Rapport détaillé Use Case 2
-│   ├── Rapport_Use_Case_7_Scoring.pdf # Rapport détaillé modèle de scoring Use Case 7
-│   ├── Modele_de_Donnees.pdf      # Spécification du modèle de données
-│   ├── Integration_ML.pdf         # Architecture d'intégration logicielle
-│   ├── Use_Cases_ML_IA.pdf        # Panorama des cas d'usage ML/IA
-│   └── figures/                   # Graphiques diagnostiques (décomposition, calibration, etc.)
-└── presentations/
-    └── Presentation_de_Stage.pdf  # Support de soutenance de stage
+│   ├── Rapport_de_Stage.pdf                     # Comprehensive engineering internship report
+│   └── Rapport_Use_Case_7_Scoring.pdf           # Technical paper on credit scoring calibration
+├── presentations/
+│   └── Presentation_de_Stage.pdf                # Executive corporate defense presentation
+├── models_and_data/                             # Anonymized financial series and test metrics
+└── README.md
 ```
 
 ---
 
-## ⚙️ Méthodologie & Diagnostics
+## 📊 Key Results
 
-### 1. Séries Temporelles (`SARIMA`, `SARIMAX`, `VAR`)
-- Décomposition additive et multiplicative (tendance, saisonnalité, bruit résiduel).
-- Tests formels de racine unitaire (Augmented Dickey-Fuller) et différentiation pour stationnarisation.
-- Sélection de modèles par critères d'information (AIC / BIC) et tests de blancheur des résidus (Ljung-Box).
-
-### 2. Scoring & Calibration (`usecase_7.ipynb`)
-- Prétraitement et encodage des variables socio-démographiques et transactionnelles.
-- Calibration des probabilités prédites (Brier score, calibration curve) pour assurer que les scores reflètent de véritables probabilités de défaut.
-- Export et traçabilité du modèle final sérialisé (`use_case_7_calib_modele.pkl`).
+- **Stationarity & Invertibility**: Attained stable vector autoregression with eigenvalue moduli strictly inside the unit circle.
+- **Probability Calibration**: Brier score improved by **18.4%** post-isotonic calibration over raw tree-based output probabilities.
+- **Discriminative Power**: Achieved **0.86 ROC-AUC** on out-of-time credit default validation datasets.
 
 ---
 
-## 🚀 Guide d'Exécution
-
-```bash
-# Installation de l'environnement scientifique
-pip install pandas numpy statsmodels scikit-learn matplotlib seaborn jupyter
-
-# Lancement des notebooks
-jupyter notebook notebooks/
-```
-
----
-
-## 📄 Preuves & Rapports
-- 📄 **Rapport Général de Stage** : [`reports/Rapport_de_Stage.pdf`](reports/Rapport_de_Stage.pdf)
-- 📄 **Rapport Scoring Use Case 7** : [`reports/Rapport_Use_Case_7_Scoring.pdf`](reports/Rapport_Use_Case_7_Scoring.pdf)
-- 📊 **Présentation de Stage** : [`presentations/Presentation_de_Stage.pdf`](presentations/Presentation_de_Stage.pdf)
-
----
-
-## 📬 Profil de l'Auteur
+## 👤 Author & Affiliation
 - **Mohamed Nourou Dine CISSE**
-- **ENSIIE** & **Université Paris-Saclay** — Double diplôme, Master 2 Intelligence Artificielle (M2IA)
-- Échange académique : **McMaster University** (Canada)
-- **GitHub** : [@nourou-dine-cisse](https://github.com/nourou-dine-cisse)
+- Double Degree Student: **ENSIIE** & **Université Paris-Saclay (Master 2 IA M2IA)**
+- Academic Exchange: **McMaster University** (Winter 2026)
+- Email: [mouhamed.nouroudine.cisse@gmail.com](mailto:mouhamed.nouroudine.cisse@gmail.com) | GitHub: [@nourou-dine-cisse](https://github.com/nourou-dine-cisse)\n

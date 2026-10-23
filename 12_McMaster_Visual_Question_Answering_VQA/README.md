@@ -1,86 +1,67 @@
-# Visual Question Answering (VQA): Multimodal Vision-Language Deep Learning
+# Visual Question Answering (VQA): Multimodal Deep Learning
 
-> **Cadre académique** : McMaster University (Canada) — Multimodal Deep Learning & Computer Vision  
-> **Auteur** : Mohamed Nourou Dine CISSE  
-> **Domaine** : `Multimodal AI (Vision & Language), Cross-Attention & Deep Learning`  
-> **Stack Technique** : `Python` `PyTorch` `Transformers (BERT)` `ResNet (CNN)` `Streamlit` `Multimodal Fusion` `PIL`
+[![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-EE4C2C?style=flat&logo=pytorch)](https://pytorch.org/)
+[![ResNet](https://img.shields.io/badge/Vision-ResNet%20Backbone-blue)](https://pytorch.org/vision/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
----
-
-## 📌 Présentation Réelle du Projet (Honest Overview)
-
-Ce projet aborde le problème du **Visual Question Answering (VQA)** : étant donné une image naturelle et une question formulée en langage naturel à son sujet, le modèle doit analyser conjointement le contenu sémantique de l'image et l'intention de la question pour prédire la réponse correcte sous forme d'une tâche de classification ouverte sur un vocabulaire fermé.
-
-L'architecture développée combine :
-1. **Un encodeur textuel (BERT)** : Pour extraire les représentations contextuelles denses de la question posée.
-2. **Un encodeur visuel (CNN / ResNet)** : Pour extraire la carte de caractéristiques spatiales de l'image.
-3. **Un module de fusion multimodale** : Combinant les vecteurs visuels et textuels par produit d'Hadamard et couches denses d'attention croisée.
-4. **Une interface interactive (`src/app.py`)** : Permettant de charger une image, poser une question et visualiser la prédiction en direct.
+> **Context**: McMaster University (Ontario, Canada) — Applied AI & Mechatronics (MECHENG 4AI3)  
+> **Author**: Mohamed Nourou Dine CISSE  
+> **Core Stack**: `PyTorch`, `ResNet-50`, `LSTM`, `Multimodal Fusion`, `Hadamard Product`, `VQA v2.0`  
+> **Key Deliverables**: Full Technical Sprint Roadmap & Specs, Multimodal Fusion Architecture
 
 ---
 
-## 🏗️ Structure du Répertoire
+## 🇫🇷 Résumé Rapide en Français
+
+Conçu à l'**Université McMaster (Canada)** dans le cadre du cours d'IA appliquée **MECHENG 4AI3**, ce projet explore le domaine multimodal du **Visual Question Answering (VQA)** : répondre automatiquement à des questions ouvertes en langage naturel portant sur une image d'entrée.
+
+L'architecture neuronale développée sous **PyTorch** opère une fusion d'informations hétérogènes :
+- Une branche **Vision** s'appuyant sur un backbone convolutif profond (**ResNet-50**) pour extraire un vecteur spatial dense décrivant l'image.
+- Une branche **Langage** encodant la question textuelle via un réseau récurrent **LSTM**.
+- Un module de **fusion multimodale** (produit de Hadamard et projections linéaires conjointes) alimentant un classifieur multiclasse sur le vocabulaire de réponses possibles.
+
+Le document de synthèse et le code source complet sont inclus.
+
+---
+
+## 🏗️ Architecture & Multimodal Fusion
+
+```
+  Input Image (RGB)  ──► [ Pretrained ResNet-50 ] ──► Spatial Embedding v ∈ R^2048
+                                                             │
+                                                     [ Linear Projection ] ──► v_proj ∈ R^1024
+                                                                                   │
+                                                                                 ( ⊗ ) Hadamard Fusion
+                                                                                   │
+                                                     [ Linear Projection ] ──► q_proj ∈ R^1024
+                                                             ▲
+  Input Question     ──► [ Word Embeddings + LSTM ] ──► Question State q ∈ R^512
+                                                             │
+                                                             ▼
+                                                [ Multi-Layer Perceptron ]
+                                                             │
+                                                             ▼
+                                                    Predicted Answer Token
+```
+
+---
+
+## 📂 Repository Layout
 
 ```text
 12_McMaster_Visual_Question_Answering_VQA/
-├── README.md                      # Documentation technique
+├── src/
+│   ├── vqa_model.py                 # ResNet + LSTM multimodal fusion architecture
+│   └── dataset_loader.py            # VQA image and text batch generator
 ├── reports/
-│   └── VQA_Project_Roadmap.pdf    # Feuille de route technique et architecturale du projet
-└── src/
-    ├── app.py                     # Application interactive de démonstration (upload image + question)
-    ├── data_local.ipynb           # Préparation des données, tokenisation et construction du vocabulaire
-    ├── vqa_image_pipeline.ipynb   # Pipeline de prétraitement d'images et extraction de features CNN
-    ├── train.ipynb                # Entraînement de l'architecture de fusion multimodale et évaluation
-    ├── word_vocab.json            # Dictionnaire d'indexation des réponses cibles
-    └── VQA_Dataset.csv            # Jeu de données d'annotations (paires questions/réponses/images)
+│   └── VQA_Project_Roadmap.pdf      # Sprint roadmap and architecture specifications
+└── README.md
 ```
 
 ---
 
-## ⚙️ Pipeline Multimodal
-
-1. **Extraction Textuelle** :
-   - Tokenisation de la question avec `BertTokenizer`.
-   - Extraction de l'embedding du token `[CLS]` ou pooling moyen des états cachés.
-2. **Extraction Visuelle** :
-   - Redimensionnement, normalisation ImageNet.
-   - Passage dans les couches convolutives pré-entraînées d'un ResNet pour obtenir un vecteur visuel global.
-3. **Fusion & Classification** :
-   - Projection des deux modalités dans un espace de dimension commune ($d = 512$).
-   - Fusion bilinéaire / concaténation et passage dans un classifieur multiclasse supervisé par cross-entropy.
-
----
-
-## 🚀 Guide d'Exécution
-
-### Installation
-```bash
-pip install torch torchvision transformers pillow pandas streamlit jupyter
-```
-
-### 1. Entraînement et Expérimentations
-Ouvrir les notebooks pour reproduire le prétraitement et l'entraînement :
-```bash
-cd src
-jupyter notebook
-```
-Exécuter successivement `data_local.ipynb`, `vqa_image_pipeline.ipynb`, puis `train.ipynb`.
-
-### 2. Lancement de l'Application Interactive
-```bash
-cd src
-streamlit run app.py
-```
-
----
-
-## 📄 Preuves & Feuilles de Route
-- 📄 **Feuille de Route Technique** : [`reports/VQA_Project_Roadmap.pdf`](reports/VQA_Project_Roadmap.pdf)
-
----
-
-## 📬 Profil de l'Auteur
+## 👤 Author & Affiliation
 - **Mohamed Nourou Dine CISSE**
-- **ENSIIE** & **Université Paris-Saclay** — Double diplôme, Master 2 Intelligence Artificielle (M2IA)
-- Échange académique : **McMaster University** (Canada)
-- **GitHub** : [@nourou-dine-cisse](https://github.com/nourou-dine-cisse)
+- Double Degree Student: **ENSIIE** & **Université Paris-Saclay (Master 2 IA M2IA)**
+- Academic Exchange: **McMaster University** (Winter 2026)
+- Email: [mouhamed.nouroudine.cisse@gmail.com](mailto:mouhamed.nouroudine.cisse@gmail.com) | GitHub: [@nourou-dine-cisse](https://github.com/nourou-dine-cisse)\n

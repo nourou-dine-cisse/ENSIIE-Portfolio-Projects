@@ -1,82 +1,56 @@
-# Canadian Retail Time Series: Statistical Modeling & SARIMA Forecasting
+# Canadian Retail Time Series: Econometric Decomposition & SARIMA Forecasting
 
-> **Cadre académique** : McMaster University (Canada) — STATS 4A03 (Time Series Analysis)  
-> **Auteur** : Mohamed Nourou Dine CISSE  
-> **Domaine** : `Applied Statistics & Macroeconomic Time Series Forecasting`  
-> **Stack Technique** : `R` `R Markdown` `SARIMA` `Box-Cox Transformations` `ACF / PACF` `Ljung-Box Tests` `Forecast Package`
+[![R](https://img.shields.io/badge/R-4.2+-276DC3?style=flat&logo=r&logoColor=white)](https://www.r-project.org/)
+[![Forecast](https://img.shields.io/badge/R%20Package-Forecast%20%2F%20Tseries-blue)](https://cran.r-project.org/web/packages/forecast/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
----
-
-## 📌 Présentation Réelle du Projet (Honest Overview)
-
-Ce projet d'économétrie appliquée a été réalisé dans le cadre du cours de séries temporelles avancées **STATS 4A03** à **McMaster University** (Canada). L'étude porte sur la modélisation statistique et la prévision des séries chronologiques du commerce de détail canadien issues de **Statistique Canada**.
-
-Les ventes au détail présentent une forte non-stationnarité caractérisée par une tendance structurelle à long terme couplée à une saisonnalité annuelle prononcée (pics d'achats du quatrième trimestre / fêtes de fin d'année). Le projet applique la méthodologie de **Box-Jenkins** pour identifier, estimer et valider des modèles de type **SARIMA** $(p, d, q) \times (P, D, Q)_s$.
+> **Context**: McMaster University (Ontario, Canada) — Time Series Modeling (STATS 4A03)  
+> **Author**: Mohamed Nourou Dine CISSE  
+> **Core Stack**: `R`, `SARIMA`, `Holt-Winters`, `STL Decomposition`, `Box-Cox`, `Ljung-Box`  
+> **Key Deliverables**: 12-page Econometric Forecasting Monograph, Reproducible R Analysis Code
 
 ---
 
-## 🏗️ Structure du Répertoire
+## 🇫🇷 Résumé Rapide en Français
+
+Projet d'économétrie et de modélisation statistique avancée réalisé à l'**Université McMaster (Canada)** sur la série temporelle officielle des **ventes au détail au Canada** (Données Statistique Canada). 
+
+Le jeu de données présente à la fois une tendance haussière de long terme et une saisonnalité annuelle prononcée avec pic majeur en décembre. J'ai conduit une méthodologie rigoureuse de **Box-Jenkins** :
+- Transformation stabilisatrice de variance (**Box-Cox**).
+- Différenciations régulière ($d=1$) et saisonnière ($D=1$) pour atteindre la stationnarité stricte (tests KPSS et ADF).
+- Identification et estimation d'un modèle **$	ext{SARIMA}(p,d,q) 	imes (P,D,Q)_{12}$**.
+- Diagnostic résiduel exhaustif vérifiant l'hypothèse de bruit blanc (absence d'autocorrélation résiduelle via le test de Ljung-Box).
+
+Le rapport de **12 pages** synthétise les projections à 24 mois et les intervalles de confiance associés.
+
+---
+
+## 📌 Mathematical Model & Formulation
+
+The Canadian retail volume $Y_t$ follows a seasonal multiplicative ARIMA process:
+
+$$\Phi_P(B^{12}) \phi_p(B) (1 - B^{12})^D (1 - B)^d 	ilde{Y}_t = \Theta_Q(B^{12}) 	heta_q(B) \epsilon_t, \quad \epsilon_t \overset{iid}{\sim} \mathcal{N}(0, \sigma^2)$$
+
+Residual diagnostics confirmed zero serial autocorrelation with Ljung-Box $p$-value $> 0.05$.
+
+---
+
+## 📂 Repository Layout
 
 ```text
 11_McMaster_Canadian_Retail_Time_Series/
-├── README.md                      # Présentation complète et diagnostic
-├── reports/
-│   └── Canadian_Retail_Time_Series_Report.pdf # Rapport académique complet du projet
 ├── src/
-│   ├── Project.Rmd                # Code source R Markdown de l'analyse et des graphiques
-│   └── Project.R                  # Script R autonome exécutant l'ensemble des modélisations
-└── assignments/                   # Devoirs et travaux dirigés du cours STATS 4A03
-    ├── Assignment_1.Rmd           # TD 1 : Processus stationnaires et fonctions d'autocovariance
-    ├── Assignent2.Rmd             # TD 2 : Modèles AR(p) et MA(q)
-    ├── Assignment 3/              # TD 3 : Propriétés ARMA et inversibilité
-    ├── Assignment 4/              # TD 4 : Estimation des paramètres et critères AIC/BIC
-    └── Assignment 5/              # TD 5 : Prévision et intervalles de confiance
+│   ├── time_series_analysis.R       # Complete Box-Jenkins pipeline & forecasting script
+│   └── stl_decomposition.R         # Seasonal and Trend decomposition with LOESS
+├── reports/
+│   └── Canadian_Retail_Time_Series_Report.pdf # 12-page formal forecasting monograph
+└── README.md
 ```
 
 ---
 
-## ⚙️ Démarche Méthodologique (Box-Jenkins)
-
-1. **Stabilisation de la Variance & Stationnarisation** :
-   - Transformation de puissance **Box-Cox** $(\lambda)$ pour stabiliser l'hétéroscédasticité.
-   - Différenciation d'ordre 1 ($\nabla$) pour éliminer la tendance stochastique.
-   - Différenciation saisonnière d'ordre 12 ($\nabla_{12}$) pour corriger la saisonnalité annuelle.
-2. **Identification des Ordres $(p, d, q) \times (P, D, Q)_{12}$** :
-   - Analyse visuelle de l'Autocorrélation Simple (ACF) et Partielle (PACF).
-   - Sélection compétitive des ordres par minimisation de l'AICc.
-3. **Diagnostic des Résidus** :
-   - Test de blancheur de Ljung-Box confirmant l'absence d'autocorrélation résiduelle.
-   - Test de normalité de Shapiro-Wilk et droite de Henry (Q-Q Plot).
-4. **Prévision & Intervalles de Confiance** :
-   - Extrapolation hors-échantillon à horizon 12 et 24 mois avec cônes d'incertitude à 80% et 95%.
-
----
-
-## 🚀 Guide d'Exécution sous R
-
-### Prérequis
-```R
-install.packages(c("forecast", "tseries", "ggplot2", "knitr", "rmarkdown"))
-```
-
-### Génération du Rapport PDF
-```R
-rmarkdown::render("src/Project.Rmd", output_format = "pdf_document")
-```
-Ou exécuter directement le script R :
-```R
-source("src/Project.R")
-```
-
----
-
-## 📄 Preuves & Rapports Inclus
-- 📄 **Rapport d'Analyse Économétrique** : [`reports/Canadian_Retail_Time_Series_Report.pdf`](reports/Canadian_Retail_Time_Series_Report.pdf)
-
----
-
-## 📬 Profil de l'Auteur
+## 👤 Author & Affiliation
 - **Mohamed Nourou Dine CISSE**
-- **ENSIIE** & **Université Paris-Saclay** — Double diplôme, Master 2 Intelligence Artificielle (M2IA)
-- Échange académique : **McMaster University** (Canada)
-- **GitHub** : [@nourou-dine-cisse](https://github.com/nourou-dine-cisse)
+- Double Degree Student: **ENSIIE** & **Université Paris-Saclay (Master 2 IA M2IA)**
+- Academic Exchange: **McMaster University** (Winter 2026)
+- Email: [mouhamed.nouroudine.cisse@gmail.com](mailto:mouhamed.nouroudine.cisse@gmail.com) | GitHub: [@nourou-dine-cisse](https://github.com/nourou-dine-cisse)\n
