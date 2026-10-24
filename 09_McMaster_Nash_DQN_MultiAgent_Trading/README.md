@@ -8,7 +8,7 @@
 > **Context**: McMaster University (Ontario, Canada) — Department of Mathematics & Statistics (MATH 4FM3)  
 > **Author**: Mohamed Nourou Dine CISSE — Quantitative Researcher / RL Engineer  
 > **Core Stack**: `PyTorch`, `Deep Q-Learning (DQN)`, `Multi-Agent RL`, `Stochastic Games`, `Brownian Motion`  
-> **Key Deliverables**: 34-page Quantitative Master's Thesis, Trajectory Simulators, Convergence Diagnostics
+> **Key Deliverables**: Quantitative Research Project Report, Defense Presentation Slides, Trajectory Simulators, Convergence Diagnostics
 
 
 
@@ -45,7 +45,8 @@ ight]$$
 ## 📊 Key Results
 
 - **Nash Equilibrium Convergence**: Multi-agent policies recovered classical Almgren-Chriss liquidation profiles under low competition and learned stealth execution strategies under high competitive pressure.
-- **Academic Thesis**: Authored 34-page formal mathematical monograph complete with stochastic calculus proofs and Bellman PDE verification.
+- **Academic Research Report**: Authored comprehensive formal mathematical report complete with stochastic calculus formulations, finite difference numerical checks, and Bellman verification.
+- **Defense Presentation**: Produced executive slide deck synthesized for oral defense and committee review.
 
 ---
 
@@ -58,7 +59,10 @@ ight]$$
 │   ├── dqn_agent.py                 # Deep Q-Network policy with target network
 │   └── train_multiagent.py          # Multi-agent simulation loop and metrics tracker
 ├── reports/
-│   └── Rapport_Nash_DQN_Optimal_Trading.pdf # Full 34-page quantitative thesis
+│   ├── Math4FM3ProjectReport.pdf    # Full Quantitative Research Project Report
+│   └── Rapport_source.tex           # LaTeX source code
+├── presentation/
+│   └── NashDQN_Presentation.pptx    # Defense Presentation Slides
 ├── visuals/
 │   └── all_agents_rewards.png       # Convergence of cumulative rewards
 └── README.md
@@ -74,7 +78,7 @@ Réalisé durant mon échange académique au **Department of Mathematics & Stati
 
 En m'appuyant sur les travaux fondateurs de **Casgrain, Ning & Jaimungal (2022)**, j'ai développé sous **PyTorch** un simulateur de jeu différentiel stochastique à $N$ agents concurrents soumis à un impact de prix temporaire et permanent. Pour surmonter la non-stationnarité inhérente aux jeux multi-agents, j'ai implémenté l'algorithme **Nash-DQN** combinant replay buffer étendu et réseaux cibles stabilisés afin de faire converger les politiques de liquidation vers l'**équilibre de Nash**.
 
-Ce travail a abouti à une thèse quantitative de **34 pages** enrichie de trajectoires browniennes simulées et d'analyses de convergence.
+Ce travail a abouti à un rapport de recherche académique complet (**Math4FM3ProjectReport.pdf**) enrichi de trajectoires browniennes simulées et d'analyses de convergence, ainsi qu'à une présentation sur slides de soutenance (**NashDQN_Presentation.pptx**).
 
 ---
 
